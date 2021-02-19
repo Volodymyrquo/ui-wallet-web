@@ -8,9 +8,12 @@ import { getCardsTypesSuccess, getCardsTypesFail } from "./actions"
 import { getCardsTypes } from "../../common/data"
 
 //worker
+
+type GetCardsTypesTypes = ReturnType<typeof getCardsTypes>
+
 function* fetchCardsTypes() {
   try {
-    const response = yield call(getCardsTypes)
+    const response:GetCardsTypesTypes = yield call(getCardsTypes)
     yield put(getCardsTypesSuccess(response))
   } catch (error) {
     yield put(getCardsTypesFail(error))
