@@ -1,4 +1,3 @@
-import PropTypes from "prop-types"
 import React, { useEffect } from "react"
 
 // MetisMenu
@@ -7,7 +6,6 @@ import { withRouter } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 //i18n
-import { withTranslation } from "react-i18next"
 
 const SidebarContent = props => {
   // Use ComponentDidMount and ComponentDidUpdate method symultaniously
@@ -76,69 +74,69 @@ const SidebarContent = props => {
           <li>
             <Link to="/" className="waves-effect">
               <i className="icon-Dashboard"></i>
-              <span>{props.t("Dashboard")}</span>
+              <span>Dashboard</span>
             </Link>
           </li>
 
           <li>
             <Link to="/cardtypes" className="waves-effect">
               <i className="icon-card"></i>
-              <span>{props.t("Cards Types")}</span>
+              <span>Cards Types</span>
             </Link>
           </li>
 
           <li>
             <Link to="/cards" className="waves-effect">
               <i className="icon-card"></i>
-              <span>{props.t("Cards")}</span>
+              <span>Cards</span>
             </Link>
           </li>
           <li>
             <Link to="contacts" className="waves-effect">
               <i className="icon-People"></i>
-              <span>{props.t("Contacts")}</span>
+              <span>Contacts</span>
             </Link>
           </li>
           <li>
             <Link to="/currencies" className="waves-effect">
               <i className="bx bx-money"></i>
-              <span>{props.t("Currencies")}</span>
+              <span>Currencies</span>
             </Link>
           </li>
 
           <li>
             <Link to="#" className="has-arrow waves-effect">
               <i className="icon-Trade"></i>
-              <span>{props.t("Operations")}</span>
+              <span>Operations</span>
             </Link>
             <ul className="sub-menu" aria-expanded="false">
               <li>
-                <Link to="/types">{props.t("Types")}</Link>
+                <Link to="#">Types</Link>
               </li>
               <li>
-                <Link to="#">{props.t("For Users")}</Link>
+                <Link to="#">For Users</Link>
               </li>
               <li>
-                <Link to="#">{props.t("For Cards")}</Link>
+                <Link to="#">For Cards</Link>
               </li>
             </ul>
           </li>
           <li>
             <Link to="/requisites" className="waves-effect">
               <i className="icon-List"></i>
-              <span>{props.t("Requisites")}</span>
+              <span>Requisites</span>
             </Link>
           </li>
           <li>
             <Link to="/tariffs" className="waves-effect">
               <i className="icon-Clipboard"></i>
-              <span>{props.t("Tariffs")}</span>
+              <span>Tariffs</span>
             </Link>
           </li>
           <li>
             <Link to="/users" className="waves-effect">
               <i className="icon-Man"></i>
-              <span>{props.t("Users")}</span>
+              <span>Users</span>
             </Link>
           </li>
         </ul>
@@ -147,9 +145,4 @@ const SidebarContent = props => {
   )
 }
 
-SidebarContent.propTypes = {
-  location: PropTypes.object,
-  t: PropTypes.any,
-}
-
-export default withRouter(withTranslation()(SidebarContent))
+export default withRouter(SidebarContent)
