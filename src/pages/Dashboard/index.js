@@ -5,6 +5,7 @@ import { Container, Row, Col, Card, CardBody } from "reactstrap"
 //Import Breadcrumb
 
 import { withTranslation } from "react-i18next"
+import UserPhoto from "./UserPhoto"
 
 const Dashboard = () => {
   return (
@@ -15,11 +16,7 @@ const Dashboard = () => {
 
           <Row>
             <Col xl="3">
-              <Card>
-                <CardBody>
-                  <h1>user photo</h1>{" "}
-                </CardBody>
-              </Card>
+              <UserPhoto />
             </Col>
             <Col xl="3">
               <Card>
