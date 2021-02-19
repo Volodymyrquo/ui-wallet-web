@@ -14,7 +14,7 @@ export type GetUserProfileActionType = { type: typeof GET_USER_PROFILE};
 export type GetUserProfileSuccessActionType = { type: typeof GET_USER_PROFILE_SUCCESS, payload: Array<any>,} ;
 export type GetUserProfileFailActionType = { type: typeof GET_USER_PROFILE_FAIL, payload: any,} ;
 
-export type ActionType = GetUsersActionType | GetUsersSuccessActionType | GetUsersFailActionType | GetUserProfileActionType | GetUserProfileSuccessActionType | GetUserProfileFailActionType
+export type UsersPageActionType = GetUsersActionType | GetUsersSuccessActionType | GetUsersFailActionType | GetUserProfileActionType | GetUserProfileSuccessActionType | GetUserProfileFailActionType
 
 
 

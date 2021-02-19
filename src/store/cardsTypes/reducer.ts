@@ -1,5 +1,5 @@
 import { GET_CARDS_TYPES_SUCCESS, GET_CARDS_TYPES_FAIL } from "./actionTypes"
-import { ActionType } from "./actions";
+import { CardsTypesActionType } from "./actions";
 
 export type INIT_STATE_TYPE = typeof INIT_STATE;
 
@@ -10,7 +10,7 @@ const INIT_STATE = {
   error: {} 
 }
 
-const cardTypes = (state = INIT_STATE, action:ActionType):INIT_STATE_TYPE => {
+const cardTypes = (state = INIT_STATE, action:CardsTypesActionType):INIT_STATE_TYPE => {
   switch (action.type) {
     case GET_CARDS_TYPES_SUCCESS:
       return {

@@ -10,7 +10,7 @@ export type GetCardsTypesSuccessActionType = { type: typeof GET_CARDS_TYPES_SUCC
 export type GetCardsTypesFailActionType = { type: typeof GET_CARDS_TYPES_FAIL; payload:any};
 
 
-export type ActionType = GetCardsTypessActionType |GetCardsTypesSuccessActionType |GetCardsTypesFailActionType
+export type CardsTypesActionType = GetCardsTypessActionType |GetCardsTypesSuccessActionType |GetCardsTypesFailActionType
 
 export const getCardsTypes = ():GetCardsTypessActionType => ({
   type: GET_CARDS_TYPES

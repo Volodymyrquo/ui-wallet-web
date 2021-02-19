@@ -21,7 +21,7 @@ type ShowRightSidebarActionActionType = { type: typeof SHOW_RIGHT_SIDEBAR; paylo
 type ShowSidebarActionType = { type: typeof SHOW_SIDEBAR; payload:boolean };
 type ToggleLeftmenuActionType = { type: typeof TOGGLE_LEFTMENU; payload:boolean };
 
-export type ActionType = ChangeLayoutActionType | ChangePreloaderActionType | ChangeLayoutWidthActionType | ChangeSidebarThemeActionType |
+export type LayoutActionType = ChangeLayoutActionType | ChangePreloaderActionType | ChangeLayoutWidthActionType | ChangeSidebarThemeActionType |
 ChangeSidebarTypeActionType | ChangeTopbarThemeActionType | ShowRightSidebarActionActionType | ShowSidebarActionType | ToggleLeftmenuActionType
 
 
