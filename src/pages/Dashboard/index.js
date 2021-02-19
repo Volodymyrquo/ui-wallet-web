@@ -16,17 +16,23 @@ const Dashboard = () => {
           <Row>
             <Col xl="3">
               <Card>
-                <CardBody>First card body</CardBody>
+                <CardBody>
+                  <h1>user photo</h1>{" "}
+                </CardBody>
               </Card>
             </Col>
             <Col xl="3">
               <Card>
-                <CardBody>Second card body</CardBody>
+                <CardBody>
+                  <h1>upload documents</h1>
+                </CardBody>
               </Card>
             </Col>
             <Col xl="6">
               <Card>
-                <CardBody>Third card body</CardBody>
+                <CardBody>
+                  <h1>user settings</h1>
+                </CardBody>
               </Card>
             </Col>
           </Row>
@@ -35,12 +41,16 @@ const Dashboard = () => {
             {" "}
             <Col xl="6">
               <Card>
-                <CardBody>First card body</CardBody>
+                <CardBody>
+                  <h1>contact settings</h1>
+                </CardBody>
               </Card>
             </Col>
             <Col xl="6">
               <Card>
-                <CardBody>Second card body</CardBody>
+                <CardBody>
+                  <h1>requisites</h1>
+                </CardBody>
               </Card>
             </Col>
           </Row>
@@ -49,7 +59,9 @@ const Dashboard = () => {
             {" "}
             <Col xl="12">
               <Card>
-                <CardBody>Second card body</CardBody>
+                <CardBody>
+                  <h1>contacts table</h1>
+                </CardBody>
               </Card>
             </Col>
           </Row>
