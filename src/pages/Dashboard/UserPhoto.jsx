@@ -9,14 +9,14 @@ const UserPhoto = () => {
     <Card>
       <CardBody>
         <CardTitle>User Photo</CardTitle>
-        <div className="m-4  align-items-center d-flex justify-content-center">
+        <div className="m-4  text-center">
           <img
             className="rounded-circle avatar-xl"
             alt="User Photo"
             src={avatar4}
           />
         </div>
-        <div className="m-4  align-items-center d-flex justify-content-center">
+        <div className="m-4 text-center">
           <Link to="#" className="btn btn-primary">
             Change
           </Link>

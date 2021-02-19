@@ -1,11 +1,10 @@
-import PropTypes from "prop-types"
 import React from "react"
 import { Container, Row, Col, Card, CardBody } from "reactstrap"
 
 //Import Breadcrumb
 
-import { withTranslation } from "react-i18next"
 import UserPhoto from "./UserPhoto"
+import UploadDocuments from "./UploadDocuments"
 
 const Dashboard = () => {
   return (
@@ -19,11 +18,7 @@ const Dashboard = () => {
               <UserPhoto />
             </Col>
             <Col xl="3">
-              <Card>
-                <CardBody>
-                  <h1>upload documents</h1>
-                </CardBody>
-              </Card>
+              <UploadDocuments />
             </Col>
             <Col xl="6">
               <Card>
@@ -68,8 +63,4 @@ const Dashboard = () => {
   )
 }
 
-Dashboard.propTypes = {
-  t: PropTypes.any,
-}
-
-export default withTranslation()(Dashboard)
+export default Dashboard
