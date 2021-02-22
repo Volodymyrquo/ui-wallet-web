@@ -8,3 +8,9 @@ export * from "./usersPage/actions"
 
 // cards types
 export * from "./cardsTypes/actions"
+
+//upload documents
+export * from "./uploadDocuments/actions"
+
+
+

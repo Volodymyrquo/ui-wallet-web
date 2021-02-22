@@ -23,6 +23,7 @@ function* fetchCardsTypes() {
 //watcher
 
 function* getCardsTypesSaga() {
+
   yield takeEvery(GET_CARDS_TYPES, fetchCardsTypes)
 }
 

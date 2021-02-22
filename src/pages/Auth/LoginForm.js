@@ -109,7 +109,7 @@ class LoginForm extends Component {
         const { location, localStorage } = window
 
         localStorage.setItem("access_token", access_token)
-        location.href = "https://meet.sumra.net/defaultRoom?jwt=" + meet_token
+        location.href = "http://localhost:3000/"
       })
   }
 

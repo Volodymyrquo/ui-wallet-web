@@ -11,6 +11,8 @@ import usersPage from "./usersPage/reducer"
 
 //cards types
 import cardsTypes from "./cardsTypes/reducer"
+//upload documents
+import uploadDocuments from "./uploadDocuments/reducer"
 
 const rootReducer = combineReducers({
   // public
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   authReducer,
   usersPage,
   cardsTypes,
+  uploadDocuments,
+
 })
 
 type RootReducerType = typeof rootReducer;

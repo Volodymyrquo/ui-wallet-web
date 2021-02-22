@@ -19,7 +19,7 @@ function* signIn({ payload: { username, password } }) {
     } = response
 
     localStorage.setItem("token", access_token)
-    //location.href = "/"
+    location.href = "/"
 
     yield put(setUserAccessToken(access_token))
   } catch (error) {
