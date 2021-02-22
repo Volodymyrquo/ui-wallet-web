@@ -20,7 +20,7 @@ type PropsType = {
 const UploadDocuments:FC<any> = ({uploadFiles,documents}) => {
   const [selectedFiles, setselectedFiles] = useState([])
 
-  function handleAcceptedFiles(files) {
+  function handleAcceptedFiles(files) {debugger
     files.map(file =>
       Object.assign(file, {
         preview: URL.createObjectURL(file),
@@ -56,7 +56,7 @@ const handleOnClick = ()=> {
         
         <Row>
           
-          {documents.map((item,idx)=><Col key={idx}  xl='3'><Card > <img                                   data-dz-thumbnail=""
+          {documents.map((item,idx)=><Col key={idx}  md='2'><Card > <img                                   data-dz-thumbnail=""
                                     height="80"
                                     className="avatar-sm rounded bg-light"
                                     alt={item.name}

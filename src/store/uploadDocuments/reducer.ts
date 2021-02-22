@@ -15,7 +15,7 @@ const uploadDocuments = (state = INIT_STATE, action:UploadDocumentsActionType):I
     case SET_DOCUMENTS:
       return {
         ...state,
-        documents:[...action.payload],
+        documents:[...state.documents,...action.payload],
       }
 
     case SET_DOCUMENTS_FAIL:
