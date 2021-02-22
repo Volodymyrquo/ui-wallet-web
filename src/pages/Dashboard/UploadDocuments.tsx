@@ -1,9 +1,11 @@
-import React from "react"
+import React, {FC} from "react"
 import { Card, Form, CardBody } from "reactstrap"
 
 import { Link } from "react-router-dom"
 
-const UploadDocuments = () => {
+type PropsType = any;
+
+const UploadDocuments:FC<PropsType> = () => {
   return (
     <Card>
       <CardBody>

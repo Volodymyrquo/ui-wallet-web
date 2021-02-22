@@ -1,4 +1,4 @@
-import React from "react"
+import React, {FC} from "react"
 import { Container, Row, Col, Card, CardBody } from "reactstrap"
 
 //Import Breadcrumb
@@ -6,7 +6,10 @@ import { Container, Row, Col, Card, CardBody } from "reactstrap"
 import UserPhoto from "./UserPhoto"
 import UploadDocuments from "./UploadDocuments"
 
-const Dashboard = () => {
+type PropsType = any
+
+
+const Dashboard:FC<PropsType> = () => {
   return (
     <React.Fragment>
       <div className="page-content">

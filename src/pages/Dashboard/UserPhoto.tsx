@@ -1,10 +1,12 @@
-import React from "react"
+import React,{FC} from "react"
 import { Link } from "react-router-dom"
 
 import { Card, CardBody, CardTitle } from "reactstrap"
 import avatar4 from "../../assets/images/users/avatar-4.jpg"
 
-const UserPhoto = () => {
+type PropsType = any
+
+const UserPhoto:FC<PropsType> = () => {
   return (
     <Card>
       <CardBody>
