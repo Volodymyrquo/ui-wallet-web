@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import {
   Card,
@@ -17,6 +17,45 @@ import {
 } from "reactstrap"
 
 const UserSettings = props => {
+  const [form, setForm] = useState({
+    userName: "",
+    name: "",
+    description: "",
+    staffRemark: "",
+  })
+  const handleOnChange = e => {
+    const newForm = target => {
+      switch (target.id) {
+        case "formrow-username-Input":
+          return {
+            ...form,
+            userName: target.value,
+          }
+
+        case "formrow-name-Input":
+          return {
+            ...form,
+            name: target.value,
+          }
+        case "form-description":
+          return {
+            ...form,
+            description: target.value,
+          }
+        case "form-staffs-remark":
+          return {
+            ...form,
+            staffRemark: target.value,
+          }
+
+        default:
+          return form
+      }
+    }
+    setForm(newForm(e.currentTarget))
+    console.log(form)
+  }
+
   return (
     <Card className="flex-fill">
       <CardBody>
@@ -30,6 +69,8 @@ const UserSettings = props => {
                   type="text"
                   className="form-control"
                   id="formrow-username-Input"
+                  onChange={handleOnChange}
+                  value={form.userName}
                 />
               </FormGroup>
             </Col>
@@ -40,6 +81,8 @@ const UserSettings = props => {
                   type="text"
                   className="form-control"
                   id="formrow-name-Input"
+                  onChange={handleOnChange}
+                  value={form.name}
                 />
               </FormGroup>
             </Col>
@@ -77,25 +120,27 @@ const UserSettings = props => {
           <Row>
             <Col md={6}>
               <FormGroup>
-                <Label htmlFor="formdescription">Description on client</Label>
+                <Label htmlFor="form-description">Description on client</Label>
                 <Input
                   type="textarea"
-                  id="formdescription"
+                  id="form-description"
                   className="form-control"
                   rows="3"
+                  onChange={handleOnChange}
                 />
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
-                <Label htmlFor="formstaffsremark">
+                <Label htmlFor="form-staffs-remark">
                   Staff&apos;s remark about client
                 </Label>
                 <Input
                   type="textarea"
-                  id="formstaffsremark"
+                  id="form-staffs-remark"
                   className="form-control"
                   rows="3"
+                  onChange={handleOnChange}
                 />
               </FormGroup>
             </Col>
