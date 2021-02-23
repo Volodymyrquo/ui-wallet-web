@@ -1,0 +1,1 @@
+export const SET_USER_PHOTO='ulta-cards/userPhoto/SET_USER_PHOTO'

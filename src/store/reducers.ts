@@ -13,6 +13,10 @@ import usersPage from "./usersPage/reducer"
 import cardsTypes from "./cardsTypes/reducer"
 //upload documents
 import uploadDocuments from "./uploadDocuments/reducer"
+//user photo 
+
+import userPhoto from "./userPhoto/reducer"
+
 
 const rootReducer = combineReducers({
   // public
@@ -21,6 +25,7 @@ const rootReducer = combineReducers({
   usersPage,
   cardsTypes,
   uploadDocuments,
+  userPhoto
 
 })
 

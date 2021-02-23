@@ -11,6 +11,8 @@ export * from "./cardsTypes/actions"
 
 //upload documents
 export * from "./uploadDocuments/actions"
+//user photo
+export * from "./userPhoto/actions"
 
 
 

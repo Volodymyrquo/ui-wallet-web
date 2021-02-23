@@ -1,23 +1,29 @@
 import React,{FC, useState} from "react"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux";
 
 import { Card, CardBody, CardTitle } from "reactstrap"
 import avatar4 from "../../assets/images/users/avatar-4.jpg"
+import { setUserPhoto } from "../../store/userPhoto/actions";
 
 type PropsType = any
 
-const UserPhoto:FC<PropsType> = () => {
+const UserPhoto:FC<PropsType> = ({userPhoto,setUserPhoto}) => {
   const [isChanging, setChange] = useState(false)
+  const [photo, setPhoto]= useState(userPhoto)
 
 
 const onChangeHandler =(event)=>{
-  console.log(event.target.files[0])
+  const photoFile = event.target.files[0]
+  Object.assign(photoFile,{preview: URL.createObjectURL(photoFile) })
+  setPhoto(photoFile.preview)
+
 }
 
 const handleOnClick = ()=> {
   if(isChanging===false)
   {setChange(true)} else {
-    alert("Images was changed on site")
+    setUserPhoto(photo)
     setChange(false)
   }
 }
@@ -30,7 +36,7 @@ const handleOnClick = ()=> {
           <img
             className="rounded-circle avatar-xl"
             alt="User Photo"
-            src={avatar4}
+            src={userPhoto}
           />
         </div>
       <div className="m-4 text-center">
@@ -46,5 +52,7 @@ const handleOnClick = ()=> {
     </Card>
   )
 }
-
-export default UserPhoto
+const mapStateToProps = (state)=> ({
+userPhoto: state.userPhoto.userPhoto
+})
+export default connect(mapStateToProps,{setUserPhoto}) (UserPhoto)

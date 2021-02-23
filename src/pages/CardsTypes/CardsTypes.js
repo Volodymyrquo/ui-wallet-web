@@ -1,4 +1,4 @@
-import React, { useEffect} from "react"
+import React, { useEffect } from "react"
 import BootstrapTable from "react-bootstrap-table-next"
 import paginationFactory, {
   PaginationListStandalone,
@@ -11,19 +11,21 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import cardTypesListColumns from "./cardTypesListColumns"
-import { GetCardsTypessActionType, getCardsTypes } from "../../store/cardsTypes/actions"
-import { AppStateType } from "../../store/reducers";
+import {
+  GetCardsTypessActionType,
+  getCardsTypes,
+} from "../../store/cardsTypes/actions"
+import { AppStateType } from "../../store/reducers"
 
-
-type MapStateToPropsType = {
+/* type MapStateToPropsType = {
   types: Array<any>
 }
 type MapDispatchToPropsType = {
   getCardsTypes: ()=>GetCardsTypessActionType
 }
 type PropsType = MapStateToPropsType & MapDispatchToPropsType
-
-const CardsTypes:React.FC<PropsType> = ({ types, getCardsTypes }) => {
+ */
+const CardsTypes = ({ types, getCardsTypes }) => {
   const paginationOption = {
     custom: true,
     totalSize: types.length,
@@ -100,11 +102,10 @@ const CardsTypes:React.FC<PropsType> = ({ types, getCardsTypes }) => {
   )
 }
 
-const mapStateToProps = (state:AppStateType):MapStateToPropsType => ({
+const mapStateToProps = state => ({
   types: state.cardsTypes.types,
 })
 
-
-export default connect<MapStateToPropsType, MapDispatchToPropsType,AppStateType>(mapStateToProps, {getCardsTypes})(
+export default connect(mapStateToProps, { getCardsTypes })(
   withRouter(CardsTypes)
 )
