@@ -19,6 +19,7 @@ type PropsType = {
 
 const UploadDocuments:FC<any> = ({uploadFiles,documents}) => {
   const [selectedFiles, setselectedFiles] = useState([])
+  const [isArrayEmpty, setToggleArray] = useState(true)
 
   function handleAcceptedFiles(files) {
     files.map(file =>
@@ -32,6 +33,8 @@ const UploadDocuments:FC<any> = ({uploadFiles,documents}) => {
 const handleOnClick = ()=> {
   uploadFiles(selectedFiles)
   setselectedFiles([])
+  setToggleArray(!isArrayEmpty)
+
 
 
 }
@@ -51,7 +54,7 @@ const handleOnClick = ()=> {
   return (
     <Card>
       <CardBody>
-        <h1>some imagas be here</h1>
+        {isArrayEmpty ? <h1>some images be here</h1>:
         
         <Row>
           
@@ -66,7 +69,7 @@ const handleOnClick = ()=> {
 
        
 
-        </Row>
+        </Row>}
       
        <Form>
        <Dropzone onDrop={acceptedFiles=>handleAcceptedFiles(acceptedFiles)}>

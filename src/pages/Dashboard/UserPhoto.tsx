@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { connect } from "react-redux";
 
 import { Card, CardBody, CardTitle } from "reactstrap"
-import avatar4 from "../../assets/images/users/avatar-4.jpg"
 import { setUserPhoto } from "../../store/userPhoto/actions";
 
 type PropsType = any
