@@ -52,7 +52,7 @@ const handleOnClick = ()=> {
   }
 
   return (
-    <Card>
+    <Card className='flex-fill'>
       <CardBody>
         {isArrayEmpty ? <h1>some images be here</h1>:
         

@@ -28,7 +28,7 @@ const handleOnClick = ()=> {
 }
 
   return (
-    <Card>
+    <Card className='flex-fill'>
       <CardBody>
         <CardTitle>User Photo</CardTitle>
         <div className="m-4  text-center">

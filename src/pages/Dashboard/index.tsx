@@ -5,6 +5,8 @@ import { Container, Row, Col, Card, CardBody } from "reactstrap"
 
 import UserPhoto from "./UserPhoto"
 import UploadDocuments from "./UploadDocuments"
+import UserSettings from "./UserSettings"
+import s from './index.module.css'
 
 type PropsType = any
 
@@ -13,26 +15,22 @@ const Dashboard:FC<PropsType> = () => {
   return (
     <React.Fragment>
       <div className="page-content">
-        <Container fluid>
+        <Container fluid >
           {/* Render Breadcrumb */}
 
-          <Row>
-            <Col xl="3">
+          <Row >
+            <Col xl="3" className='d-flex'>
               <UserPhoto />
             </Col>
-            <Col xl="3">
+            <Col xl="3" className='d-flex'  >
               <UploadDocuments />
             </Col>
-            <Col xl="6">
-              <Card>
-                <CardBody>
-                  <h1>user settings</h1>
-                </CardBody>
-              </Card>
+            <Col xl="6" className='d-flex' >
+              <UserSettings />
             </Col>
           </Row>
 
-          <Row>
+          <Row >
             {" "}
             <Col xl="6">
               <Card>
@@ -50,7 +48,7 @@ const Dashboard:FC<PropsType> = () => {
             </Col>
           </Row>
 
-          <Row>
+          <Row >
             {" "}
             <Col xl="12">
               <Card>
