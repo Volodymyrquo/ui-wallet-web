@@ -6,7 +6,7 @@ import { Container, Row, Col, Card, CardBody } from "reactstrap"
 import UserPhoto from "./UserPhoto"
 import UploadDocuments from "./UploadDocuments"
 import UserSettings from "./UserSettings"
-import s from './index.module.css'
+import ContactsList from "./contactsList/contactsList"
 
 type PropsType = any
 
@@ -49,13 +49,8 @@ const Dashboard:FC<PropsType> = () => {
           </Row>
 
           <Row >
-            {" "}
             <Col xl="12">
-              <Card>
-                <CardBody>
-                  <h1>contacts table</h1>
-                </CardBody>
-              </Card>
+              <ContactsList />
             </Col>
           </Row>
         </Container>
