@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import { connect } from "react-redux"
 
 import {
   Card,
@@ -15,14 +16,33 @@ import {
   InputGroupText,
   InputGroup,
 } from "reactstrap"
+import {
+  actions,
+  setStatusOptions,
+  setTariffOptions,
+  setTypeOptions,
+} from "../../store/userSettings/actions"
 
-const UserSettings = props => {
+const UserSettings = ({
+  status,
+  tariff,
+  type,
+  setStatusOptions,
+  setTariffOptions,
+  setTypeOptions,
+}) => {
   const [form, setForm] = useState({
     userName: "",
     name: "",
     description: "",
     staffRemark: "",
   })
+
+  useEffect(() => {
+    setStatusOptions()
+    setTariffOptions()
+    setTypeOptions()
+  }, [setStatusOptions, setTariffOptions, setTypeOptions])
   const handleOnChange = e => {
     const newForm = target => {
       switch (target.id) {
@@ -93,8 +113,9 @@ const UserSettings = props => {
               <FormGroup>
                 <Label for="formrow-InputStatus">Status</Label>
                 <select id="formrow-InputStatus" className="form-control">
-                  <option>Choose...</option>
-                  <option>...</option>
+                  {status.map((item, idx) => (
+                    <option key={idx}>{item}</option>
+                  ))}
                 </select>
               </FormGroup>
             </Col>
@@ -102,8 +123,9 @@ const UserSettings = props => {
               <FormGroup>
                 <Label for="formrow-InputTariff">Tariff</Label>
                 <select id="formrow-InputTariff" className="form-control">
-                  <option>Choose...</option>
-                  <option>...</option>
+                  {tariff.map((item, idx) => (
+                    <option key={idx}>{item}</option>
+                  ))}
                 </select>
               </FormGroup>
             </Col>
@@ -111,8 +133,9 @@ const UserSettings = props => {
               <FormGroup>
                 <Label for="formrow-InputType">Type</Label>
                 <select id="formrow-InputType" className="form-control">
-                  <option>Choose...</option>
-                  <option>...</option>
+                  {type.map((item, idx) => (
+                    <option key={idx}>{item}</option>
+                  ))}
                 </select>
               </FormGroup>
             </Col>
@@ -157,4 +180,14 @@ const UserSettings = props => {
   )
 }
 
-export default UserSettings
+const mapStateToProps = state => ({
+  status: state.userSettings.status,
+  tariff: state.userSettings.tariff,
+  type: state.userSettings.type,
+})
+
+export default connect(mapStateToProps, {
+  setStatusOptions,
+  setTariffOptions,
+  setTypeOptions,
+})(UserSettings)

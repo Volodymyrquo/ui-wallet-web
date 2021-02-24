@@ -16,6 +16,8 @@ import uploadDocuments from "./uploadDocuments/reducer"
 //user photo 
 
 import userPhoto from "./userPhoto/reducer"
+//user settings
+import userSettings from "./userSettings/reducer"
 
 
 const rootReducer = combineReducers({
@@ -25,7 +27,8 @@ const rootReducer = combineReducers({
   usersPage,
   cardsTypes,
   uploadDocuments,
-  userPhoto
+  userPhoto,
+  userSettings
 
 })
 

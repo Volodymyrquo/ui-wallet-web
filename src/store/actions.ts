@@ -13,6 +13,8 @@ export * from "./cardsTypes/actions"
 export * from "./uploadDocuments/actions"
 //user photo
 export * from "./userPhoto/actions"
+//user settings
+export * from "./userSettings/actions"
 
 
 
