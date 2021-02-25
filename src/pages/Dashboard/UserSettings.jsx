@@ -20,6 +20,7 @@ import {
   setStatusOptions,
   setTariffOptions,
   setTypeOptions,
+  setUserSettings,
 } from "../../store/userSettings/actions"
 
 const UserSettings = ({
@@ -33,6 +34,9 @@ const UserSettings = ({
   const [form, setForm] = useState({
     userName: "",
     name: "",
+    status: "",
+    tariff: "",
+    type: "",
     description: "",
     staffRemark: "",
   })
@@ -42,6 +46,7 @@ const UserSettings = ({
     setTariffOptions()
     setTypeOptions()
   }, [setStatusOptions, setTariffOptions, setTypeOptions])
+
   const handleOnChange = e => {
     const newForm = target => {
       switch (target.id) {
@@ -65,6 +70,21 @@ const UserSettings = ({
           return {
             ...form,
             staffRemark: target.value,
+          }
+        case "formrow-InputStatus":
+          return {
+            ...form,
+            status: target.value,
+          }
+        case "formrow-InputTariff":
+          return {
+            ...form,
+            tariff: target.value,
+          }
+        case "formrow-InputType":
+          return {
+            ...form,
+            type: target.value,
           }
 
         default:
@@ -111,7 +131,11 @@ const UserSettings = ({
             <Col lg={4}>
               <FormGroup>
                 <Label for="formrow-InputStatus">Status</Label>
-                <select id="formrow-InputStatus" className="form-control">
+                <select
+                  id="formrow-InputStatus"
+                  className="form-control"
+                  onChange={handleOnChange}
+                >
                   {statusOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
                   ))}
@@ -121,7 +145,11 @@ const UserSettings = ({
             <Col lg={4}>
               <FormGroup>
                 <Label for="formrow-InputTariff">Tariff</Label>
-                <select id="formrow-InputTariff" className="form-control">
+                <select
+                  id="formrow-InputTariff"
+                  className="form-control"
+                  onChange={handleOnChange}
+                >
                   {tariffOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
                   ))}
@@ -131,7 +159,11 @@ const UserSettings = ({
             <Col lg={4}>
               <FormGroup>
                 <Label for="formrow-InputType">Type</Label>
-                <select id="formrow-InputType" className="form-control">
+                <select
+                  id="formrow-InputType"
+                  className="form-control"
+                  onChange={handleOnChange}
+                >
                   {typeOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
                   ))}

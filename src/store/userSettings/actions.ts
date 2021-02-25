@@ -1,12 +1,11 @@
 import { InferActionTypes } from './../index';
-import { SET_STATUS_OPTIONS, SET_TARIFF_OPTIONS,SET_TYPE_OPTIONS,SET_STATUS_OPTIONS_SUCCESS, SET_TARIFF_OPTIONS_SUCCESS,SET_TYPE_OPTIONS_SUCCESS } from "./actionTypes";
-
+import {SET_STATUS_OPTIONS, SET_TARIFF_OPTIONS,SET_TYPE_OPTIONS,SET_STATUS_OPTIONS_SUCCESS, SET_TARIFF_OPTIONS_SUCCESS,SET_TYPE_OPTIONS_SUCCESS } from "./actionTypes";
 
 
  export type OptionsActionType = InferActionTypes<typeof actions>
 
- const actions =
-   {setStatusOptions :() => ({
+ const actions = { 
+       setStatusOptions :() => ({
         type: SET_STATUS_OPTIONS
     } as const) ,
      setStatusOptionsSuccess : (statusOptions:Array<string>) => ({

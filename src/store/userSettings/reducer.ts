@@ -5,6 +5,7 @@ import {
 } from "./actionTypes"
 import {OptionsActionType} from './actions'
 
+
 export type INIT_STATE_TYPE = typeof INIT_STATE
 
 const INIT_STATE = {
@@ -30,7 +31,6 @@ const userSettings = (state = INIT_STATE, action:OptionsActionType):INIT_STATE_T
         ...state,
         typeOptions: action.payload,
       }
-
     default:
       return state
   }

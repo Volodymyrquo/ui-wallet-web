@@ -78,7 +78,7 @@ const contactsListColumns = () => [
     text: "Description",
   },
   {
-    dataField: "staffsRemark",
+    dataField: "staffRemark",
     text: "Staff's remark",
     sort: true,
   },

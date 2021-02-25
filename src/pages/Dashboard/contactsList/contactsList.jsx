@@ -7,14 +7,15 @@ import paginationFactory, {
 } from "react-bootstrap-table2-paginator"
 import ToolkitProvider from "react-bootstrap-table2-toolkit"
 import contactsListColumns from "./contactsListColumns"
+import { connect } from "react-redux"
 
-const ContactsList = () => {
+const ContactsList = ({ contactsSettings }) => {
   const paginationOption = {
     custom: true,
     totalSize: 20,
     sizePerPage: 5,
   }
-  const types = []
+
   return (
     <Card>
       <CardBody>
@@ -22,7 +23,7 @@ const ContactsList = () => {
           {({ paginationProps, paginationTableProps }) => (
             <ToolkitProvider
               keyField="id"
-              data={types || []}
+              data={contactsSettings || []}
               columns={contactsListColumns()}
               bootstrap4
               search
@@ -64,4 +65,8 @@ const ContactsList = () => {
   )
 }
 
-export default ContactsList
+const mapStateToProps = state => ({
+  contactsSettings: state.userSettings.settings,
+})
+
+export default connect(mapStateToProps, null)(ContactsList)
