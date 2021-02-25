@@ -1,18 +1,18 @@
-export const getStatusOptions = () => [
+export const getStatusOptions = ():Array<string> => [
   "active",
   "inactive",
   "stopped",
   "away",
   "deleted",
 ]
-export const getTariffOptions = () => [
+export const getTariffOptions = ():Array<string> => [
   "Gold",
   "Silver",
   "Brilliant",
   "Cooper",
   "Steel",
 ]
-export const getTypefOptions = () => [
+export const getTypefOptions = ():Array<string> => [
   "Owner",
   "Lender",
   "Render",

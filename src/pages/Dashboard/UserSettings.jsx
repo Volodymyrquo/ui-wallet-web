@@ -17,16 +17,15 @@ import {
   InputGroup,
 } from "reactstrap"
 import {
-  actions,
   setStatusOptions,
   setTariffOptions,
   setTypeOptions,
 } from "../../store/userSettings/actions"
 
 const UserSettings = ({
-  status,
-  tariff,
-  type,
+  statusOptions,
+  tariffOptions,
+  typeOptions,
   setStatusOptions,
   setTariffOptions,
   setTypeOptions,
@@ -113,7 +112,7 @@ const UserSettings = ({
               <FormGroup>
                 <Label for="formrow-InputStatus">Status</Label>
                 <select id="formrow-InputStatus" className="form-control">
-                  {status.map((item, idx) => (
+                  {statusOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
                   ))}
                 </select>
@@ -123,7 +122,7 @@ const UserSettings = ({
               <FormGroup>
                 <Label for="formrow-InputTariff">Tariff</Label>
                 <select id="formrow-InputTariff" className="form-control">
-                  {tariff.map((item, idx) => (
+                  {tariffOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
                   ))}
                 </select>
@@ -133,7 +132,7 @@ const UserSettings = ({
               <FormGroup>
                 <Label for="formrow-InputType">Type</Label>
                 <select id="formrow-InputType" className="form-control">
-                  {type.map((item, idx) => (
+                  {typeOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
                   ))}
                 </select>
@@ -181,9 +180,9 @@ const UserSettings = ({
 }
 
 const mapStateToProps = state => ({
-  status: state.userSettings.status,
-  tariff: state.userSettings.tariff,
-  type: state.userSettings.type,
+  statusOptions: state.userSettings.statusOptions,
+  tariffOptions: state.userSettings.tariffOptions,
+  typeOptions: state.userSettings.typeOptions,
 })
 
 export default connect(mapStateToProps, {

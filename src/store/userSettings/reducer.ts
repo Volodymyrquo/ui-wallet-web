@@ -8,9 +8,9 @@ import {OptionsActionType} from './actions'
 export type INIT_STATE_TYPE = typeof INIT_STATE
 
 const INIT_STATE = {
-  status: [],
-  type: [],
-  tariff: [],
+  statusOptions: [],
+  typeOptions: [],
+  tariffOptions: [],
 }
 
 const userSettings = (state = INIT_STATE, action:OptionsActionType):INIT_STATE_TYPE => {
@@ -18,17 +18,17 @@ const userSettings = (state = INIT_STATE, action:OptionsActionType):INIT_STATE_T
     case SET_STATUS_OPTIONS_SUCCESS:
       return {
         ...state,
-        status: action.payload,
+        statusOptions: action.payload,
       }
     case SET_TARIFF_OPTIONS_SUCCESS:
       return {
         ...state,
-        tariff: action.payload,
+        tariffOptions: action.payload,
       }
     case SET_TYPE_OPTIONS_SUCCESS:
       return {
         ...state,
-        type: action.payload,
+        typeOptions: action.payload,
       }
 
     default:

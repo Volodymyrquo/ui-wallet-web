@@ -9,25 +9,25 @@ import { SET_STATUS_OPTIONS, SET_TARIFF_OPTIONS,SET_TYPE_OPTIONS,SET_STATUS_OPTI
    {setStatusOptions :() => ({
         type: SET_STATUS_OPTIONS
     } as const) ,
-     setStatusOptionsSuccess : (status:Array<string>) => ({
+     setStatusOptionsSuccess : (statusOptions:Array<string>) => ({
         type: SET_STATUS_OPTIONS_SUCCESS,
-        payload:status
+        payload:statusOptions
     } as const) ,
     setTariffOptions : ()=> ({
         type: SET_TARIFF_OPTIONS
     } as const),
-    setTariffOptionsSuccess :(tariff:Array<string>) => ({
+    setTariffOptionsSuccess :(tariffOptions:Array<string>) => ({
         type: SET_TARIFF_OPTIONS_SUCCESS,
-        payload:tariff
+        payload:tariffOptions
     } as const),
 
      setTypeOptions : () => ({
         type: SET_TYPE_OPTIONS
     } as const) ,
 
-    setTypeOptionsSuccess : (type:Array<string>) => ({
+    setTypeOptionsSuccess : (typeOptions:Array<string>) => ({
         type: SET_TYPE_OPTIONS_SUCCESS,
-        payload:type
+        payload:typeOptions
     } as const),
 
 }
