@@ -22,10 +22,10 @@ contactsList: [] as [] | Array<UserSettingsType>
 const contactsList = (state =INIT_STATE, action:ContactsListActionType):INIT_STATE_TYPE =>{
     switch (action.type) {
         case SET_USER_SETTINGS_SUCCESS:
-            
+            debugger
             return {
                 ...state,
-                contactsList: [...state.contactsList, action.payload]
+                contactsList: [...state.contactsList, ...action.payload]
             }
     
         default:

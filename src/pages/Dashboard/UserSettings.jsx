@@ -20,9 +20,8 @@ import {
   setStatusOptions,
   setTariffOptions,
   setTypeOptions,
-  setUserSettings,
 } from "../../store/userSettings/actions"
-
+import { setUserSettings } from "../../store/contactsList/actions"
 const UserSettings = ({
   statusOptions,
   tariffOptions,
@@ -30,6 +29,7 @@ const UserSettings = ({
   setStatusOptions,
   setTariffOptions,
   setTypeOptions,
+  setUserSettings,
 }) => {
   const [form, setForm] = useState({
     userName: "",
@@ -94,8 +94,10 @@ const UserSettings = ({
     setForm(newForm(e.currentTarget))
     console.log(form)
   }
-
-  return (
+  /*   const handleOnClick = () => {
+    setUserSettings()
+  }
+ */ return (
     <Card className="flex-fill">
       <CardBody>
         <Form>
@@ -221,4 +223,5 @@ export default connect(mapStateToProps, {
   setStatusOptions,
   setTariffOptions,
   setTypeOptions,
+  setUserSettings,
 })(UserSettings)

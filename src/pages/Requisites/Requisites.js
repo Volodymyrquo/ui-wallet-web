@@ -1,11 +1,35 @@
 import React from "react"
+import { connect } from "react-redux"
+import { Col, Container, Row } from "reactstrap"
+import ContactsList from "../Dashboard/contactsList/contactsList"
+import { setUserSettings } from "../../store/contactsList/actions"
 
-const Requisites = () => {
+const Requisites = ({ setUserSettings }) => {
+  const handleOnClick = () => {
+    setUserSettings()
+  }
   return (
-    <div className="page-content">
-      <h1>Hello form Requisites...</h1>
-    </div>
+    <React.Fragment>
+      <div className="page-content">
+        <Container fluid>
+          <Row>
+            <Col xl="12">
+              <ContactsList />
+            </Col>
+          </Row>
+          <div>
+            <button
+              type="submit"
+              className="btn btn-primary w-md"
+              onClick={handleOnClick}
+            >
+              Save settings
+            </button>
+          </div>
+        </Container>
+      </div>
+    </React.Fragment>
   )
 }
 
-export default Requisites
+export default connect(null, { setUserSettings })(Requisites)

@@ -1,32 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import images from "../../../assets/images"
 
 const contactsListColumns = () => [
-  {
-    dataField: "img",
-    text: "#",
-    formatter: (cellContent, user) => (
-      <>
-        {!user.img ? (
-          <div className="avatar-xs">
-            <span className="avatar-title rounded-circle">
-              {user.name.charAt(0)}
-            </span>
-          </div>
-        ) : (
-          <div>
-            <img
-              className="rounded-circle avatar-xs"
-              src={images[user.img]}
-              alt=""
-            />
-          </div>
-        )}
-        Some User
-      </>
-    ),
-  },
   {
     text: "User name",
     dataField: "userName",
@@ -35,10 +10,9 @@ const contactsListColumns = () => [
       <>
         <h5 className="font-size-14 mb-1">
           <Link to="#" className="text-dark">
-            {user.name}
+            {user.userName}
           </Link>
         </h5>
-        <p className="text-muted mb-0">{user.designation}</p>
       </>
     ),
   },
@@ -53,7 +27,6 @@ const contactsListColumns = () => [
             {user.name}
           </Link>
         </h5>
-        <p className="text-muted mb-0">{user.designation}</p>
       </>
     ),
   },

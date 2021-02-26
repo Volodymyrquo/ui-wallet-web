@@ -5,12 +5,13 @@ import { SET_USER_SETTINGS} from "./actionTypes"
 import {setUserSettingsSuccess,setUserSettings
 } from "./actions"
 import { UserSettingsType } from "./reducer";
-type GetContactsListType = ReturnType<typeof setUserSettings>
+import { getUserSettings } from "../../common/data";
+type GetContactsListType = ReturnType<typeof getUserSettings>
 
 
-function* fetchContactsList({payload:contactsList}:GetContactsListType) {
+function* fetchContactsList() {debugger
   try {
-    const response:UserSettingsType = yield call(setUserSettings,contactsList)
+    const response:GetContactsListType = yield call(getUserSettings)
 
    yield put(setUserSettingsSuccess(response))
   } catch (error) {

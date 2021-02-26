@@ -9,7 +9,7 @@ const actions = {
         type: SET_USER_SETTINGS,
         payload: contactsList
     } as const),
-    setUserSettingsSuccess: (contactsList:UserSettingsType) => ({
+    setUserSettingsSuccess: (contactsList:Array<UserSettingsType>) => ({
         type: SET_USER_SETTINGS_SUCCESS,
         payload: contactsList
     } as const)

@@ -8,6 +8,7 @@ import usersSaga from "./usersPage/saga"
 import cardsTypesSaga from "./cardsTypes/saga"
 import setDocumentsSaga from "./uploadDocuments/saga"
 import getOptionsSaga from "./userSettings/saga"
+import contactsListSaga from "./contactsList/saga"
 
 export default function* rootSaga() {
   yield all([
@@ -19,5 +20,6 @@ export default function* rootSaga() {
     fork(cardsTypesSaga),
     fork(setDocumentsSaga),
     fork(getOptionsSaga),
+    fork(contactsListSaga),
   ])
 }
