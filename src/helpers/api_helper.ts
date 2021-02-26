@@ -25,5 +25,6 @@ export const fetchAuth = ({ username, password }:GetUserAccessTokenType):any => 
   })
 
   return instance.post<AccessTokenApiType>(`/token`, newData).then(response => response.data)
+  
 }
 

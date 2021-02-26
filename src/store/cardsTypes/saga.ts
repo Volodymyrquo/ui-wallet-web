@@ -2,21 +2,22 @@ import { call, put, takeEvery } from "redux-saga/effects"
 
 // Crypto Redux States
 import { GET_CARDS_TYPES } from "./actionTypes"
-import { getCardsTypesSuccess, getCardsTypesFail } from "./actions"
+import { getCardsTypesSuccess, getFieldsSuccess  } from "./actions"
 
 //Include Both Helper File with needed methods
-import { getCardsTypes } from "../../common/data"
+import { fetchListCardTypes } from "../../helpers/api_helper_sumra"
 
 //worker
 
-type GetCardsTypesTypes = ReturnType<typeof getCardsTypes>
+
 
 function* fetchCardsTypes() {
   try {
-    const response:GetCardsTypesTypes = yield call(getCardsTypes)
-    yield put(getCardsTypesSuccess(response))
+    const response = yield call(fetchListCardTypes)
+    yield put(getCardsTypesSuccess(response.data))
+    yield put(getFieldsSuccess(response.fields))
   } catch (error) {
-    yield put(getCardsTypesFail(error))
+    console.log(error)
   }
 }
 

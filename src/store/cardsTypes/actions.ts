@@ -1,27 +1,30 @@
+import { InferActionTypes } from "..";
 import {
   GET_CARDS_TYPES,
   GET_CARDS_TYPES_SUCCESS,
-  GET_CARDS_TYPES_FAIL,
+  GET_FIELDS_SUCCESS
 } from "./actionTypes"
+import { TypesType, FieldsType } from "./reducer";
+
+export type CardsTypesActionType = InferActionTypes<typeof actions>
 
 
-export type GetCardsTypessActionType = { type: typeof GET_CARDS_TYPES};
-export type GetCardsTypesSuccessActionType = { type: typeof GET_CARDS_TYPES_SUCCESS; payload:Array<any> };
-export type GetCardsTypesFailActionType = { type: typeof GET_CARDS_TYPES_FAIL; payload:any};
+const actions = {
+  getCardsTypes :() => ({
+    type: GET_CARDS_TYPES
+  } as const),
+  
+  getCardsTypesSuccess :(cardTypes:Array<TypesType>) => ({
+    type: GET_CARDS_TYPES_SUCCESS,
+    payload: cardTypes
+  } as const ),
+  
+  getFieldsSuccess :(fields:Array<FieldsType>) => ({
+    type: GET_FIELDS_SUCCESS,
+    payload: fields,
+  } as const )
+  
 
+}
 
-export type CardsTypesActionType = GetCardsTypessActionType |GetCardsTypesSuccessActionType |GetCardsTypesFailActionType
-
-export const getCardsTypes = ():GetCardsTypessActionType => ({
-  type: GET_CARDS_TYPES
-})
-
-export const getCardsTypesSuccess = (cardTypes:Array<any>):GetCardsTypesSuccessActionType => ({
-  type: GET_CARDS_TYPES_SUCCESS,
-  payload: cardTypes
-})
-
-export const getCardsTypesFail = (error:any):GetCardsTypesFailActionType => ({
-  type: GET_CARDS_TYPES_FAIL,
-  payload: error,
-})
+export const {getCardsTypes, getCardsTypesSuccess, getFieldsSuccess} = actions

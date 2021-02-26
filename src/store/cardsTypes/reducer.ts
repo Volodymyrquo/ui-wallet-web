@@ -1,13 +1,31 @@
-import { GET_CARDS_TYPES_SUCCESS, GET_CARDS_TYPES_FAIL } from "./actionTypes"
+import { GET_CARDS_TYPES_SUCCESS, GET_FIELDS_SUCCESS } from "./actionTypes"
 import { CardsTypesActionType } from "./actions";
 
 export type INIT_STATE_TYPE = typeof INIT_STATE;
 
+export type TypesType = {
+currency_id: number
+currency_value: string
+description: string
+months: number
+name: string
+price_finish: string //should make number ???
+price_start: string //should make number ???
+series_id: number
+series_value: string
+}
+
+export type FieldsType = {
+  key: string
+label: string
+}
 
 
 const INIT_STATE = {
-  types: [],
-  error: {} 
+  types: [] as [] | Array<TypesType>,
+  fields: [] as [] | Array<FieldsType>,
+  
+  
 }
 
 const cardTypes = (state = INIT_STATE, action:CardsTypesActionType):INIT_STATE_TYPE => {
@@ -17,12 +35,13 @@ const cardTypes = (state = INIT_STATE, action:CardsTypesActionType):INIT_STATE_T
         ...state,
         types: action.payload,
       }
-
-    case GET_CARDS_TYPES_FAIL:
+       case GET_FIELDS_SUCCESS:
       return {
         ...state,
-        error: action.payload,
+        fields: action.payload,
       }
+
+    
 
     default:
       return state
