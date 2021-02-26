@@ -1,4 +1,4 @@
-import { GET_CARDS_TYPES_SUCCESS, GET_FIELDS_SUCCESS } from "./actionTypes"
+import { GET_CARDS_TYPES_SUCCESS, GET_FIELDS_SUCCESS,IS_FETCHING } from "./actionTypes"
 import { CardsTypesActionType } from "./actions";
 
 export type INIT_STATE_TYPE = typeof INIT_STATE;
@@ -24,8 +24,7 @@ label: string
 const INIT_STATE = {
   types: [] as [] | Array<TypesType>,
   fields: [] as [] | Array<FieldsType>,
-  
-  
+  isFetching: true
 }
 
 const cardTypes = (state = INIT_STATE, action:CardsTypesActionType):INIT_STATE_TYPE => {
@@ -40,8 +39,11 @@ const cardTypes = (state = INIT_STATE, action:CardsTypesActionType):INIT_STATE_T
         ...state,
         fields: action.payload,
       }
-
-    
+       case IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.payload,
+      }   
 
     default:
       return state
