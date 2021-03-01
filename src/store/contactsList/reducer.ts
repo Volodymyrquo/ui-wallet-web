@@ -2,7 +2,7 @@ import { SET_USER_SETTINGS_SUCCESS } from "./actionTypes";
 import { ContactsListActionType } from "./actions";
 
 export type UserSettingsType = {
-  
+     id:string
     userName: string
     name: string
     status: string
@@ -22,10 +22,10 @@ contactsList: [] as [] | Array<UserSettingsType>
 const contactsList = (state =INIT_STATE, action:ContactsListActionType):INIT_STATE_TYPE =>{
     switch (action.type) {
         case SET_USER_SETTINGS_SUCCESS:
-            debugger
-            return {
+      debugger
+            return { 
                 ...state,
-                contactsList: [...state.contactsList, ...action.payload]
+                contactsList: [...state.contactsList, action.payload]
             }
     
         default:

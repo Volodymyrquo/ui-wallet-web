@@ -6,31 +6,28 @@ import paginationFactory, {
 } from "react-bootstrap-table2-paginator"
 import ToolkitProvider from "react-bootstrap-table2-toolkit"
 import { Card, CardBody, Col, Container, Row } from "reactstrap"
-//Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { withRouter } from "react-router-dom"
-//import cardTypesListColumns from "./cardTypesListColumns"
 import Preloader from "../../components/Common/Preloader"
+import { useDispatch, useSelector } from "react-redux"
+import { getCards } from "../../store/actions"
 
-/* type MapStateToPropsType = {
-  types: Array<any>
-}
-type MapDispatchToPropsType = {
-  getCardsTypes: ()=>GetCardsTypessActionType
-}
-type PropsType = MapStateToPropsType & MapDispatchToPropsType
- */
-const Cards = ({ types, fields, getCardsTypes, isFetching }) => {
+const Cards = () => {
+  const dispatch = useDispatch()
+  const fields = useSelector(state => state.cardsList.fields)
+  const cards = useSelector(state => state.cardsList.cards)
+  const isFetching = useSelector(state => state.cardsList.isFetching)
+
   const paginationOption = {
     custom: true,
-    totalSize: 20,
+    totalSize: cards.length,
     sizePerPage: 10,
   }
   useEffect(() => {
-    getCardsTypes()
-  }, [getCardsTypes])
+    dispatch(getCards())
+  }, [getCards])
 
-  const cardTypesListColumns = fields.map(item => ({
+  const cardsListColumns = fields.map(item => ({
     dataField: item.key,
     text: item.label,
     sort: true,
@@ -43,7 +40,7 @@ const Cards = ({ types, fields, getCardsTypes, isFetching }) => {
         <div className="page-content">
           <Container fluid>
             {/* Render Breadcrumbs */}
-            <Breadcrumbs title="Card Types" breadcrumbItem="Types" />
+            <Breadcrumbs title="Home" breadcrumbItem="Cards" />
             <Row>
               <Col lg="12">
                 <Card>
@@ -54,8 +51,8 @@ const Cards = ({ types, fields, getCardsTypes, isFetching }) => {
                       {({ paginationProps, paginationTableProps }) => (
                         <ToolkitProvider
                           keyField="id"
-                          data={types || []}
-                          columns={cardTypesListColumns}
+                          data={cards || []}
+                          columns={cardsListColumns}
                           bootstrap4
                           search
                         >

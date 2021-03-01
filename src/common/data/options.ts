@@ -26,7 +26,7 @@ export const getTypefOptions = ():Array<string> => [
 
 export const getUserSettings = ():Array<UserSettingsType> => [
   {
-  
+  id:'1',
     userName: 'user one',
     name: 'One',
     status: 'active',
@@ -37,7 +37,7 @@ export const getUserSettings = ():Array<UserSettingsType> => [
   
 },
   {
-  
+  id: '2',
     userName: 'user two',
     name: 'Two',
     status: 'active',

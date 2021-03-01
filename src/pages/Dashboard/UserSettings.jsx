@@ -32,6 +32,7 @@ const UserSettings = ({
   setUserSettings,
 }) => {
   const [form, setForm] = useState({
+    id: "",
     userName: "",
     name: "",
     status: "",
@@ -46,6 +47,22 @@ const UserSettings = ({
     setTariffOptions()
     setTypeOptions()
   }, [setStatusOptions, setTariffOptions, setTypeOptions])
+
+  const handleOnClick = event => {
+    event.preventDefault()
+    const newForm = { ...form, id: Date.now().toString }
+    setUserSettings(newForm)
+    setForm({
+      id: "",
+      userName: "",
+      name: "",
+      status: "",
+      tariff: "",
+      type: "",
+      description: "",
+      staffRemark: "",
+    })
+  }
 
   const handleOnChange = e => {
     const newForm = target => {
@@ -92,7 +109,6 @@ const UserSettings = ({
       }
     }
     setForm(newForm(e.currentTarget))
-    console.log(form)
   }
   /*   const handleOnClick = () => {
     setUserSettings()
@@ -183,6 +199,7 @@ const UserSettings = ({
                   className="form-control"
                   rows="3"
                   onChange={handleOnChange}
+                  value={form.description}
                 />
               </FormGroup>
             </Col>
@@ -197,13 +214,18 @@ const UserSettings = ({
                   className="form-control"
                   rows="3"
                   onChange={handleOnChange}
+                  value={form.staffRemark}
                 />
               </FormGroup>
             </Col>
           </Row>
 
           <div>
-            <button type="submit" className="btn btn-primary w-md">
+            <button
+              type="submit"
+              className="btn btn-primary w-md"
+              onClick={handleOnClick}
+            >
               Save settings
             </button>
           </div>
