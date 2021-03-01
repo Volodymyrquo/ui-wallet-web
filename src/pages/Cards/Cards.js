@@ -1,11 +1,109 @@
-import React from "react"
+import React, { useEffect } from "react"
+import BootstrapTable from "react-bootstrap-table-next"
+import paginationFactory, {
+  PaginationListStandalone,
+  PaginationProvider,
+} from "react-bootstrap-table2-paginator"
+import ToolkitProvider from "react-bootstrap-table2-toolkit"
+import { Card, CardBody, Col, Container, Row } from "reactstrap"
+//Import Breadcrumb
+import Breadcrumbs from "../../components/Common/Breadcrumb"
+import { withRouter } from "react-router-dom"
+//import cardTypesListColumns from "./cardTypesListColumns"
+import Preloader from "../../components/Common/Preloader"
 
-const Contacts = () => {
+/* type MapStateToPropsType = {
+  types: Array<any>
+}
+type MapDispatchToPropsType = {
+  getCardsTypes: ()=>GetCardsTypessActionType
+}
+type PropsType = MapStateToPropsType & MapDispatchToPropsType
+ */
+const Cards = ({ types, fields, getCardsTypes, isFetching }) => {
+  const paginationOption = {
+    custom: true,
+    totalSize: 20,
+    sizePerPage: 10,
+  }
+  useEffect(() => {
+    getCardsTypes()
+  }, [getCardsTypes])
+
+  const cardTypesListColumns = fields.map(item => ({
+    dataField: item.key,
+    text: item.label,
+    sort: true,
+  }))
   return (
-    <div className="page-content">
-      <h1>Hello from Cards...</h1>
-    </div>
+    <React.Fragment>
+      {isFetching ? (
+        <Preloader />
+      ) : (
+        <div className="page-content">
+          <Container fluid>
+            {/* Render Breadcrumbs */}
+            <Breadcrumbs title="Card Types" breadcrumbItem="Types" />
+            <Row>
+              <Col lg="12">
+                <Card>
+                  <CardBody>
+                    <PaginationProvider
+                      pagination={paginationFactory(paginationOption)}
+                    >
+                      {({ paginationProps, paginationTableProps }) => (
+                        <ToolkitProvider
+                          keyField="id"
+                          data={types || []}
+                          columns={cardTypesListColumns}
+                          bootstrap4
+                          search
+                        >
+                          {toolkitProps => (
+                            <React.Fragment>
+                              <Row className="mb-2">
+                                <Col sm="4">
+                                  <div className="search-box mr-2 mb-2 d-inline-block"></div>
+                                </Col>
+                              </Row>
+                              <Row>
+                                <Col xl="12">
+                                  <div className="table-responsive">
+                                    <BootstrapTable
+                                      responsive
+                                      bordered={false}
+                                      striped={false}
+                                      classes={
+                                        "table table-centered table-nowrap"
+                                      }
+                                      headerWrapperClasses={"thead-light"}
+                                      {...toolkitProps.baseProps}
+                                      {...paginationTableProps}
+                                    />
+                                  </div>
+                                </Col>
+                              </Row>
+                              <Row className="align-items-md-center mt-30">
+                                <Col className="pagination pagination-rounded justify-content-center mb-2 inner-custom-pagination">
+                                  <PaginationListStandalone
+                                    {...paginationProps}
+                                  />
+                                </Col>
+                              </Row>
+                            </React.Fragment>
+                          )}
+                        </ToolkitProvider>
+                      )}
+                    </PaginationProvider>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      )}
+    </React.Fragment>
   )
 }
 
-export default Contacts
+export default withRouter(Cards)

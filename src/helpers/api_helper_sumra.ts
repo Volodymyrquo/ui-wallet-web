@@ -1,5 +1,4 @@
 import axios from "axios"
-import { TypesType } from "../store/cardsTypes/reducer";
 
 const baseUrl = `https://bfccd8d41208.ngrok.io/v1/infinity`
 
@@ -11,7 +10,7 @@ const instance = {
 
 
 export const fetchListAllCards = () => {
-  return axios.get(`${baseUrl}`, instance).then(response => response)
+  return axios.get(`${baseUrl}/cards`, instance).then(response => response.data)
 }
 
 
