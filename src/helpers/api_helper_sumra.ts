@@ -9,12 +9,14 @@ const instance = {
 
 
 
-export const fetchListAllCards = () => {
-  return axios.get(`${baseUrl}/cards`, instance).then(response => response.data)
+export const fetchListAllCards = async () => {
+  const response = await axios.get(`${baseUrl}/cards`, instance)
+  return response.data
 }
 
 
 
-export const fetchListCardTypes = () => {
-  return axios.get(`${baseUrl}/cardtypes`, instance).then(response => response.data)
+export const fetchListCardTypes = async () => {
+  const response = await axios.get(`${baseUrl}/cardtypes`, instance)
+  return response.data
 }

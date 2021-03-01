@@ -3,11 +3,11 @@ import { connect } from "react-redux"
 import { Col, Container, Row } from "reactstrap"
 import ContactsList from "../Dashboard/contactsList/contactsList"
 import { setUserSettings } from "../../store/contactsList/actions"
-import { fetchListCardTypes } from "../../helpers/api_helper_sumra"
+import { fetchListAllCards } from "../../helpers/api_helper_sumra"
 
 const Requisites = () => {
   const handleOnClick = () => {
-    fetchListCardTypes()
+    fetchListAllCards()
   }
   return (
     <React.Fragment>
