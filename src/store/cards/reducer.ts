@@ -1,4 +1,4 @@
-import {GET_FIELDS_SUCCESS,IS_FETCHING,GET_CARDS_SUCCESS } from "./actionTypes"
+import {GET_CARDS_SUCCESS,GET_CARDS_FIELDS_SUCCESS,IS_CARDS_FETCHING } from "./actionTypes"
 import { CardsActionType } from "./actions";
 
 export type INIT_STATE_TYPE = typeof INIT_STATE;
@@ -39,12 +39,12 @@ const cards = (state = INIT_STATE, action:CardsActionType):INIT_STATE_TYPE => {
         ...state,
         cards: action.payload,
       }
-       case GET_FIELDS_SUCCESS:
+       case GET_CARDS_FIELDS_SUCCESS:
       return {
         ...state,
         fields: action.payload,
       }
-       case IS_FETCHING:
+       case IS_CARDS_FETCHING:
       return {
         ...state,
         isFetching: action.payload,

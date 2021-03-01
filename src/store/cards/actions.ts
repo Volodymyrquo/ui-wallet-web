@@ -2,8 +2,8 @@ import { InferActionTypes } from "..";
 import {
   GET_CARDS,
   GET_CARDS_SUCCESS,
-  GET_FIELDS_SUCCESS,
-  IS_FETCHING
+ IS_CARDS_FETCHING,
+ GET_CARDS_FIELDS_SUCCESS
 } from "./actionTypes"
 import { CardsType, FieldsType } from "./reducer";
 
@@ -20,16 +20,16 @@ const actions = {
     payload: cards
   } as const ),
   
-  getFieldsSuccess :(fields:Array<FieldsType>) => ({
-    type: GET_FIELDS_SUCCESS,
+  getCardsFieldsSuccess :(fields:Array<FieldsType>) => ({
+    type: GET_CARDS_FIELDS_SUCCESS,
     payload: fields,
   } as const ),
-  toggleIsFetcing :(isFetchig:boolean) => ({
-    type: IS_FETCHING,
+  toggleIsCardsFetcing :(isFetchig:boolean) => ({
+    type: IS_CARDS_FETCHING,
     payload: isFetchig,
   } as const )
   
 
 }
 
-export const {getCards, getCardsSuccess, getFieldsSuccess,toggleIsFetcing} = actions
+export const {getCards, getCardsSuccess, getCardsFieldsSuccess,toggleIsCardsFetcing} = actions

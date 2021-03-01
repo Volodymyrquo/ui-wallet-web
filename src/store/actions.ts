@@ -17,6 +17,8 @@ export * from "./userPhoto/actions"
 export * from "./userSettings/actions"
 //contacts list 
 export * from "./contactsList/actions"
+//cards list
+export * from "./cards/actions"
 
 
 
