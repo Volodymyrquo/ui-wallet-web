@@ -29,6 +29,4 @@ const cardsTypesListColumns = () => [
   },
 ]
 
-const 
-
 export default cardsTypesListColumns

@@ -41,7 +41,12 @@ const CardsTypes = ({ types, fields, getCardsTypes, isFetching }) => {
     text: item.label,
     sort: true,
   }))
-
+  const defaultSorted = [
+    {
+      dataField: "id", // if dataField is not match to any column you defined, it will be ignored.
+      order: "desc", // desc or asc
+    },
+  ]
   return (
     <React.Fragment>
       {isFetching ? (
@@ -77,6 +82,7 @@ const CardsTypes = ({ types, fields, getCardsTypes, isFetching }) => {
                                 <Col xl="12">
                                   <div className="table-responsive">
                                     <BootstrapTable
+                                      sort={defaultSorted}
                                       responsive
                                       bordered={false}
                                       striped={false}
