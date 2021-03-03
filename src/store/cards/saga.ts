@@ -5,7 +5,7 @@ import { GET_CARDS } from "./actionTypes"
 import { getCardsSuccess,getCardsFieldsSuccess,toggleIsCardsFetcing} from "./actions"
 
 //Include Both Helper File with needed methods
-import { fetchListAllCards} from "../../helpers/api_helper_sumra"
+import { fetchListAllCards, fetchListAllCardsFake} from "../../helpers/api_helper_sumra"
 
 //worker
 
@@ -13,7 +13,7 @@ import { fetchListAllCards} from "../../helpers/api_helper_sumra"
 
 function* fetchCards() {
   try {
-    const response = yield call(fetchListAllCards)
+    const response = yield call(fetchListAllCardsFake)
     yield put(getCardsFieldsSuccess(response.fields))
     yield put(getCardsSuccess(response.data))
     yield put(toggleIsCardsFetcing(false))

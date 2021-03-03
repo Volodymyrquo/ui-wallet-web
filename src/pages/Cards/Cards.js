@@ -5,9 +5,9 @@ import paginationFactory, {
   PaginationProvider,
 } from "react-bootstrap-table2-paginator"
 import ToolkitProvider from "react-bootstrap-table2-toolkit"
-import { Card, CardBody, Col, Container, Row } from "reactstrap"
+import { Button, Card, CardBody, Col, Container, Row } from "reactstrap"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
-import { withRouter } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 import Preloader from "../../components/Common/Preloader"
 import { useDispatch, useSelector } from "react-redux"
 import { getCards } from "../../store/actions"
@@ -45,6 +45,17 @@ const Cards = () => {
               <Col lg="12">
                 <Card>
                   <CardBody>
+                    <div className="text-right">
+                      <Link to="/cardorder">
+                        <Button
+                          color="primary"
+                          className="btn btn-primary waves-effect waves-light"
+                        >
+                          New card
+                        </Button>
+                      </Link>
+                    </div>
+
                     <PaginationProvider
                       pagination={paginationFactory(paginationOption)}
                     >

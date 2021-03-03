@@ -14,6 +14,7 @@ import Requisites from "../pages/Requisites/Requisites"
 import Tariffs from "../pages/Tariffs/Tariffs"
 import Users from "../pages/UsersPage/UsersPage"
 import CardTypes from "../pages/CardsTypes/CardsTypes"
+import CardOrder from "../pages/Cards/CardOrder"
 
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
@@ -25,6 +26,7 @@ const userRoutes = [
   { path: "/tariffs", component: Tariffs },
   { path: "/users", component: Users },
   { path: "/cardtypes", component: CardTypes },
+  { path: "/cardorder", component: CardOrder },
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
