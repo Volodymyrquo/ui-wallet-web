@@ -65,50 +65,7 @@ const UserSettings = ({
   }
 
   const handleOnChange = e => {
-    const newForm = target => {
-      switch (target.id) {
-        case "formrow-username-Input":
-          return {
-            ...form,
-            userName: target.value,
-          }
-
-        case "formrow-name-Input":
-          return {
-            ...form,
-            name: target.value,
-          }
-        case "form-description":
-          return {
-            ...form,
-            description: target.value,
-          }
-        case "form-staffs-remark":
-          return {
-            ...form,
-            staffRemark: target.value,
-          }
-        case "formrow-InputStatus":
-          return {
-            ...form,
-            status: target.value,
-          }
-        case "formrow-InputTariff":
-          return {
-            ...form,
-            tariff: target.value,
-          }
-        case "formrow-InputType":
-          return {
-            ...form,
-            type: target.value,
-          }
-
-        default:
-          return form
-      }
-    }
-    setForm(newForm(e.currentTarget))
+    setForm({ ...form, ...{ [e.target.name]: e.target.value } })
   }
   /*   const handleOnClick = () => {
     setUserSettings()
@@ -126,6 +83,7 @@ const UserSettings = ({
                   type="text"
                   className="form-control"
                   id="formrow-username-Input"
+                  name="userName"
                   onChange={handleOnChange}
                   value={form.userName}
                 />
@@ -139,6 +97,7 @@ const UserSettings = ({
                   className="form-control"
                   id="formrow-name-Input"
                   onChange={handleOnChange}
+                  name="name"
                   value={form.name}
                 />
               </FormGroup>
@@ -153,6 +112,7 @@ const UserSettings = ({
                   id="formrow-InputStatus"
                   className="form-control"
                   onChange={handleOnChange}
+                  name="status"
                 >
                   {statusOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
@@ -167,6 +127,7 @@ const UserSettings = ({
                   id="formrow-InputTariff"
                   className="form-control"
                   onChange={handleOnChange}
+                  name="tariff"
                 >
                   {tariffOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
@@ -181,6 +142,7 @@ const UserSettings = ({
                   id="formrow-InputType"
                   className="form-control"
                   onChange={handleOnChange}
+                  name="type"
                 >
                   {typeOptions.map((item, idx) => (
                     <option key={idx}>{item}</option>
@@ -198,6 +160,7 @@ const UserSettings = ({
                   id="form-description"
                   className="form-control"
                   rows="3"
+                  name="description"
                   onChange={handleOnChange}
                   value={form.description}
                 />
@@ -213,6 +176,7 @@ const UserSettings = ({
                   id="form-staffs-remark"
                   className="form-control"
                   rows="3"
+                  name="staffRemark"
                   onChange={handleOnChange}
                   value={form.staffRemark}
                 />

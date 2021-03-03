@@ -44,7 +44,7 @@ const cardTypes = (state = INIT_STATE, action:CardsTypesActionType):INIT_STATE_T
       return {
         ...state,
         isFetching: action.payload,
-      }   
+      }
 
     default:
       return state

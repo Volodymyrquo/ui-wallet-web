@@ -26,7 +26,7 @@ label: string
 }
 
 
-const INIT_STATE = {
+export const INIT_STATE = {
   cards: [] as [] | Array<CardsType>,
   fields: [] as [] | Array<FieldsType>,
   isFetching: true

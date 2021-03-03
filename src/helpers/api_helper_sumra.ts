@@ -16,7 +16,11 @@ export const fetchListAllCards = async () => {
   return response.data
 }
 export const fetchListAllCardsFake = async () => {
-  const response = await axios.get(`http://my-json-server.typicode.com/Volodymyrquo/mockjson/db`)
+  const response = await axios.get(`http://localhost:3000/db`)
+  return response.data
+}
+export const uploadCardData = async (card) => {
+  const response = await axios.post(`http://localhost:3000/data`, card)
   return response.data
 }
 

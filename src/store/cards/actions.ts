@@ -1,6 +1,7 @@
 import { InferActionTypes } from "..";
 import {
   GET_CARDS,
+  SET_CARD,
   GET_CARDS_SUCCESS,
  IS_CARDS_FETCHING,
  GET_CARDS_FIELDS_SUCCESS
@@ -19,6 +20,10 @@ const actions = {
     type: GET_CARDS_SUCCESS,
     payload: cards
   } as const ),
+  setCard :(card:CardsType) => ({
+    type: SET_CARD,
+    payload: card
+  } as const ),
   
   getCardsFieldsSuccess :(fields:Array<FieldsType>) => ({
     type: GET_CARDS_FIELDS_SUCCESS,
@@ -32,4 +37,4 @@ const actions = {
 
 }
 
-export const {getCards, getCardsSuccess, getCardsFieldsSuccess,toggleIsCardsFetcing} = actions
+export const {getCards, getCardsSuccess, getCardsFieldsSuccess,toggleIsCardsFetcing, setCard} = actions
