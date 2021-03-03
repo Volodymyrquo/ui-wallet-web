@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import {
   Card,
@@ -10,14 +11,19 @@ import {
   Row,
 } from "reactstrap"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
+import { getCardsTypes } from "../../store/cardsTypes/actions"
 const CardOrder = () => {
-    const 
-const [form,setForm] = useState({})
+  const dispatch = useDispatch()
+  const cardTypes = useSelector(state => state.cardsTypes.types)
 
+  const [form, setForm] = useState({})
+  useEffect(() => {
+    dispatch(getCardsTypes())
+  }, [getCardsTypes])
 
-const handleOnChange = (event)=>{
-setForm(event.target.value)
-}
+  const handleOnChange = event => {
+    setForm(event.target.value)
+  }
 
   return (
     <div className="page-content">
@@ -123,7 +129,9 @@ setForm(event.target.value)
                   <div className="col-md-10">
                     <select className="custom-select" onChange={handleOnChange}>
                       <option defaultValue>Open this select menu</option>
-
+                      {cardTypes.map(item => (
+                        <option key={item.id}>{item.name}</option>
+                      ))}
                     </select>
                   </div>
                 </div>

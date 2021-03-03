@@ -7,6 +7,7 @@ export type TypesType = {
 currency_id: number
 currency_value: string
 description: string
+id:number
 months: number
 name: string
 price_finish: string //should make number ???
