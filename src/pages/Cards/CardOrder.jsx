@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
 import {
   Button,
   Card,
   CardBody,
-  CardSubtitle,
   CardTitle,
   Col,
   Container,
   Form,
-  Input,
   Row,
 } from "reactstrap"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { getCardsTypes } from "../../store/cardsTypes/actions"
 import { setCard } from "../../store/cards/actions"
+import { useForm } from "react-hook-form"
 
 const CardOrder = () => {
   const dispatch = useDispatch()
   const cardTypes = useSelector(state => state.cardsTypes.types)
+  const { register, handleSubmit, errors } = useForm() // initialize the hook
 
   const [form, setForm] = useState({})
   useEffect(() => {
@@ -29,10 +28,12 @@ const CardOrder = () => {
   const handleOnChange = event => {
     setForm({ ...form, ...{ [event.target.name]: event.target.value } })
   }
-  const handleOnClick = () => {
+  const onSubmit = data => {
+    setForm({ ...form, ...data })
     dispatch(setCard(form))
-    setForm({ ...form })
+    setForm({})
   }
+
   return (
     <div className="page-content">
       <Container fluid={true}>
@@ -42,7 +43,7 @@ const CardOrder = () => {
           <Col>
             <Card>
               <CardBody>
-                <Form>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                   <CardTitle>Card Order</CardTitle>
                   <div className="form-group row">
                     <label
@@ -54,13 +55,14 @@ const CardOrder = () => {
                     <div className="col-md-10">
                       <input
                         className="form-control"
-                        defaultValue="1215524153253804"
-                        type="number"
+                        type="text"
                         id="example-number-input"
                         name="number"
                         onChange={handleOnChange}
-                        value={form.number}
+                        value={form.number || ""}
+                        ref={register({ required: true, pattern: /\d+/ })}
                       />
+                      {errors.number && "Please enter number for card number"}
                     </div>
                   </div>
                   <div className="form-group row">
@@ -74,10 +76,10 @@ const CardOrder = () => {
                       <input
                         className="form-control"
                         type="tel"
-                        defaultValue="32303534-3931-4373-8e4d-302e34383632"
                         name="check_code"
-                        value={form.check_code}
+                        value={form.check_code || ""}
                         onChange={handleOnChange}
+                        ref={register({ required: true })}
                       />
                     </div>
                   </div>
@@ -92,8 +94,11 @@ const CardOrder = () => {
                       <input
                         className="form-control"
                         type="number"
-                        defaultValue="636119"
                         id="example-number-input"
+                        ref={register({ required: true })}
+                        value={form.activation_code || ""}
+                        name="activation_code"
+                        onChange={handleOnChange}
                       />
                     </div>
                   </div>
@@ -108,10 +113,11 @@ const CardOrder = () => {
                       <input
                         className="form-control"
                         type="datetime-local"
-                        defaultValue="2019-08-19T13:45:00"
                         id="example-datetime-local-input"
                         name="activate_before"
                         onChange={handleOnChange}
+                        ref={register({ required: true })}
+                        value={form.activate_before || ""}
                       />
                     </div>
                   </div>
@@ -126,11 +132,11 @@ const CardOrder = () => {
                       <input
                         className="form-control"
                         type="date"
-                        defaultValue="2019-08-19"
                         id="example-date-input"
                         name="activated_at"
-                        value={form.activated_at}
+                        value={form.activated_at || ""}
                         onChange={handleOnChange}
+                        ref={register({ required: true })}
                       />
                     </div>
                   </div>
@@ -141,7 +147,10 @@ const CardOrder = () => {
                         className="form-control"
                         name="status"
                         onChange={handleOnChange}
-                        value={form.status}
+                        value={form.status || ""}
+                        ref={register({
+                          required: true,
+                        })}
                       >
                         <option>Select</option>
                         <option>true</option>
@@ -155,8 +164,9 @@ const CardOrder = () => {
                       <select
                         className="custom-select"
                         onChange={handleOnChange}
-                        value={form.type_value}
+                        value={form.type_value || ""}
                         name="type_value"
+                        ref={register({ required: true })}
                       >
                         <option defaultValue>Open this select menu</option>
                         {cardTypes.map(item => (
@@ -177,22 +187,39 @@ const CardOrder = () => {
                         className="form-control"
                         type="text"
                         name="creator_value"
-                        value={form.creator_value}
+                        value={form.creator_value || ""}
                         onChange={handleOnChange}
+                        ref={register({ required: true })}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label
+                      htmlFor="example-text-input"
+                      className="col-md-2 col-form-label"
+                    >
+                      Owner
+                    </label>
+                    <div className="col-md-10">
+                      <input
+                        className="form-control"
+                        type="text"
+                        name="owner_value"
+                        value={form.owner_value || ""}
+                        onChange={handleOnChange}
+                        ref={register({ required: true })}
                       />
                     </div>
                   </div>
                   <div className="text-right">
-                    <Link to="/cardorder">
-                      <Button
-                        type="submit"
-                        color="primary"
-                        className="btn btn-primary waves-effect waves-light"
-                        onClick={handleOnClick}
-                      >
-                        Submit form
-                      </Button>
-                    </Link>
+                    <Button
+                      type="submit"
+                      color="primary"
+                      className="btn btn-primary waves-effect waves-light"
+                      //onClick={handleOnClick}
+                    >
+                      Add card
+                    </Button>
                   </div>
                 </Form>
               </CardBody>

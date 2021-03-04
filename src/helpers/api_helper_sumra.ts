@@ -8,7 +8,11 @@ const instance = {
 }
 
 
+export const fetchCurrencies  = async()=> {
 
+  const response = await axios.post(`${baseUrl}/cards?type_id=1`, instance)
+  return response.data
+}
 
 
 export const fetchListAllCards = async () => {
