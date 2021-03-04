@@ -31,16 +31,7 @@ const UserSettings = ({
   setTypeOptions,
   setUserSettings,
 }) => {
-  const [form, setForm] = useState({
-    id: "",
-    userName: "",
-    name: "",
-    status: "",
-    tariff: "",
-    type: "",
-    description: "",
-    staffRemark: "",
-  })
+  const [form, setForm] = useState({})
 
   useEffect(() => {
     setStatusOptions()
@@ -56,9 +47,6 @@ const UserSettings = ({
       id: "",
       userName: "",
       name: "",
-      status: "",
-      tariff: "",
-      type: "",
       description: "",
       staffRemark: "",
     })
