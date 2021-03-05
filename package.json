@@ -13,9 +13,6 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
     "@toast-ui/react-chart": "^1.0.2",
-    "@types/bootstrap": "^5.0.5",
-    "@types/react-bootstrap-table-next": "^4.0.11",
-    "@types/react-phone-number-input": "^3.0.6",
     "@vtaits/react-color-picker": "^0.1.1",
     "apexcharts": "^3.22.2",
     "availity-reactstrap-validation": "^2.7.0",
@@ -158,8 +155,12 @@
     "moment": "2.29.1"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.0.8",
+    "@types/classnames": "^2.2.11",
+    "@types/react-bootstrap-table-next": "^4.0.11",
     "@types/react-bootstrap-table2-paginator": "^2.1.1",
     "@types/react-bootstrap-table2-toolkit": "^2.1.4",
+    "@types/react-phone-number-input": "^3.0.6",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.15.1",

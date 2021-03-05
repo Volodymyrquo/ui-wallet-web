@@ -13,6 +13,8 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(sagaMiddleware))
 )
+
+debugger
 sagaMiddleware.run(rootSaga)
 
 type PropertiesTypes<T> = T extends {[key:string]:infer U}? U: never

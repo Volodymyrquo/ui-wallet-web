@@ -22,6 +22,8 @@ import userSettings from "./userSettings/reducer"
 import contactsList from "./contactsList/reducer"
 //cards list
 import cardsList from "./cards/reducer"
+//currencies
+import currencies from "./currencies/reducer"
 
 
 const rootReducer = combineReducers({
@@ -34,7 +36,9 @@ const rootReducer = combineReducers({
   userPhoto,
   userSettings,
   contactsList,
-  cardsList
+  cardsList,
+  currencies
+
 
 })
 
