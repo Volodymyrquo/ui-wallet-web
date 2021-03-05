@@ -1,5 +1,5 @@
 import React,{FC} from "react"
-import { Card, CardBody, Col, Container, Media, Row, Table } from "reactstrap"
+import { Card, CardBody, Col, Container, Row } from "reactstrap"
 import ReactApexChart from "react-apexcharts"
 import { AppStateType } from "../../store/reducers";
 
@@ -9,7 +9,9 @@ import { useSelector } from "react-redux"
 import ChartHeader from "./ChartHeader";
 import CurrenciesList from "./CurrenciesList";
 
-const Currencies = () => {
+
+
+const Currencies:FC = () => {
  const state = useSelector((state:AppStateType) => state.currencies)
 
   return (

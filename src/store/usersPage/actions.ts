@@ -41,7 +41,7 @@ export const getUserProfileSuccess = (userProfile:Array<any>):GetUserProfileSucc
   payload: userProfile,
 })
 
-export const getUserProfileFail = (error:any):GetUserProfileFailActionType => ({
+export const getUserProfileFail = (error:string):GetUserProfileFailActionType => ({
   type: GET_USER_PROFILE_FAIL,
   payload: error,
 })

@@ -6,18 +6,19 @@ import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
 import { setDocuments } from "../../store/uploadDocuments/actions";
+import { Dispatch } from "redux"
 
 type ObjectImageType = {
   preview:string,
   formattedSize:number
-}
+}   // this type must be extended from type file. something like  with infer. see it-kamasutra.
 
 type PropsType = {
-  uploadFiles: (selectedFiles:Array<File>)=>void,
-  documents: Array<File>
+  uploadFiles: (selectedFiles:Array<ObjectImageType>)=>void,
+  documents: Array<ObjectImageType>
 }
 
-const UploadDocuments:FC<any> = ({uploadFiles,documents}) => {
+const UploadDocuments= ({uploadFiles,documents}) => {
   const [selectedFiles, setselectedFiles] = useState([])
   const [isArrayEmpty, setToggleArray] = useState(true)
 
@@ -148,7 +149,7 @@ const mapStateToProps = (state) => ({
   documents: state.uploadDocuments.documents
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch:Dispatch) => ({
   uploadFiles:(files)=> dispatch(setDocuments(files))
 })
 
