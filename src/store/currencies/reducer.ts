@@ -1,4 +1,17 @@
 
+export type AssetType = {
+    icon: string,
+    color: string,
+    title: string,
+    investRate: string,
+    investPrice: string,
+    price: string,
+    loansRate: string,
+    loansPrice: string,
+    totalRate: string,
+    totalPrice: string,
+}
+
 const INIT_STATE = {
     series: [
       {
