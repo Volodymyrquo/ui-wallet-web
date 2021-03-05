@@ -18,7 +18,7 @@ class LoginForm extends Component {
 
   render() {
     let { className } = this.props
-    className += " login-form"
+    className += "login-form"
     return (
       <div className={className}>
         <h1 className="h1-title">Login with Sumra ID</h1>

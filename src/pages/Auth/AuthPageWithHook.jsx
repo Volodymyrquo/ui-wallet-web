@@ -23,10 +23,15 @@ export default class AuthPage extends Component {
     this._goToStep = this._goToStep.bind(this)
     this._onSetVerificationCode = this._onSetVerificationCode.bind(this)
   }
+  _goToStep(value) {
+    this.setState({ currentStep: value })
+  }
+
+  _onSetVerificationCode(code) {
+    this.setState({ verificationCode: code.toUpperCase() })
+  }
 
   render() {
-    const className = "authentification-form"
-
     const getForm = () => {
       switch (this.state.currentStep) {
         case 1:
@@ -47,7 +52,9 @@ export default class AuthPage extends Component {
           break
       }
     }
+
     const step = getForm()
+    const className = "authentification-form"
 
     return (
       <>
@@ -59,12 +66,22 @@ export default class AuthPage extends Component {
       </>
     )
   }
-
-  _goToStep(value) {
-    this.setState({ currentStep: value })
-  }
-
-  _onSetVerificationCode(code) {
-    this.setState({ verificationCode: code.toUpperCase() })
-  }
 }
+
+import React from "react"
+
+const AuthPageWithHook = () => {
+  const authFormClass = "authentification-form"
+
+  return (
+    <>
+      <header className="sumra-header">
+        <div className="logotype"></div>
+      </header>
+      <main className="sumra-main">{step}</main>
+      <footer className="sumra-footer"></footer>
+    </>
+  )
+}
+
+export default AuthPageWithHook

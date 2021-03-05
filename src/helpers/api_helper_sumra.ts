@@ -3,14 +3,29 @@ import axios from "axios"
 const baseUrl = `https://bfccd8d41208.ngrok.io/v1/infinity`
 
 const instance = {
-  headers: { "Content-Type": "application/json", "user-id": 1 },
+  headers: { "Content-Type": "application/x-www-form-urlencoded", "user-id": 1 },
+  body:String(
+    new URLSearchParams({
+      type_id: '1'
+    }))
+  }
 
-}
+
+  const newInstance = axios.create({
+    baseURL: `https://bfccd8d41208.ngrok.io/v1/infinity`,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "user-id": 1 
+    },
+  
+  })
 
 
 export const fetchCurrencies  = async()=> {
-
-  const response = await axios.post(`${baseUrl}/cards?type_id=1`, instance)
+  const newData = new URLSearchParams({
+      type_id: "1",
+  })
+  const response = await newInstance.post(`/cards`,newData )
   return response.data
 }
 
@@ -54,7 +69,7 @@ export const addNewCards = async () => {
 
 
 export const fetchListCardTypes = async () => {
-  const response = await axios.get(`${baseUrl}/cardtypes`, instance)
+  const response = await newInstance.get(`${baseUrl}/cardtypes`)
   return response.data
 }
 

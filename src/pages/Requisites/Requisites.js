@@ -3,12 +3,12 @@ import { connect } from "react-redux"
 import { Col, Container, Row } from "reactstrap"
 import ContactsList from "../Dashboard/contactsList/contactsList"
 import { setUserSettings } from "../../store/contactsList/actions"
-import { addNewCards } from "../../helpers/api_helper_sumra"
+import { fetchCurrencies } from "../../helpers/api_helper_sumra"
 import Preloader from "../../components/Common/Preloader"
 
 const Requisites = () => {
   const handleOnClick = () => {
-    addNewCards()
+    fetchCurrencies()
   }
   return (
     <React.Fragment>
