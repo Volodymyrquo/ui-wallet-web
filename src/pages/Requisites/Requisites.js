@@ -3,12 +3,17 @@ import { connect } from "react-redux"
 import { Col, Container, Row } from "reactstrap"
 import ContactsList from "../Dashboard/contactsList/contactsList"
 import { setUserSettings } from "../../store/contactsList/actions"
-import { fetchCurrencies } from "../../helpers/api_helper_sumra"
+import {
+  getAssets,
+  getOHLCVData,
+  getExchanges,
+  getSymbols,
+} from "../../helpers/api_helper_coinapi"
 import Preloader from "../../components/Common/Preloader"
 
 const Requisites = () => {
   const handleOnClick = () => {
-    fetchCurrencies()
+    getOHLCVData()
   }
   return (
     <React.Fragment>
