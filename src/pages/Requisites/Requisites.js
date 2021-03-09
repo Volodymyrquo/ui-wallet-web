@@ -9,12 +9,13 @@ import {
   getExchanges,
   getSymbols,
   fetchAssetsIcons,
+  fetchHistoricalData,
 } from "../../helpers/api_helper_coinapi"
 import Preloader from "../../components/Common/Preloader"
 
 const Requisites = () => {
   const handleOnClick = () => {
-    fetchAssetsIcons()
+    fetchHistoricalData()
   }
   return (
     <React.Fragment>

@@ -8,7 +8,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { useDispatch, useSelector } from "react-redux"
 import ChartHeader from "./ChartHeader";
 import CurrenciesList from "./CurrenciesList";
-import { getAssets } from "../../store/currencies/actions";
+import { getAssets, getAssetsData } from "../../store/currencies/actions";
 import Preloader from "../../components/Common/Preloader";
 
 
@@ -21,8 +21,9 @@ const Currencies:FC = () => {
  useEffect(() => {
   
      dispatch(getAssets())
+     dispatch(getAssetsData())
    
- }, [getAssets])
+ }, [getAssets, getAssetsData])
 
   return (
     <>

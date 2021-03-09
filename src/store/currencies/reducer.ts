@@ -1,4 +1,4 @@
-import { GET_ASSETS_SUCCESS, IS_ASSETS_FETCHING } from "./actionTypes";
+import { GET_ASSETS_SUCCESS, IS_ASSETS_FETCHING,GET_ASSETS_DATA_SUCCESS } from "./actionTypes";
 import { CurrenciesActionType } from "./actions";
 
 export type AssetType = {
@@ -20,6 +20,8 @@ export type AssetType = {
   volume_1hrs_usd: number,
   volume_1mth_usd: number,
 }
+
+
 
 type INIT_STATE_TYPE = typeof INIT_STATE
 
@@ -140,7 +142,14 @@ const currencies = (state=INIT_STATE, action:CurrenciesActionType):INIT_STATE_TY
             ...state,
             isAssetsFetching: action.payload
           }
-
+          case GET_ASSETS_DATA_SUCCESS:
+           
+            return {
+              ...state,
+              series:[{
+                data: action.payload.map(item=>{return{x:new Date(item.time_close), y:[item.price_open,item.price_high,item.price_low,item.price_close]}})
+              }]
+            }
         default:
             return state
     }

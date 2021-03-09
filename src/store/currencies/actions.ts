@@ -1,8 +1,22 @@
 import { InferActionTypes } from "..";
-import { GET_ASSETS,GET_ASSETS_SUCCESS,IS_ASSETS_FETCHING } from "./actionTypes";
+import { GET_ASSETS,GET_ASSETS_SUCCESS,IS_ASSETS_FETCHING,GET_ASSETS_DATA_SUCCESS,GET_ASSETS_DATA } from "./actionTypes";
 import { AssetType } from "./reducer";
 
 export type CurrenciesActionType = InferActionTypes<typeof assets>
+
+type AssetsDataType = {
+price_close: number,
+price_high: number,
+price_low: number,
+price_open: number,
+time_close: string,
+time_open: string,
+time_period_end: string,
+time_period_start: string,
+trades_count: number,
+volume_traded: number,
+}
+
 
 const assets = {
 getAssets:()=>({
@@ -15,9 +29,15 @@ getAssetsSuccess:(assets:Array<AssetType>)=>({
 isAssetsFetching: (isFetching:boolean)=>({
     type:IS_ASSETS_FETCHING,
     payload: isFetching
+} as const),
+getAssetsData:()=>({
+    type:GET_ASSETS_DATA
+} as const),
+getAssetsDataSuccess: (data:Array<AssetsDataType>)=>({
+    type:GET_ASSETS_DATA_SUCCESS,
+    payload:data
 } as const)
-
 
 }
 
-export const {getAssets, getAssetsSuccess, isAssetsFetching} = assets
+export const {getAssets, getAssetsSuccess, isAssetsFetching, getAssetsData,getAssetsDataSuccess} = assets

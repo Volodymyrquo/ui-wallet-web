@@ -9,6 +9,15 @@ const instance = axios.create({
   },
 })
 
+const instanceReal = axios.create({
+  baseURL: `https://rest.coinapi.io/`,
+  headers: {
+    "X-CoinAPI-Key": "34C78562-8B50-440F-B123-370B626B5385",
+    "Content-Type": "application/json",
+    Accept: 'aplication/json'
+  },
+})
+
 const array = ['BITSTAMP','GEMINI']
 
 const assetsIds = ['BTC','ETH','EOS','BCH','LTC','LINK']
@@ -46,3 +55,9 @@ export const fetchAssetsIcons = async()=>{
   return await response.data
 }
 
+export const fetchHistoricalData = async()=>{
+
+  const response = await instanceReal.get(`/v1/ohlcv/BTC/USD/history?period_id=1MIN&time_start=2021-03-08T14:57:00&time_end=2021-03-08T16:57:00`)
+   
+  return await response.data
+}
