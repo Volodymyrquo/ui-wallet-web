@@ -19,7 +19,7 @@ export const getOHLCVData = async()=>{
    
   return await response.data
 }
-export const getAssets = async()=>{
+export const fetchAssets = async()=>{
 
   const response = await instance.get(`v1/assets?filter_asset_id=${assetsIds}`)
    
