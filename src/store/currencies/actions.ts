@@ -1,0 +1,17 @@
+import { GET_ASSETS,GET_ASSETS_SUCCESS } from "./actionTypes";
+
+
+
+const assets = {
+getAssets:()=>({
+    type: GET_ASSETS
+} as const),
+getAssetsSuccess:(assets)=>({
+    type: GET_ASSETS_SUCCESS,
+    payload: assets
+} as const),
+
+
+}
+
+export const {getAssets, getAssetsSuccess} = assets

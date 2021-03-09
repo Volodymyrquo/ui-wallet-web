@@ -13,7 +13,7 @@ import Preloader from "../../components/Common/Preloader"
 
 const Requisites = () => {
   const handleOnClick = () => {
-    getOHLCVData()
+    getAssets()
   }
   return (
     <React.Fragment>

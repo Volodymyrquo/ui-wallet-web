@@ -1,13 +1,17 @@
 import axios from "axios"
 
 const instance = axios.create({
-  baseURL: `https://rest.coinapi.io/`,
+  baseURL: `https://rest-sandbox.coinapi.io/`,
   headers: {
     "X-CoinAPI-Key": "34C78562-8B50-440F-B123-370B626B5385",
     "Content-Type": "application/json",
     Accept: 'aplication/json'
   },
 })
+
+const array = ['BITSTAMP','GEMINI']
+
+const assetsIds = ['BTC','ETH','XRP','EOS','BCH','LTC','LINK']
 
 export const getOHLCVData = async()=>{
 
@@ -17,13 +21,15 @@ export const getOHLCVData = async()=>{
 }
 export const getAssets = async()=>{
 
-  const response = await instance.get(`v1/assets/BTC`)
+  const response = await instance.get(`v1/assets?filter_asset_id=${assetsIds}`)
    
   return await response.data
+
+
 }
 export const getExchanges = async()=>{
 
-  const response = await instance.get(`v1/exchanges`)
+  const response = await instance.get(`v1/exchanges?filter_exchange_id=${array}`)
    
   return await response.data
 }
