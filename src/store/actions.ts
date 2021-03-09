@@ -19,6 +19,8 @@ export * from "./userSettings/actions"
 export * from "./contactsList/actions"
 //cards list
 export * from "./cards/actions"
+//currencies
+export * from "./currencies/actions"
 
 
 

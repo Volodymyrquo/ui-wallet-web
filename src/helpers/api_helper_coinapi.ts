@@ -11,7 +11,7 @@ const instance = axios.create({
 
 const array = ['BITSTAMP','GEMINI']
 
-const assetsIds = ['BTC','ETH','XRP','EOS','BCH','LTC','LINK']
+const assetsIds = ['BTC','ETH','EOS','BCH','LTC','LINK']
 
 export const getOHLCVData = async()=>{
 
@@ -36,6 +36,12 @@ export const getExchanges = async()=>{
 export const getSymbols = async()=>{
 
   const response = await instance.get(`v1/symbols/BINANCE`)
+   
+  return await response.data
+}
+export const fetchAssetsIcons = async()=>{
+
+  const response = await instance.get(`v1/assets/icons/32`)
    
   return await response.data
 }

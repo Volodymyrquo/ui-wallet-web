@@ -19,10 +19,9 @@ const CurrenciesList:FC<PropsType> = ({assets}) => {
             <thead>
               <tr>
                 <th>Token</th>
+                <th>Name</th>
                 <th>Price</th>
-                <th>Invest</th>
-                <th>Loans</th>
-                <th>Total</th>
+                <th>Date</th>
               </tr>
             </thead>
             <tbody>
@@ -34,32 +33,30 @@ const CurrenciesList:FC<PropsType> = ({assets}) => {
                         <span
                           className={
                             "avatar-title rounded-circle bg-soft-" +
-                            asset.color +
+                          'primary'+
                             " text-" +
-                            asset.color +
+                            'primary' +
                             " font-size-18"
                           }
                         >
-                          <i className={asset.icon} />
+                          <img src={`https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/${asset.id_icon.replace(/-/g, "")}.png`} alt={asset.name} />
+                         {/*  <i className={asset.id_icon} /> */}
                         </span>
                       </div>
-                      <span>{asset.title}</span>
+                      <span>{asset.asset_id}</span>
                     </div>
                   </th>
                   <td>
-                    <div className="text-muted">$ {asset.price}</div>
+                    <h5 className="font-size-14 mb-1">{asset.name}</h5>
+                  </td>
+
+                  <td>
+                    <div className="text-muted">$ {Math.round(asset.price_usd*100)/100}</div>
                   </td>
                   <td>
-                    <h5 className="font-size-14 mb-1">{asset.investRate}</h5>
-                    <div className="text-muted">${asset.investPrice}</div>
+                    <div className="text-muted">{asset.data_trade_end.split('T')[0]} {asset.data_trade_end.split('T')[1].slice(0,8)}</div>
                   </td>
                   <td>
-                    <h5 className="font-size-14 mb-1">{asset.loansRate}</h5>
-                    <div className="text-muted">${asset.loansPrice}</div>
-                  </td>
-                  <td>
-                    <h5 className="font-size-14 mb-1">{asset.totalRate}</h5>
-                    <div className="text-muted">${asset.totalRate}</div>
                   </td>
                 </tr>
               ))}

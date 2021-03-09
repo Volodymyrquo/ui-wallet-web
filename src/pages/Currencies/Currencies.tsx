@@ -1,18 +1,28 @@
-import React,{FC} from "react"
+import React,{FC, useEffect} from "react"
 import { Card, CardBody, Col, Container, Row } from "reactstrap"
 import ReactApexChart from "react-apexcharts"
 import { AppStateType } from "../../store/reducers";
 
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import ChartHeader from "./ChartHeader";
 import CurrenciesList from "./CurrenciesList";
+import { getAssets } from "../../store/currencies/actions";
+import Preloader from "../../components/Common/Preloader";
 
 
 
 const Currencies:FC = () => {
  const state = useSelector((state:AppStateType) => state.currencies)
+ const isFetching = useSelector((state:AppStateType)=> state.currencies.isAssetsFetching)
+ const dispatch = useDispatch()
+
+ useEffect(() => {
+  
+     dispatch(getAssets())
+   
+ }, [getAssets])
 
   return (
     <>
@@ -44,7 +54,7 @@ const Currencies:FC = () => {
               </Card>
             </Col>
             <Col xl="4">
-              <CurrenciesList assets={state.assets}/>
+              {isFetching? <Preloader /> : <CurrenciesList assets={state.assets}/>}
             </Col>
           </Row>
         </Container>

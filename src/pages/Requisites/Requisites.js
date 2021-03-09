@@ -4,16 +4,17 @@ import { Col, Container, Row } from "reactstrap"
 import ContactsList from "../Dashboard/contactsList/contactsList"
 import { setUserSettings } from "../../store/contactsList/actions"
 import {
-  getAssets,
+  fetchAssets,
   getOHLCVData,
   getExchanges,
   getSymbols,
+  fetchAssetsIcons,
 } from "../../helpers/api_helper_coinapi"
 import Preloader from "../../components/Common/Preloader"
 
 const Requisites = () => {
   const handleOnClick = () => {
-    getAssets()
+    fetchAssetsIcons()
   }
   return (
     <React.Fragment>
