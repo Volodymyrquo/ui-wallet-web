@@ -1,6 +1,8 @@
+import { InferActionTypes } from "..";
 import { GET_ASSETS,GET_ASSETS_SUCCESS } from "./actionTypes";
 
 
+export type CurrenciesActionType = InferActionTypes<typeof assets>
 
 const assets = {
 getAssets:()=>({

@@ -1,16 +1,24 @@
+import { GET_ASSETS_SUCCESS } from "./actionTypes";
+import { CurrenciesActionType } from "./actions";
 
 export type AssetType = {
-    icon: string,
-    color: string,
-    title: string,
-    investRate: string,
-    investPrice: string,
-    price: string,
-    loansRate: string,
-    loansPrice: string,
-    totalRate: string,
-    totalPrice: string,
-}
+  asset_id: string
+  data_end: string
+  data_orderbook_end: string
+  data_orderbook_start: string
+  data_quote_end:string
+  data_quote_start: string
+  data_start: string
+  data_symbols_count: number
+  data_trade_end: string
+  data_trade_start: string
+  id_icon: string
+  name: string
+  price_usd: number
+  type_is_crypto: number
+  volume_1day_usd: number
+  volume_1hrs_usd: number
+  volume_1mth_usd: number
 
 const INIT_STATE = {
     series: [
@@ -111,74 +119,18 @@ const INIT_STATE = {
       xaxis: { type: "datetime" },
       yaxis: { tooltip: { enabled: !0 } },
     },
-    assets: [
-        {
-          icon: "mdi mdi-bitcoin",
-          color: "warning",
-          title: "BTC",
-          investRate: "1.2601",
-          investPrice: "6225.74",
-          price: "7525.47",
-          loansRate: "0.1512",
-          loansPrice: "742.32",
-          totalRate: "4.2562",
-          totalPrice: "6425.42",
-        },
-        {
-          icon: "mdi mdi-ethereum",
-          color: "primary",
-          title: "ETH",
-          investRate: "0.0814",
-          investPrice: "3256.29",
-          price: "4235.78",
-          loansRate: "0.0253",
-          loansPrice: "675.04",
-          totalRate: "0.0921",
-          totalPrice: "4536.24",
-        },
-        {
-          icon: "mdi mdi-litecoin",
-          color: "info",
-          title: "LTC",
-          investRate: "0.0682",
-          investPrice: "2936.14",
-          price: "3726.06",
-          loansRate: "0.0234",
-          loansPrice: "523.17",
-          totalRate: "0.0823",
-          totalPrice: "3254.23",
-        },
-        {
-          icon: "mdi mdi-bitcoin",
-          color: "warning",
-          title: "BTC",
-          investRate: "1.2601",
-          investPrice: "6225.74",
-          price: "7525.47",
-          loansRate: "0.1512",
-          loansPrice: "742.32",
-          totalRate: "4.2562",
-          totalPrice: "6425.42",
-        },
-        {
-          icon: "mdi mdi-ethereum",
-          color: "primary",
-          title: "ETH",
-          investRate: "0.0814",
-          investPrice: "3256.29",
-          price: "4235.78",
-          loansRate: "0.0253",
-          loansPrice: "675.04",
-          totalRate: "0.0921",
-          totalPrice: "4536.24",
-        },
-      ],
+    assets: [] as [] | Array<AssetType>,
 
   }
 
 
-const currencies = (state=INIT_STATE, action) => {
+const currencies = (state=INIT_STATE, action:CurrenciesActionType) => {
     switch (action.type){
+      case GET_ASSETS_SUCCESS:
+        return {
+          state,
+          assets: action.payload
+        }
         default:
             return state
     }
