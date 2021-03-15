@@ -6,16 +6,18 @@ import { AssetType } from "../../store/currencies/reducer"
 type PropsType = {
   assets: Array<AssetType>
   getAssetsData: (ticker:string)=>void
+  setTicker:(ticker:string)=>void
 }
 
 
-const CurrenciesList:FC<PropsType> = ({assets,getAssetsData}) => {
+const CurrenciesList:FC<PropsType> = ({assets,getAssetsData,setTicker}) => {
 
   
 const dispatch = useDispatch()
 
  const handleOnClick = (e) => {
   dispatch(getAssetsData(e.target.id))
+  setTicker(e.target.id)
 
  }
 

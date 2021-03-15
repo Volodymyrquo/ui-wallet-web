@@ -10,11 +10,14 @@ import ChartHeader from './ChartHeader'
 import CurrenciesList from "./CurrenciesList";
 import { getAssets, getAssetsData } from "../../store/currencies/actions";
 import Preloader from "../../components/Common/Preloader";
+import { AssetType } from "../../store/currencies/reducer";
 
 
 
 const Currencies:FC = () => {
-  const [localState, setLocalState] = useState(null)
+  const [ticker, setTicker] = useState('BTC')
+
+
  const state = useSelector((state:AppStateType) => state.currencies)
  const isFetching = useSelector((state:AppStateType)=> state.currencies.isAssetsFetching)
  const dispatch = useDispatch()
@@ -22,11 +25,24 @@ const Currencies:FC = () => {
  useEffect(() => {
   
      dispatch(getAssets())
-     dispatch(getAssetsData('BTC'))
-     setLocalState(state.assets)
+     dispatch(getAssetsData(ticker))
+    
    
  }, [getAssets, getAssetsData])
 
+
+ 
+let currentAssets:AssetType
+
+if(state.assets !== null){
+  [currentAssets] = state.assets.filter((item)=>{
+    if(item.asset_id === ticker) {
+     
+      return  item
+   }
+  })
+}
+debugger
   return (
     <>
       <div className="page-content">
@@ -39,7 +55,7 @@ const Currencies:FC = () => {
 <Card>
 <CardBody>
   <h4 className="card-title mb-4">Price</h4>
-  { state.assets === null? <Preloader />:<ChartHeader assets={state.assets} />}
+  { state.assets === null? <Preloader />: <ChartHeader {...currentAssets}  />}
 
   <div className="mt-4">
     <div
@@ -62,7 +78,11 @@ const Currencies:FC = () => {
             </Col>
             <Col xl="4">
 
-            {state.assets === null? <Preloader /> : <CurrenciesList getAssetsData={getAssetsData} assets={state.assets}/>}
+            {state.assets === null? <Preloader /> : <CurrenciesList 
+            getAssetsData={getAssetsData} 
+            assets={state.assets}
+            setTicker={setTicker}
+            />}
             </Col>
           </Row>
         </Container>
