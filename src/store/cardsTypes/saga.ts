@@ -19,7 +19,7 @@ function* fetchCardsTypes() {
     yield put(toggleIsFetcing(false))
 
   } catch (error) {
-    console.log(error)
+        console.log('###error',error)
   }
 }
 

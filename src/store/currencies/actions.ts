@@ -30,8 +30,9 @@ isAssetsFetching: (isFetching:boolean)=>({
     type:IS_ASSETS_FETCHING,
     payload: isFetching
 } as const),
-getAssetsData:()=>({
-    type:GET_ASSETS_DATA
+getAssetsData:(ticker:string)=>({
+    type:GET_ASSETS_DATA,
+    payload: ticker
 } as const),
 getAssetsDataSuccess: (data:Array<AssetsDataType>)=>({
     type:GET_ASSETS_DATA_SUCCESS,

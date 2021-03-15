@@ -1,14 +1,24 @@
 import React, { FC } from "react"
+import { useDispatch } from "react-redux"
 import { Card, CardBody, Table } from "reactstrap"
 import { AssetType } from "../../store/currencies/reducer"
 
 type PropsType = {
   assets: Array<AssetType>
+  getAssetsData: (ticker:string)=>void
 }
 
 
-const CurrenciesList:FC<PropsType> = ({assets}) => {
- 
+const CurrenciesList:FC<PropsType> = ({assets,getAssetsData}) => {
+
+  
+const dispatch = useDispatch()
+
+ const handleOnClick = (e) => {
+  dispatch(getAssetsData(e.target.id))
+
+ }
+
   return (
     <Card>
       <CardBody>
@@ -36,11 +46,12 @@ const CurrenciesList:FC<PropsType> = ({assets}) => {
                           'primary'+
                             " text-" +
                             'primary' +
-                            " font-size-18"
+                            " font-size-18 btn"
+                            
                           }
+                          onClick={handleOnClick}
                         >
-                          <img src={`https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/${asset.id_icon.replace(/-/g, "")}.png`} alt={asset.name} />
-                         {/*  <i className={asset.id_icon} /> */}
+                          <img src={`https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/${asset.id_icon.replace(/-/g, "")}.png`} alt={asset.name} id={asset.asset_id} />
                         </span>
                       </div>
                       <span>{asset.asset_id}</span>

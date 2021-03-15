@@ -92,7 +92,7 @@ const SidebarContent = props => {
             </Link>
           </li>
           <li>
-            <Link to="contacts" className="waves-effect">
+            <Link to="/contacts" className="waves-effect">
               <i className="icon-People"></i>
               <span>Contacts</span>
             </Link>
@@ -105,19 +105,19 @@ const SidebarContent = props => {
           </li>
 
           <li>
-            <Link to="#" className="has-arrow waves-effect">
+            <Link to="/#" className="has-arrow waves-effect">
               <i className="icon-Trade"></i>
               <span>Operations</span>
             </Link>
             <ul className="sub-menu" aria-expanded="false">
               <li>
-                <Link to="#">Types</Link>
+                <Link to="/#">Types</Link>
               </li>
               <li>
-                <Link to="#">For Users</Link>
+                <Link to="/#">For Users</Link>
               </li>
               <li>
-                <Link to="#">For Cards</Link>
+                <Link to="/#">For Cards</Link>
               </li>
             </ul>
           </li>

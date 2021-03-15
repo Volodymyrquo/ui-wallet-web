@@ -21,10 +21,10 @@ function* getAssetsSaga() {
     console.log(error)
   }
 }
-function* getAssetsDataSaga() {
+function* getAssetsDataSaga({ payload: ticker }) {
   try {
     yield put(isAssetsFetching(true))
-    const response = yield call(fetchHistoricalData)
+    const response = yield call(fetchHistoricalData, ticker)
     yield put(getAssetsDataSuccess(response))
     yield put(isAssetsFetching(false))
   } catch (error) {
