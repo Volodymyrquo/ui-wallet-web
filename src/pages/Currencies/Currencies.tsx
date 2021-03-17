@@ -12,6 +12,7 @@ import { getAssets, getAssetsData } from "../../store/currencies/actions";
 import Preloader from "../../components/Common/Preloader";
 import { AssetType } from "../../store/currencies/reducer"
 import ChartSmall from "./ChartSmall";
+import ChartSmallHeader from "./ChartSmallHeader";
 
 
 
@@ -96,7 +97,13 @@ if(state.assets !== null){
           </Row>
           <Row>
 
-          {obj.data === null? <Preloader /> : [1,2,3,4,5,6].map(item=><Col xl='2'key={item}><Card><CardBody><ChartSmall  series={state.series} /></CardBody></Card></Col>)}
+          {obj.data === null? <Preloader /> : [1,2,3,4,5,6].map(item=><Col xl='2'key={item}><Card>
+            <CardBody>
+            <ChartSmallHeader {...currentAssets} changeInPercent={chageInPercent} />
+          <ChartSmall  series={state.series} />
+          </CardBody>
+          </Card>
+          </Col>)}
  
 </Row>
 

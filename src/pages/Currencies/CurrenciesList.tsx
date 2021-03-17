@@ -49,7 +49,6 @@ const dispatch = useDispatch()
                             " text-" +
                             'primary' +
                             " font-size-18 btn"
-                            
                           }
                           onClick={handleOnClick}
                         >
@@ -64,10 +63,10 @@ const dispatch = useDispatch()
                   </td>
 
                   <td>
-                    <div className="text-muted">$ {Math.round(asset.price_usd*100)/100}</div>
+                    <div className="text-muted">$ {(Math.round(asset.price_usd*100)/100).toLocaleString()}</div>
                   </td>
                   <td>
-                    <div className="text-muted">{asset.data_trade_end.split('T')[0]} {asset.data_trade_end.split('T')[1].slice(0,8)}</div>
+                    <div className="text-muted">{asset.data_trade_end.split('T')[0]} {asset.data_trade_end.split('T')[1].slice(0,5)}</div>
                   </td>
                   <td>
                   </td>

@@ -30,7 +30,7 @@ const ChartSmall:FC<PropsType> = ({series}) => {
           type: 'horizontal',
           opacityFrom: 1,
           opacityTo: 1,
-          stops: [0, 100, 100, 100]
+          stops: [10, 40, 60, 100]
         },
       },
       yaxis:{
@@ -61,7 +61,7 @@ const ChartSmall:FC<PropsType> = ({series}) => {
             options={options}
             series={series}
             type='line'
-            height={100}
+            height={60}
             />
         
     )

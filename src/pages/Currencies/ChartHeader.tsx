@@ -36,7 +36,7 @@ const ChartHeader:FC<PropsType> = ({ asset_id, id_icon, name, price_usd, changeI
       <Col xl="3" sm="4">
         <div className="mt-4 mt-sm-0">
           <p className="text-muted mb-2">In USD</p>
-          <h5>{Math.round(price_usd * 100) / 100}</h5>
+          <h5>{(Math.round(price_usd * 100) / 100).toLocaleString()}</h5>
         </div>
       </Col>
 
