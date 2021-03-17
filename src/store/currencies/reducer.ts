@@ -21,21 +21,21 @@ export type AssetType = {
   volume_1mth_usd: number,
 }
 
-type SeriesType = {x:string,y:Array<number>}
+export type SeriesType = {x:string,y:Array<number>}
 
 
 
 type INIT_STATE_TYPE = typeof INIT_STATE
 
 const INIT_STATE = {
-    series:[{data:[]as []| Array<SeriesType>
+    series:[{data: null as null| Array<SeriesType>
     }],
     options: {
       chart: { toolbar: !1, zoom: { enabled: !0 } },
       plotOptions: {
         candlestick: { colors: { upward: "#34c38f", downward: "#f46a6a" } },
       },
-      xaxis: { type: "category" },
+      xaxis: { type: 'datetime' },
       yaxis: { tooltip: { enabled: !0 } },
     },
     assets: null as null | Array<AssetType>,
@@ -61,7 +61,7 @@ const currencies = (state=INIT_STATE, action:CurrenciesActionType):INIT_STATE_TY
             return {
               ...state,
               series:[{
-                data: action.payload.map(item=>{return{x:item.time_close.split('T')[1].slice(0,5), y:[item.price_open,item.price_high,item.price_low,item.price_close]}})
+                data: action.payload.map(item=>{return{x:item.time_period_end, y:[item.price_open,item.price_high,item.price_low,item.price_close]}})
               }]
             }
         default:

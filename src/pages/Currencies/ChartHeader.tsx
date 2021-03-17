@@ -2,8 +2,11 @@ import React, { FC } from "react"
 import { Col, Media, Row } from "reactstrap"
 import { AssetType } from "../../store/currencies/reducer"
 
+type PropsType =  AssetType & {
+  changeInPercent: number
+}
 
-const ChartHeader:FC<AssetType> = ({ asset_id, id_icon, name, price_usd }) => {
+const ChartHeader:FC<PropsType> = ({ asset_id, id_icon, name, price_usd, changeInPercent }) => {
 
   return (
     <Row>
@@ -41,7 +44,7 @@ const ChartHeader:FC<AssetType> = ({ asset_id, id_icon, name, price_usd }) => {
         <div className="mt-4 mt-sm-0">
           <p className="text-muted mb-2">Last 24 hrs</p>
           <h5>
-            0.24 % <i className="mdi mdi-arrow-up text-success" />
+            {changeInPercent} % {changeInPercent >= 0 ?<i className="mdi mdi-arrow-up text-success" />:<i className="mdi mdi-arrow-down text-danger" />}
           </h5>
         </div>
       </Col>

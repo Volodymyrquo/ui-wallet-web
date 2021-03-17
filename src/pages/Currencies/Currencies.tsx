@@ -10,7 +10,8 @@ import ChartHeader from './ChartHeader'
 import CurrenciesList from "./CurrenciesList";
 import { getAssets, getAssetsData } from "../../store/currencies/actions";
 import Preloader from "../../components/Common/Preloader";
-import { AssetType } from "../../store/currencies/reducer";
+import { AssetType } from "../../store/currencies/reducer"
+import ChartSmall from "./ChartSmall";
 
 
 
@@ -31,6 +32,15 @@ const Currencies:FC = () => {
  }, [getAssets, getAssetsData])
 
 
+ let chageInPercent = 0
+ const [obj] = state.series
+
+ if(obj.data !== null) {
+
+const lastPrice = obj.data[obj.data.length-1].y[obj.data[obj.data.length-1].y.length-1] 
+const previousPrice = obj.data[obj.data.length-25].y[obj.data[obj.data.length-25].y.length-1]
+ chageInPercent = Math.round((lastPrice - previousPrice)/lastPrice*100*100)/100 }
+
  
 let currentAssets:AssetType
 
@@ -42,7 +52,7 @@ if(state.assets !== null){
    }
   })
 }
-debugger
+
   return (
     <>
       <div className="page-content">
@@ -51,11 +61,11 @@ debugger
           <Breadcrumbs title="Home" breadcrumbItem="Currencies" />
           <Row>
             <Col xl="8">
-           
+         
 <Card>
 <CardBody>
   <h4 className="card-title mb-4">Price</h4>
-  { state.assets === null? <Preloader />: <ChartHeader {...currentAssets}  />}
+  { state.assets === null? <Preloader />:<ChartHeader {...currentAssets} changeInPercent={chageInPercent} />}
 
   <div className="mt-4">
     <div
@@ -63,18 +73,17 @@ debugger
       className="apex-charts"
       dir="ltr"
     >
-      <ReactApexChart
+     {obj.data === null? <Preloader /> : <ReactApexChart
         series={state.series}
         options={state.options}
         type="candlestick"
         height={410}
-      />
+      />}
     </div>
   </div>
 </CardBody>
 </Card>
 
-              
             </Col>
             <Col xl="4">
 
@@ -85,6 +94,12 @@ debugger
             />}
             </Col>
           </Row>
+          <Row>
+
+          {obj.data === null? <Preloader /> : [1,2,3,4,5,6].map(item=><Col xl='2'key={item}><Card><CardBody><ChartSmall  series={state.series} /></CardBody></Card></Col>)}
+ 
+</Row>
+
         </Container>
       </div>
     </>

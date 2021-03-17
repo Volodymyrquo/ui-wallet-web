@@ -57,7 +57,7 @@ export const fetchAssetsIcons = async()=>{
 
 export const fetchHistoricalData = async(tiker:string)=>{
 
-  const response = await instance.get(`/v1/ohlcv/${tiker}/USD/history?period_id=1MIN&time_start=2021-03-15T09:57:00&time_end=2021-03-15T10:57:00`)
+  const response = await instanceReal.get(`/v1/ohlcv/${tiker}/USD/latest?period_id=1HRS`)
    
   return await response.data
 }
