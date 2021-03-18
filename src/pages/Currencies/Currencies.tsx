@@ -8,10 +8,9 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { useDispatch, useSelector } from "react-redux"
 import ChartHeader from './ChartHeader'
 import CurrenciesList from "./CurrenciesList";
-import { getAssets, getAssetsData,getAssetsDataArraySuccess } from "../../store/currencies/actions";
+import { getAssets, getAssetsData } from "../../store/currencies/actions";
 import Preloader from "../../components/Common/Preloader";
 import { AssetType } from "../../store/currencies/reducer"
-import ChartSmall from "./ChartSmall";
 import ChartSmallHeader from "./ChartSmallHeader";
 
 
@@ -32,7 +31,7 @@ const Currencies:FC = () => {
    
  }, [getAssets, getAssetsData])
 
-
+const seriesSmallData = state.seriesAssetsData
  let chageInPercent = 0
  const [obj] = state.series
 
@@ -53,7 +52,7 @@ if(state.assets !== null){
    }
   })
 }
-
+debugger
   return (
     <>
       <div className="page-content">
@@ -97,13 +96,21 @@ if(state.assets !== null){
           </Row>
           <Row>
 
-          {obj.data === null? <Preloader /> : state.assets.map((item,idx)=><Col xl='2'key={idx}><Card>
+          {obj.data === null || state.seriesAssetsData.length === 0 || state.assets === null   ? <Preloader /> : state.assets.map((item,idx)=>{
+           const series = state.seriesAssetsData.find(el => el['name']===item.asset_id)
+            return <Col xl='2'key={idx}><Card>
             <CardBody>
             <ChartSmallHeader {...item} changeInPercent={chageInPercent} />
-          <ChartSmall  series={state.series} />
+            <ReactApexChart
+            options={state.optionsAssestData}
+            series={[series]}
+            type='line'
+            height={60}
+            />
           </CardBody>
           </Card>
-          </Col>)}
+          </Col>}
+          )}
  
 </Row>
 
