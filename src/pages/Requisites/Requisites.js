@@ -10,6 +10,7 @@ import {
   getSymbols,
   fetchAssetsIcons,
   fetchHistoricalData,
+  fetchLatestDataArray,
 } from "../../helpers/api_helper_coinapi"
 import Preloader from "../../components/Common/Preloader"
 
@@ -31,7 +32,7 @@ const Requisites = () => {
   })
 
   const handleOnClick = () => {
-    fetchAssets()
+    fetchLatestDataArray()
   }
   return (
     <React.Fragment>

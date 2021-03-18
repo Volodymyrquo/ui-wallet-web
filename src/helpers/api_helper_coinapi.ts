@@ -20,7 +20,7 @@ const instanceReal = axios.create({
 
 const array = ['BITSTAMP','GEMINI']
 
-const assetsIds = ['BTC','ETH','EOS','BCH','LTC','LINK']
+export const assetsIds = ['BTC','ETH','EOS','BCH','LTC','LINK']
 
 export const getOHLCVData = async()=>{
 
@@ -61,3 +61,15 @@ export const fetchHistoricalData = async(tiker:string)=>{
    
   return await response.data
 }
+
+
+
+export const fetchLatestDataArray = async (ticker:string) => {
+  const response = await instance.get(`/v1/ohlcv/${ticker}/USD/latest?period_id=1HRS&limit=10`)
+    
+  return await response.data 
+
+}
+
+
+

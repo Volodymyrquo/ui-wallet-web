@@ -8,7 +8,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { useDispatch, useSelector } from "react-redux"
 import ChartHeader from './ChartHeader'
 import CurrenciesList from "./CurrenciesList";
-import { getAssets, getAssetsData } from "../../store/currencies/actions";
+import { getAssets, getAssetsData,getAssetsDataArraySuccess } from "../../store/currencies/actions";
 import Preloader from "../../components/Common/Preloader";
 import { AssetType } from "../../store/currencies/reducer"
 import ChartSmall from "./ChartSmall";
@@ -97,9 +97,9 @@ if(state.assets !== null){
           </Row>
           <Row>
 
-          {obj.data === null? <Preloader /> : [1,2,3,4,5,6].map(item=><Col xl='2'key={item}><Card>
+          {obj.data === null? <Preloader /> : state.assets.map((item,idx)=><Col xl='2'key={idx}><Card>
             <CardBody>
-            <ChartSmallHeader {...currentAssets} changeInPercent={chageInPercent} />
+            <ChartSmallHeader {...item} changeInPercent={chageInPercent} />
           <ChartSmall  series={state.series} />
           </CardBody>
           </Card>
