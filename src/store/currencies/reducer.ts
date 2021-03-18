@@ -44,7 +44,7 @@ const INIT_STATE = {
 
     assets: null as null | AssetType[],
   
-      seriesAssetsData:null as null | SeriesAssetsDataType[],
+    seriesAssetsData: [] as [] | SeriesAssetsDataType[],
     
 
     optionsAssestData: {

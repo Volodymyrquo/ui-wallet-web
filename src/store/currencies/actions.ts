@@ -21,7 +21,6 @@ type AssetsDataArrayType =  AssetsDataType & {
     asset_id:string
 }
 
-debugger
 const assets = {
 getAssets:()=>({
     type: GET_ASSETS
