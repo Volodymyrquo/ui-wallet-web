@@ -1,8 +1,8 @@
 import React, { Component, createRef } from "react"
 import ReactCodeInput from "react-verification-code-input"
 import logout from "../../assets/images/sumra/icon-logout.svg"
-
-export default class ConfirmForm extends Component {
+import { withAuthMain } from "../../components/hoc/withAuthMain"
+class ConfirmForm extends Component {
   static defaultProps = {
     autoFocus: true,
     fieldWidth: 38,
@@ -72,7 +72,7 @@ export default class ConfirmForm extends Component {
 
     if (isComplete) {
       this.props.onSetCode(verificationCode)
-      this.props.onStep(3)
+      window.location.href = "/userform"
     }
   }
 
@@ -90,3 +90,5 @@ export default class ConfirmForm extends Component {
     this.setState({ verificationCode })
   }
 }
+
+export default withAuthMain(ConfirmForm)

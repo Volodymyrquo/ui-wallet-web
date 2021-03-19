@@ -24,6 +24,8 @@ import contactsList from "./contactsList/reducer"
 import cardsList from "./cards/reducer"
 //currencies
 import currencies from "./currencies/reducer"
+//authentification
+import authentification from "./authentification/reducer"
 
 
 
@@ -38,7 +40,8 @@ const rootReducer = combineReducers({
   userSettings,
   contactsList,
   cardsList,
-  currencies
+  currencies,
+  authentification
 
 
 })

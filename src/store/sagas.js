@@ -11,6 +11,7 @@ import getOptionsSaga from "./userSettings/saga"
 import contactsListSaga from "./contactsList/saga"
 import cardsSaga from "./cards/saga"
 import currenciesSaga from "./currencies/saga"
+import authentificationSaga from "./authentification/saga"
 
 export default function* rootSaga() {
   yield all([
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     fork(contactsListSaga),
     fork(cardsSaga),
     fork(currenciesSaga),
+    fork(authentificationSaga),
   ])
 }

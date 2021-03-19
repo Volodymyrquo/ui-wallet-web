@@ -17,8 +17,8 @@ import Messanger from "../../assets/images/sumra/Messanger.svg"
 import WhatsApp from "../../assets/images/sumra/WhatsApp.svg"
 import Signal from "../../assets/images/sumra/Signal.svg"
 import { Link } from "react-router-dom"
-
-export default class FirstForm extends Component {
+import { withAuthMain } from "../../components/hoc/withAuthMain"
+class FirstForm extends Component {
   static defaultProps = {
     targetBlank: "_blank",
     socialLinkWidth: 46,
@@ -80,51 +80,46 @@ export default class FirstForm extends Component {
     })
 
     return (
-      <>
-        <header className="sumra-header">
-          <div className="logotype"></div>
-        </header>
-        <main className="sumra-main">
-          <div className="authentification-form">
-            <h1 className="h1-title">Wellcome to Sumra Chat</h1>
-            <h2 className="h2-subtitle">Please Login or Sign Up</h2>
-            <section>
-              <h3 className="h3-label">Sign up with:</h3>
+      <div className={className}>
+        <h1 className="h1-title">Wellcome to Sumra Chat</h1>
+        <h2 className="h2-subtitle">Please Login or Sign Up</h2>
+        <section>
+          <h3 className="h3-label">Sign up with:</h3>
 
-              <ul className="sumra-social-links">{links}</ul>
-            </section>
-            <div className="sumra-line"></div>
-            <section>
-              <h3 className="h3-label">Sign up with:</h3>
-              <form>
-                <fieldset className="sumra-phone-fieldset">
-                  <legend>Your mobile phone number</legend>
+          <ul className="sumra-social-links">{links}</ul>
+        </section>
+        <div className="sumra-line"></div>
+        <section>
+          <h3 className="h3-label">Sign up with:</h3>
+          <form>
+            <fieldset className="sumra-phone-fieldset">
+              <legend>Your mobile phone number</legend>
 
-                  <PhoneInput
-                    flags={flags}
-                    placeholder="Enter phone number"
-                    value={this.state.phone}
-                    onChange={this._changePhoneNumber}
-                  />
+              <PhoneInput
+                flags={flags}
+                placeholder="Enter phone number"
+                value={this.state.phone}
+                onChange={this._changePhoneNumber}
+              />
 
-                  <div
-                    className="sumra-phone-send"
-                    onClick={this._submitPhoneNumber}
-                  >
-                    <img src={send} alt="send" />
-                  </div>
-                </fieldset>
-              </form>
-            </section>
-            <div className="sumra-line"></div>
-            <Link to="/login">
-              <div className="sumra-Button">
-                <img src={user} width="14" height="17" alt="user" />
-                <span>Login with Sumra ID</span>
+              <div
+                className="sumra-phone-send"
+                onClick={this._submitPhoneNumber}
+              >
+                <img src={send} alt="send" />
               </div>
-            </Link>
+            </fieldset>
+          </form>
+        </section>
+        <div className="sumra-line"></div>
+        <Link to="/login">
+          <div className="sumra-Button">
+            <img src={user} width="14" height="17" alt="user" />
+            <span>Login with Sumra ID</span>
+          </div>
+        </Link>
 
-            {/* <section class = 'sumra-Benefits'>
+        {/* <section class = 'sumra-Benefits'>
                     <div className = 'sumra-Benefit-text'>
                         <b>Earn Unlimited</b> DIVITS for your time and activities on <b>Sumra Chat</b> 
                     </div>
@@ -132,15 +127,8 @@ export default class FirstForm extends Component {
                         <b>Exchange & Redeem</b> DIVITS.
                     </div>
                 </section> */}
-            <img
-              className="sumra-Benefits-draft"
-              src={benefits}
-              alt="benefits"
-            />
-          </div>
-        </main>
-        <footer className="sumra-footer"></footer>
-      </>
+        <img className="sumra-Benefits-draft" src={benefits} alt="benefits" />
+      </div>
     )
   }
 
@@ -183,3 +171,5 @@ export default class FirstForm extends Component {
     window.location.href = "/confirm"
   }
 }
+
+export default withAuthMain(FirstForm)

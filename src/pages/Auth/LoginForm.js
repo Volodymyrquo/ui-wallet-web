@@ -4,6 +4,8 @@ import lock from "../../assets/images/sumra/icon-lock.svg"
 import logout from "../../assets/images/sumra/icon-logout.svg"
 import { connect } from "react-redux"
 import { getUserAccessToken } from "../../store/authSumra/actions"
+import { withAuthMain } from "../../components/hoc/withAuthMain"
+import { compose } from "redux"
 /* import { _signIn } from "../../redux/auth-reducer"
  */
 class LoginForm extends Component {
@@ -118,4 +120,7 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null, { getUserAccessToken })(LoginForm)
+export default compose(
+  connect(null, { getUserAccessToken }),
+  withAuthMain
+)(LoginForm)
