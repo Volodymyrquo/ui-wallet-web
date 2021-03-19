@@ -108,12 +108,12 @@ button {
     }
 
     &:before {
-      background-image: url("../../assets/images/sumra/Sumra_Chat_Logo.svg");
+      background-image: url("../../../images/sumra/Sumra_Chat_Logo.svg");
     }
 
     &:after {
       display: none;
-      background-image: url("../../assets/images/sumra/Sumra_Chat_Logo_hover.svg");
+      background-image: url("../../../images/sumra/Sumra_Chat_Logo_hover.svg");
     }
 
     &:hover {
@@ -133,7 +133,7 @@ button {
 .sumra-main {
   min-height: $MainMinHeight;
   background-color: $MainColor;
-  background-image: url("../../assets/images/sumra/pattern.svg");
+  background-image: url("../../../images/sumra/pattern.svg");
 
   .h1-title,
   .h2-subtitle,
@@ -182,7 +182,7 @@ button {
 .sumra-line {
   width: 100%;
   height: 45px;
-  background-image: url("../../assets/images/sumra/Line.svg");
+  background-image: url("../../../images/sumra/Line.svg");
   background-repeat: no-repeat;
   background-position-y: center;
 }
@@ -368,7 +368,7 @@ button {
       clear: both;
       width: 12px;
       height: 9px;
-      background-image: url("../../assets/images/sumra/Vector.svg");
+      background-image: url("../../../images/sumra/Vector.svg");
       background-size: cover;
       background-position: center;
     }

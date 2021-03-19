@@ -31,7 +31,6 @@ const Currencies:FC = () => {
    
  }, [getAssets, getAssetsData])
 
-const seriesSmallData = state.seriesAssetsData
  let chageInPercent = 0
  const [obj] = state.series
 
@@ -41,7 +40,7 @@ const lastPrice = obj.data[obj.data.length-1].y[obj.data[obj.data.length-1].y.le
 const previousPrice = obj.data[obj.data.length-25].y[obj.data[obj.data.length-25].y.length-1]
  chageInPercent = Math.round((lastPrice - previousPrice)/lastPrice*100*100)/100 }
 
- 
+ debugger
 let currentAssets:AssetType
 
 if(state.assets !== null){
@@ -52,7 +51,7 @@ if(state.assets !== null){
    }
   })
 }
-debugger
+
   return (
     <>
       <div className="page-content">

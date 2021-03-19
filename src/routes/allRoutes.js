@@ -2,7 +2,11 @@ import React from "react"
 import { Redirect } from "react-router-dom"
 
 // Authentication related pages
-import Auth from "../pages/Auth/AuthPage"
+import Auth from "../pages/Auth/AuthPage1"
+import Login from "../pages/Auth/LoginForm"
+import Confirm from "../pages/Auth/ConfirmForm"
+import UserForm from "../pages/Auth/UserForm"
+import FirstForm from "../pages/Auth/FirstForm"
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
 
@@ -32,6 +36,12 @@ const userRoutes = [
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
 ]
 
-const authRoutes = [{ path: "/auth", component: Auth }]
+const authRoutes = [
+  { path: "/auth", component: FirstForm },
+  { path: "/login", component: Login },
+  { path: "/firstform", component: FirstForm },
+  { path: "/confirm", component: Confirm },
+  { path: "/userform", component: UserForm },
+]
 
 export { userRoutes, authRoutes }

@@ -30,7 +30,7 @@ export const getOHLCVData = async()=>{
 }
 export const fetchAssets = async()=>{
 
-  const response = await instanceReal.get(`v1/assets?filter_asset_id=${assetsIds}`)
+  const response = await instance.get(`v1/assets?filter_asset_id=${assetsIds}`)
    
   return await response.data
 
@@ -65,7 +65,7 @@ export const fetchHistoricalData = async(tiker:string)=>{
 
 
 export const fetchLatestDataArray = async (ticker:string) => {
-  const response = await instanceReal.get(`/v1/ohlcv/${ticker}/USD/latest?period_id=1HRS&limit=24`)
+  const response = await instance.get(`/v1/ohlcv/${ticker}/USD/latest?period_id=1HRS&limit=24`)
     
   return await response.data 
 

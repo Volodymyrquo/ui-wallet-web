@@ -61,7 +61,7 @@ export default class AuthPage extends Component {
         <header className="sumra-header">
           <div className="logotype"></div>
         </header>
-        <main className="sumra-main">{step}</main>
+        <main className="sumra-main"></main>
         <footer className="sumra-footer"></footer>
       </>
     )

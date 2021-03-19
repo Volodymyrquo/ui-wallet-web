@@ -2,7 +2,7 @@ import React, { Component, createRef } from "react"
 import ReactCodeInput from "react-verification-code-input"
 import logout from "../../assets/images/sumra/icon-logout.svg"
 
-export class ConfirmForm extends Component {
+export default class ConfirmForm extends Component {
   static defaultProps = {
     autoFocus: true,
     fieldWidth: 38,

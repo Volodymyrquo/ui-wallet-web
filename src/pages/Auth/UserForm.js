@@ -11,7 +11,7 @@ import personOrange from "../../assets/images/sumra/icon-person-orange.svg"
 import iconBlock from "../../assets/images/sumra/icon-block.svg"
 import checkGreen from "../../assets/images/sumra/icon-check-green.svg"
 
-export class UserForm extends Component {
+export default class UserForm extends Component {
   constructor(props) {
     super(props)
 
@@ -50,7 +50,7 @@ if (this.timerID) {
     if (!username) {
       filedsetClassName = "sumra-input-fieldset"
       personIconSrc = personIcon
-      validIconSrc = null
+      validIconSrc = personOrange
       message = null
     } else {
       filedsetClassName = "sumra-input-fieldset available"
