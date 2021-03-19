@@ -20,7 +20,8 @@ class LoginForm extends Component {
 
   render() {
     let { className } = this.props
-    className += "login-form"
+    className += " login-form"
+
     return (
       <div className={className}>
         <h1 className="h1-title">Login with Sumra ID</h1>
@@ -108,9 +109,9 @@ class LoginForm extends Component {
           token_type,
         } = result
 
-        const { location, localStorage } = window
+        localStorage.setItem("token", access_token)
+        location.href = "/"
 
-        localStorage.setItem("access_token", access_token)
         location.href = "http://localhost:3000/"
       })
   }

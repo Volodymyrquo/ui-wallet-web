@@ -17,14 +17,17 @@ const instance = axios.create({
       "Basic XzFvVjN1SlZVMHJ6TEVzMTVQdEdLT2RtcmxJYTpqQjIzbXVVN2FJa1JhN0tPRkNNMEh1VXA1U1Fh",
   },
 })
-export const fetchAuth = ({ username, password }:GetUserAccessTokenType):any => {
+export const fetchAuth = async ({ username, password }:GetUserAccessTokenType) => {
   const newData = new URLSearchParams({
     username,
     password,
     grant_type: "password",
   })
 
-  return instance.post<AccessTokenApiType>(`/token`, newData).then(response => response.data)
+  const data = await instance.post<AccessTokenApiType>(`/token`, newData).then(response => response.data)
+
+  return data
+
   
 }
 

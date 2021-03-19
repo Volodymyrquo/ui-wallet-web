@@ -25,6 +25,7 @@ export const setUserName = (username:string):SetUserNameActionType => ({
   payload: username,
 })
 
+
 export const getUserAccessToken = ({ username, password}:GetUserAccessTokenType):GetUserAccessTokenActionType => ({
     type: GET_USER_ACCESS_TOKEN,
     payload: { username, password },

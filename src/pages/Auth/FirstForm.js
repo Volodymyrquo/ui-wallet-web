@@ -147,7 +147,7 @@ class FirstForm extends Component {
    * _goToVeryfycationCodePage
    */
   _goToVeryfycationCodePage = () => {
-    this.props.onStep(2)
+    window.location.href = "/confirm"
   }
 
   _submitPhoneNumber = event => {

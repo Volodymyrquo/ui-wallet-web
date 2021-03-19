@@ -10,8 +10,8 @@ import personIcon from "../../assets/images/sumra/icon-person.svg"
 import personOrange from "../../assets/images/sumra/icon-person-orange.svg"
 import iconBlock from "../../assets/images/sumra/icon-block.svg"
 import checkGreen from "../../assets/images/sumra/icon-check-green.svg"
-
-export default class UserForm extends Component {
+import { withAuthMain } from "../../components/hoc/withAuthMain"
+class UserForm extends Component {
   constructor(props) {
     super(props)
 
@@ -160,3 +160,5 @@ if (this.timerID) {
     }
   }
 }
+
+export default withAuthMain(UserForm)

@@ -9,19 +9,10 @@ import { fetchAuth } from "../../helpers/api_helper"
 //wokers
 function* signIn({ payload: { username, password } }) {
   try {
-    const response = yield call(fetchAuth, { username, password })
-    const {
-      access_token,
-      /*     expires_in,
-      refresh_token,
-      token_type,
-   */
-    } = response
-
-    localStorage.setItem("token", access_token)
-    location.href = "/"
-
+    const { access_token } = yield call(fetchAuth, { username, password })
+    /* const { access_token, expires_in, refresh_token, token_type } = response */
     yield put(setUserAccessToken(access_token))
+    yield localStorage.setItem("token", access_token)
   } catch (error) {
     yield put(apiError(error))
   }

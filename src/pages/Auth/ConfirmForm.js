@@ -1,7 +1,9 @@
 import React, { Component, createRef } from "react"
+import { connect } from "react-redux"
 import ReactCodeInput from "react-verification-code-input"
 import logout from "../../assets/images/sumra/icon-logout.svg"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
+import { setVerificationCode } from "../../store/authentification/actions"
 class ConfirmForm extends Component {
   static defaultProps = {
     autoFocus: true,
@@ -71,7 +73,7 @@ class ConfirmForm extends Component {
     const isComplete = verificationCode.length === fields
 
     if (isComplete) {
-      this.props.onSetCode(verificationCode)
+      setVerificationCode(verificationCode)
       window.location.href = "/userform"
     }
   }
@@ -91,4 +93,4 @@ class ConfirmForm extends Component {
   }
 }
 
-export default withAuthMain(ConfirmForm)
+export default connect(null, { setVerificationCode })(withAuthMain(ConfirmForm))
