@@ -6,6 +6,7 @@ import { connect } from "react-redux"
 import { getUserAccessToken } from "../../store/authSumra/actions"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
 import { compose } from "redux"
+import { withHomeRedirect } from "../../components/hoc/withHomeRedirect"
 /* import { _signIn } from "../../redux/auth-reducer"
  */
 class LoginForm extends Component {
@@ -123,5 +124,6 @@ class LoginForm extends Component {
 
 export default compose(
   connect(null, { getUserAccessToken }),
+  withHomeRedirect,
   withAuthMain
 )(LoginForm)

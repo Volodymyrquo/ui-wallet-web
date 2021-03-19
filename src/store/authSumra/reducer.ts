@@ -13,6 +13,7 @@ const INIT_STATE = {
   accessToken: null as null | string,
   username: "",
   invalidUserName: false,
+  isAuth: false
 }
 
 const authReducer = (state = INIT_STATE, action:ActionType):INIT_STATE_TYPE => {
@@ -21,6 +22,7 @@ const authReducer = (state = INIT_STATE, action:ActionType):INIT_STATE_TYPE => {
       return {
         ...state,
         accessToken: action.payload,
+        isAuth: true
       }
     case GET_USER_ACCESS_TOKEN:
       return {
