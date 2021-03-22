@@ -10,7 +10,6 @@ export const withAuthMain = Component => {
         <main className="sumra-main">
           <Component {...props} className={"authentification-form"} />
         </main>
-        <footer className="sumra-footer"></footer>
       </>
     )
   }

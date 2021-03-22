@@ -1,0 +1,20 @@
+export const END_POINTS = {
+  SERVER: "https://api.sumra.net/",
+  SEND_CODE: "auth/v1/send-code",
+  VALIDATE: "auth/v1/validate",
+  REGISTRATION: "auth/v1/registration",
+  AUTHENTIFICATION: "token/auth/v1/meet/authenticate",
+}
+
+export const sendCodeApi = async data => {
+  debugger
+  const response = await fetch("https://api.sumra.net/auth/v1/send-code", {
+    body: JSON.stringify(data),
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  debugger
+  return response
+}

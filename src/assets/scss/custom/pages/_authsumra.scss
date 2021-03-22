@@ -18,7 +18,7 @@ $PhoneInputLegend: #8b8b8b;
 
 $HeaderHeight: 64px;
 $FooterHeight: 153px;
-$MainMinHeight: calc(100vh - #{$HeaderHeight} - #{$FooterHeight});
+$MainMinHeight: calc(100vh - #{$HeaderHeight});
 
 $BackgroundButtonLogin: linear-gradient(
     219.49deg,
