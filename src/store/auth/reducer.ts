@@ -4,7 +4,7 @@ import {
   GET_USER_ACCESS_TOKEN,
 } from "./actionTypes"
 
-import { ActionType } from "./actions";
+import { AuthActionType } from "./actions";
 
 export type INIT_STATE_TYPE = typeof INIT_STATE;
 
@@ -16,7 +16,7 @@ const INIT_STATE = {
   isAuth: false
 }
 
-const authReducer = (state = INIT_STATE, action:ActionType):INIT_STATE_TYPE => {
+const authReducer = (state = INIT_STATE, action:AuthActionType):INIT_STATE_TYPE => {
   switch (action.type) {
     case SET_USER_ACCESS_TOKEN:
       return {

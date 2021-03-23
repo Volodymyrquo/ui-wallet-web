@@ -2,7 +2,7 @@ import { all, fork } from "redux-saga/effects"
 
 //public
 //import AuthSaga from "./auth/login/saga"
-import AuthSumraSaga from "./authSumra/saga"
+import AuthSumraSaga from "./auth/saga"
 import LayoutSaga from "./layout/saga"
 import usersSaga from "./usersPage/saga"
 import cardsTypesSaga from "./cardsTypes/saga"

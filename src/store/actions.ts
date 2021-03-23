@@ -1,7 +1,7 @@
 export * from "./layout/actions"
 
 // Authentication module
-export * from "./authSumra/actions"
+export * from "./auth/actions"
 
 // users
 export * from "./usersPage/actions"

@@ -4,7 +4,7 @@ import { combineReducers } from "redux"
 import Layout from "./layout/reducer"
 
 // Authentication
-import authReducer from "./authSumra/reducer"
+import authReducer from "./auth/reducer"
 
 //users
 import usersPage from "./usersPage/reducer"

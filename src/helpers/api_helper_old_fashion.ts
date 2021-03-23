@@ -1,7 +1,7 @@
+import { getUserAccessToken } from './../store/auth/actions';
 import axios from "axios"
 import accessToken from "./jwt-token-access/accessToken"
 import basicToken from "./jwt-token-access/basicToken"
-import { GetUserAccessTokenType } from "../store/authSumra/actions";
 //pass new generated access token here
 const token = accessToken
 
@@ -19,6 +19,10 @@ type AccessTokenApiType = {
   token_type: string
 
 }
+type FetchAuthType = {
+username:string
+password:string
+}
 
 const instance = axios.create({
   baseURL: `https://api.sumra.net`,
@@ -28,7 +32,7 @@ const instance = axios.create({
       "Basic XzFvVjN1SlZVMHJ6TEVzMTVQdEdLT2RtcmxJYTpqQjIzbXVVN2FJa1JhN0tPRkNNMEh1VXA1U1Fh",
   },
 })
-export const fetchAuth = ({ username, password }:GetUserAccessTokenType):any => {
+export const fetchAuth = ({ username, password }:FetchAuthType):any => {
   const newData = new URLSearchParams({
     username,
     password,
