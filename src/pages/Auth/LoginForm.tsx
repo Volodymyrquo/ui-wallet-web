@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState,FC } from "react"
 import person from "../../assets/images/sumra/icon-person.svg"
 import lock from "../../assets/images/sumra/icon-lock.svg"
 import logout from "../../assets/images/sumra/icon-logout.svg"
-import { connect, useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { getUserAccessToken } from "../../store/authSumra/actions"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
-import { compose } from "redux"
 import { Link, Redirect } from "react-router-dom"
 import { AppStateType } from "../../store/reducers"
 
-const LoginForm = ({ className, getUserAccessToken }) => {
+type PropsType = {
+  className: string
+}
+
+const LoginForm:FC<PropsType> = ({ className }) => {
+  const dispatch = useDispatch()
   const isAuthSuccess = useSelector((state: AppStateType) => state.authReducer.isAuth)
   const [isAuth, setIsAuth] = useState(false)
   const [username, setUsername] = useState("VOLODYMYRB")
@@ -33,7 +37,7 @@ const LoginForm = ({ className, getUserAccessToken }) => {
     event.preventDefault()
 
     if (username && password) {
-      getUserAccessToken({ username, password })
+      dispatch(getUserAccessToken({ username, password }))
     }
   }
 
@@ -96,7 +100,4 @@ const LoginForm = ({ className, getUserAccessToken }) => {
   }
 }
 
-export default compose(
-  connect(null, { getUserAccessToken }),
-  withAuthMain
-)(LoginForm)
+export default withAuthMain(LoginForm)
