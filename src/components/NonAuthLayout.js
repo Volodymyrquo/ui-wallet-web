@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { withRouter } from "react-router-dom"
 
@@ -16,8 +16,7 @@ class NonAuthLayout extends Component {
   componentDidMount() {
     let currentage = this.capitalizeFirstLetter(this.props.location.pathname)
 
-    document.title =
-      currentage + " | Skote - Responsive Bootstrap 4 Admin Dashboard"
+    document.title = currentage + " | Ulta Cards Infinity"
   }
   render() {
     return <React.Fragment>{this.props.children}</React.Fragment>
@@ -26,7 +25,7 @@ class NonAuthLayout extends Component {
 
 NonAuthLayout.propTypes = {
   children: PropTypes.any,
-  location: PropTypes.object
+  location: PropTypes.object,
 }
 
 export default withRouter(NonAuthLayout)
