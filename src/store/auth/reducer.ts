@@ -1,7 +1,7 @@
 import {
   SET_USER_ACCESS_TOKEN,
   SET_USER_NAME,
-  GET_USER_ACCESS_TOKEN,
+  GET_USER_ACCESS_TOKEN,SET_VERIFICATION_CODE
 } from "./actionTypes"
 
 import { AuthActionType } from "./actions";
@@ -13,7 +13,8 @@ const INIT_STATE = {
   accessToken: null as null | string,
   username: "",
   invalidUserName: false,
-  isAuth: false
+  isAuth: false,
+  verificationCode: ''
 }
 
 const authReducer = (state = INIT_STATE, action:AuthActionType):INIT_STATE_TYPE => {
@@ -33,6 +34,12 @@ const authReducer = (state = INIT_STATE, action:AuthActionType):INIT_STATE_TYPE 
         ...state,
         username: action.payload,
       }
+      case SET_VERIFICATION_CODE:
+        return {
+            ...state,
+            verificationCode: action.payload.toUpperCase()
+        }
+
     default:
       return state
   }

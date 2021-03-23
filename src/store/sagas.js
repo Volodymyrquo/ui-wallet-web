@@ -2,7 +2,7 @@ import { all, fork } from "redux-saga/effects"
 
 //public
 //import AuthSaga from "./auth/login/saga"
-import AuthSumraSaga from "./auth/saga"
+import AuthSaga from "./auth/saga"
 import LayoutSaga from "./layout/saga"
 import usersSaga from "./usersPage/saga"
 import cardsTypesSaga from "./cardsTypes/saga"
@@ -11,13 +11,12 @@ import getOptionsSaga from "./userSettings/saga"
 import contactsListSaga from "./contactsList/saga"
 import cardsSaga from "./cards/saga"
 import currenciesSaga from "./currencies/saga"
-import authentificationSaga from "./authentification/saga"
 
 export default function* rootSaga() {
   yield all([
     //public
     //fork(AuthSaga),
-    fork(AuthSumraSaga),
+    fork(AuthSaga),
     LayoutSaga(),
     fork(usersSaga),
     fork(cardsTypesSaga),
@@ -26,6 +25,5 @@ export default function* rootSaga() {
     fork(contactsListSaga),
     fork(cardsSaga),
     fork(currenciesSaga),
-    fork(authentificationSaga),
   ])
 }
