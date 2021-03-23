@@ -1,10 +1,11 @@
-import React, { useState ,FC} from "react"
-import { connect } from "react-redux"
+import React, { useState ,FC, useEffect} from "react"
+import { connect, useSelector } from "react-redux"
 import { Redirect } from "react-router"
 import ReactCodeInput from "react-verification-code-input"
 import logout from "../../assets/images/sumra/icon-logout.svg"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
 import { getVerificationCode } from "../../store/auth/actions"
+import { AppStateType } from "../../store/reducers"
 
 
 type PropsType = {
@@ -27,8 +28,9 @@ const ConfirmForm:FC<PropsType> = ({
   getVerificationCode,
 }) => {
   const [code, setCode] = useState("")
+  const isAuthSuccess = useSelector((state: AppStateType) => state.authReducer.isAuth)
+  const [isAuth, setIsAuth] = useState(false)
 
-  className += " verification-code-form"
 
   const submitVerificationCode = event => {
     event.preventDefault()
@@ -39,6 +41,10 @@ const ConfirmForm:FC<PropsType> = ({
       getVerificationCode(code)
     }
   }
+  useEffect(() => {
+    setIsAuth(isAuthSuccess)
+    
+     }, [submitVerificationCode])
 
   const handleChange = vals => {
     setCode(vals)
@@ -46,8 +52,11 @@ const ConfirmForm:FC<PropsType> = ({
   const handleComplete = val => {
     setCode(val)
   }
+  className += " verification-code-form"
 
-  return (
+  {if(isAuth) return <Redirect to={"/userform"} />
+    
+    return (
     <div className={className}>
       <h1 className="h1-title">Confirmation Access</h1>
 
@@ -77,7 +86,7 @@ const ConfirmForm:FC<PropsType> = ({
         </button>
       </form>
     </div>
-  )
+  )}
 }
 
 export default connect(null, { getVerificationCode })(withAuthMain(ConfirmForm))

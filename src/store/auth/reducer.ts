@@ -37,7 +37,8 @@ const authReducer = (state = INIT_STATE, action:AuthActionType):INIT_STATE_TYPE 
       case SET_VERIFICATION_CODE:
         return {
             ...state,
-            verificationCode: action.payload.toUpperCase()
+            verificationCode: action.payload.toUpperCase(),
+            isAuth: true
         }
 
     default:
