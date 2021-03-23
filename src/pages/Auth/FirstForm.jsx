@@ -11,7 +11,7 @@ import { Link } from "react-router-dom"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
 import { socialLinks } from "../../common/data/socialLinks"
 import { useDispatch } from "react-redux"
-import { sendCode } from "../../store/authentification/actions"
+import { sendCode } from "../../store/auth/actions"
 
 const FirstForm = ({ className }) => {
   const [phone, setPhone] = useState("")

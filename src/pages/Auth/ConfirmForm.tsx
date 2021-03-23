@@ -4,7 +4,7 @@ import { Redirect } from "react-router"
 import ReactCodeInput from "react-verification-code-input"
 import logout from "../../assets/images/sumra/icon-logout.svg"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
-import { getVerificationCode } from "../../store/authentification/actions"
+import { getVerificationCode } from "../../store/auth/actions"
 
 
 type PropsType = {
