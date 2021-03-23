@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, FC } from "react"
 import { makeid } from "../../components/Common/functions"
 import { isMobile } from "react-device-detect"
 import "react-phone-number-input/style.css"
@@ -12,8 +12,13 @@ import { withAuthMain } from "../../components/hoc/withAuthMain"
 import { socialLinks } from "../../common/data/socialLinks"
 import { useDispatch } from "react-redux"
 import { sendCode } from "../../store/auth/actions"
+import ConfirmForm from "./ConfirmForm"
 
-const FirstForm = ({ className }) => {
+type PropsType = {
+  className:string
+}
+
+const FirstForm:FC<PropsType> = ({ className }) => {
   const [phone, setPhone] = useState("")
   const dispatch = useDispatch()
 
@@ -25,7 +30,8 @@ const FirstForm = ({ className }) => {
    * _goToVeryfycationCodePage
    */
   const goToVeryfycationCodePage = () => {
-    window.location.href = "/confirm"
+
+    return <ConfirmForm />
   }
 
   const submitPhoneNumber = event => {

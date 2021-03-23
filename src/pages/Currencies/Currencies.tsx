@@ -20,7 +20,6 @@ const Currencies:FC = () => {
 
 
  const state = useSelector((state:AppStateType) => state.currencies)
- const isFetching = useSelector((state:AppStateType)=> state.currencies.isAssetsFetching)
  const dispatch = useDispatch()
 
  useEffect(() => {
@@ -40,7 +39,7 @@ const lastPrice = obj.data[obj.data.length-1].y[obj.data[obj.data.length-1].y.le
 const previousPrice = obj.data[obj.data.length-25].y[obj.data[obj.data.length-25].y.length-1]
  chageInPercent = Math.round((lastPrice - previousPrice)/lastPrice*100*100)/100 }
 
- debugger
+
 let currentAssets:AssetType
 
 if(state.assets !== null){

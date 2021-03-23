@@ -11,11 +11,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 //import cardTypesListColumns from "./cardTypesListColumns"
-import {
-  GetCardsTypessActionType,
-  getCardsTypes,
-} from "../../store/cardsTypes/actions"
-import { AppStateType } from "../../store/reducers"
+import { getCardsTypes } from "../../store/cardsTypes/actions"
 import Preloader from "../../components/Common/Preloader"
 
 /* type MapStateToPropsType = {

@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { Col, Media, Row } from "reactstrap"
+import { Col, Row } from "reactstrap"
 import { AssetType } from "../../store/currencies/reducer"
 
 type PropsType =  AssetType & {

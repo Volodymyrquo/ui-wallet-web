@@ -27,18 +27,6 @@ class UserForm extends Component {
     this.timerID = null
   }
 
-  /*   _changeInput = (event) => {
-    const username = event.target.value;
-    const timer = this.timerID;
-this._changeInput(username,timer)
-
-if (this.timerID) {
-  clearTimeout(this.timerID);
-
-}
-
-  } */
-
   render() {
     const { invalidUserName, username } = this.state
     let { className } = this.props
