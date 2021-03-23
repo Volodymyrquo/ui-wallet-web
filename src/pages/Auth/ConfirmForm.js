@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
+import { Redirect } from "react-router"
 import ReactCodeInput from "react-verification-code-input"
 import logout from "../../assets/images/sumra/icon-logout.svg"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
@@ -11,6 +12,7 @@ const ConfirmForm = ({
   type = "text",
   fields = 6,
   className,
+  getVerificationCode,
 }) => {
   const [code, setCode] = useState("")
 
@@ -22,11 +24,10 @@ const ConfirmForm = ({
     const isComplete = code.length === fields
 
     if (isComplete) {
-      debugger
       getVerificationCode(code)
-      window.location.href = "/userform"
     }
   }
+
   const handleChange = vals => {
     setCode(vals)
   }

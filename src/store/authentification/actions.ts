@@ -1,5 +1,5 @@
 import { InferActionTypes } from "..";
-import { SET_VERIFICATION_CODE,SEND_CODE, GET_VERIFICATION_CODE } from "./actionType";
+import { SET_VERIFICATION_CODE,SEND_CODE,GET_VERIFICATION_CODE } from "./actionType";
 
 export type SendCodeType = {
     phone_number: string
@@ -7,7 +7,7 @@ export type SendCodeType = {
   }
 
 export type AuthenticationActionType = InferActionTypes<typeof actions>
-debugger
+
 const actions = {
     setVerificationCode: (code:string) =>({
         type:SET_VERIFICATION_CODE,

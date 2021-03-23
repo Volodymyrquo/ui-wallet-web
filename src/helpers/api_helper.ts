@@ -28,6 +28,5 @@ export const fetchAuth = async ({ username, password }:GetUserAccessTokenType) =
 
   return data
 
-  
 }
 

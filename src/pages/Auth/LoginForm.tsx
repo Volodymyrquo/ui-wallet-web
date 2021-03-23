@@ -1,16 +1,23 @@
-import React, { Component, useState } from "react"
+import React, { useEffect, useState } from "react"
 import person from "../../assets/images/sumra/icon-person.svg"
 import lock from "../../assets/images/sumra/icon-lock.svg"
 import logout from "../../assets/images/sumra/icon-logout.svg"
-import { connect } from "react-redux"
+import { connect, useSelector } from "react-redux"
 import { getUserAccessToken } from "../../store/authSumra/actions"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
 import { compose } from "redux"
-import { withHomeRedirect } from "../../components/hoc/withHomeRedirect"
 import { Link, Redirect } from "react-router-dom"
+import { AppStateType } from "../../store/reducers"
+
 const LoginForm = ({ className, getUserAccessToken }) => {
+  const isAuthSuccess = useSelector((state: AppStateType) => state.authReducer.isAuth)
+  const [isAuth, setIsAuth] = useState(false)
   const [username, setUsername] = useState("VOLODYMYRB")
   const [password, setPassword] = useState("vSi0PcykN5")
+  useEffect(() => {
+   setIsAuth(isAuthSuccess)
+   
+    }, [onFormSubmit])
 
   className += " login-form"
 
@@ -19,21 +26,21 @@ const LoginForm = ({ className, getUserAccessToken }) => {
   }
 
   const changePassword = event => {
-    setPassword({ password: event.target.value })
+    setPassword(event.target.value )
   }
 
-  const onFormSubmit = event => {
+  function onFormSubmit(event) {
     event.preventDefault()
 
     if (username && password) {
       getUserAccessToken({ username, password })
     }
-    debugger
-    return <Redirect to={"/"} />
   }
 
-  return (
-    <div className={className}>
+
+
+   {if(isAuth) return  <Redirect to={"/"} /> 
+   return <div className={className}>
       <h1 className="h1-title">Login with Sumra ID</h1>
 
       <form onSubmit={onFormSubmit}>
@@ -86,11 +93,10 @@ const LoginForm = ({ className, getUserAccessToken }) => {
         </div>
       </form>
     </div>
-  )
+  }
 }
 
 export default compose(
   connect(null, { getUserAccessToken }),
-  withHomeRedirect,
   withAuthMain
 )(LoginForm)
