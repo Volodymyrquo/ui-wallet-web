@@ -7,7 +7,6 @@ export const END_POINTS = {
 }
 
 export const sendCodeApi = async data => {
-  debugger
   const response = await fetch("https://api.sumra.net/auth/v1/send-code", {
     body: JSON.stringify(data),
     method: "POST",
@@ -15,6 +14,6 @@ export const sendCodeApi = async data => {
       "Content-Type": "application/json",
     },
   })
-  debugger
+
   return response
 }

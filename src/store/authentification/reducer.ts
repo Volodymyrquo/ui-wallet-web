@@ -8,7 +8,7 @@ const INIT_STATE = {
 verificationCode: ''
 }
 
-const authentificationReducer = (state = INIT_STATE, action:AuthenticationActionType):INIT_STATE_TYPE=>{
+const authentificationReducer = (state = INIT_STATE, action:AuthenticationActionType):INIT_STATE_TYPE=>{debugger
     switch(action.type) {
         case SET_VERIFICATION_CODE:
             return {

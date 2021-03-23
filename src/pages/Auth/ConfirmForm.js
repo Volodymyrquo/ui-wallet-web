@@ -1,96 +1,70 @@
-import React, { Component, createRef } from "react"
+import React, { useState } from "react"
 import { connect } from "react-redux"
 import ReactCodeInput from "react-verification-code-input"
 import logout from "../../assets/images/sumra/icon-logout.svg"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
-import { setVerificationCode } from "../../store/authentification/actions"
-class ConfirmForm extends Component {
-  static defaultProps = {
-    autoFocus: true,
-    fieldWidth: 38,
-    fieldHeight: 44,
-    type: "text",
-    fields: 6,
-  }
+import { getVerificationCode } from "../../store/authentification/actions"
+const ConfirmForm = ({
+  autoFocus = true,
+  fieldWidth = 38,
+  fieldHeight = 44,
+  type = "text",
+  fields = 6,
+  className,
+}) => {
+  const [code, setCode] = useState("")
 
-  constructor(props) {
-    super(props)
+  className += " verification-code-form"
 
-    this.state = {
-      verificationCode: "",
-    }
-
-    this.input = createRef()
-  }
-
-  render() {
-    const { type, fieldWidth, fieldHeight } = this.props
-
-    let { className } = this.props
-
-    className += " verification-code-form"
-
-    return (
-      <div className={className}>
-        <h1 className="h1-title">Confirmation Access</h1>
-
-        <form>
-          <h2 className="h2-label">Enter the six-digit verification code.</h2>
-
-          <ReactCodeInput
-            className="sumra-react-code-input"
-            ref={this.input}
-            type={type}
-            fieldWidth={fieldWidth}
-            fieldHeight={fieldHeight}
-            onChange={this._handleChange}
-            onComplete={this._handleComplete}
-          />
-
-          <button
-            className="sumra-Button"
-            onClick={this._submitVerificationCode}
-          >
-            <img
-              className="sumra-Button-icon-left"
-              src={logout}
-              width="18"
-              alt="logout"
-            />
-
-            <span>Continue</span>
-          </button>
-        </form>
-      </div>
-    )
-  }
-
-  _submitVerificationCode = event => {
+  const submitVerificationCode = event => {
     event.preventDefault()
 
-    const { verificationCode } = this.state
-    const { fields } = this.props
-    const isComplete = verificationCode.length === fields
+    const isComplete = code.length === fields
 
     if (isComplete) {
-      setVerificationCode(verificationCode)
+      debugger
+      getVerificationCode(code)
       window.location.href = "/userform"
     }
   }
-
-  /**
-   * _handleChange
-   */
-  _handleChange = vals => {
-    console.log("handleChange: " + vals)
+  const handleChange = vals => {
+    setCode(vals)
+  }
+  const handleComplete = val => {
+    setCode(val)
   }
 
-  /**
-   * _handleComplete
-   */
-  _handleComplete = verificationCode => {
-    this.setState({ verificationCode })
-  }
+  return (
+    <div className={className}>
+      <h1 className="h1-title">Confirmation Access</h1>
+
+      <form>
+        <h2 className="h2-label">Enter the six-digit verification code.</h2>
+
+        <ReactCodeInput
+          autoFocus={autoFocus}
+          className="sumra-react-code-input"
+          type={type}
+          fieldWidth={fieldWidth}
+          fieldHeight={fieldHeight}
+          onChange={handleChange}
+          onComplete={handleComplete}
+          values={code.split("")}
+        />
+
+        <button className="sumra-Button" onClick={submitVerificationCode}>
+          <img
+            className="sumra-Button-icon-left"
+            src={logout}
+            width="18"
+            alt="logout"
+          />
+
+          <span>Continue</span>
+        </button>
+      </form>
+    </div>
+  )
 }
 
-export default connect(null, { setVerificationCode })(withAuthMain(ConfirmForm))
+export default connect(null, { getVerificationCode })(withAuthMain(ConfirmForm))

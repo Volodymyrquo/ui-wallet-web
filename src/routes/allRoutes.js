@@ -2,7 +2,6 @@ import React from "react"
 import { Redirect } from "react-router-dom"
 
 // Authentication related pages
-import Auth from "../pages/Auth/AuthPage1"
 import Login from "../pages/Auth/LoginForm"
 import Confirm from "../pages/Auth/ConfirmForm"
 import UserForm from "../pages/Auth/UserForm"
@@ -39,7 +38,6 @@ const userRoutes = [
 const authRoutes = [
   { path: "/auth", component: FirstForm },
   { path: "/login", component: Login },
-  { path: "/firstform", component: FirstForm },
   { path: "/confirm", component: Confirm },
   { path: "/userform", component: UserForm },
 ]
