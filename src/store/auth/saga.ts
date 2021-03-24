@@ -4,18 +4,18 @@ import { takeEvery, put, call } from "redux-saga/effects"
 import {
   GET_USER_ACCESS_TOKEN,
   GET_VERIFICATION_CODE,
-  SEND_CODE,
+  SEND_CODE,GET_VALIDATE_NAME
 } from "./actionTypes"
 import {
   setUserAccessToken,
   setUserName,
   sendCode,
   setVerificationCode,
-  getUserAccessToken
+  getUserAccessToken, setValidateName, getValidateName
 } from "./actions"
 //Include Both Helper File with needed methods
 import { fetchAuth } from "../../helpers/api_helper"
-import { sendCodeApi } from "../../helpers/api_helper_auth"
+import { sendCodeApi, fetchValidateName } from "../../helpers/api_helper_auth"
 
 //wokers
 function* signIn({ payload: { username, password } }:ReturnType<typeof getUserAccessToken>) {
@@ -28,6 +28,22 @@ function* signIn({ payload: { username, password } }:ReturnType<typeof getUserAc
   } catch (error) {
     console.log(error)
   }
+}
+
+function* setValidateNameSaga({payload: value}:ReturnType<typeof getValidateName>){
+
+  try {
+    const status = yield call(fetchValidateName, value)
+    if(status === 200){
+      yield put(setValidateName(false))
+    } else {
+      yield put(setValidateName(true))
+    }
+    
+  } catch (error) {
+    console.log(error)
+  }
+
 }
 
 function* setVerificationCodeSaga({
@@ -51,6 +67,7 @@ function* authSumraSaga() {
   yield takeEvery(GET_USER_ACCESS_TOKEN, signIn)
   yield takeEvery(GET_VERIFICATION_CODE, setVerificationCodeSaga)
   yield takeEvery(SEND_CODE, sendCodeSaga)
+  yield takeEvery(GET_VALIDATE_NAME, setValidateNameSaga )
 }
 
 export default authSumraSaga

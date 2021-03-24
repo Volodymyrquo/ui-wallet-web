@@ -3,7 +3,12 @@ import {
   SET_USER_ACCESS_TOKEN,
   SET_USER_NAME,
   GET_USER_ACCESS_TOKEN,
-  GET_USER_NAME,SET_VERIFICATION_CODE,SEND_CODE,GET_VERIFICATION_CODE
+  GET_USER_NAME,
+  SET_VERIFICATION_CODE,
+  SEND_CODE,
+  GET_VERIFICATION_CODE,
+  GET_VALIDATE_NAME,
+  SET_VALIDATE_NAME
 } from "./actionTypes"
 export type SendCodeType = {
   phone_number: string
@@ -22,7 +27,7 @@ setUserName:(username:string) => ({
   type: SET_USER_NAME,
   payload: username,
 } as const),
-getUserAccessToken:({ username, password})=> ({
+getUserAccessToken:({username, password})=> ({
     type: GET_USER_ACCESS_TOKEN,
     payload: { username, password },
   } as const),
@@ -40,8 +45,26 @@ getVerificationCode: (code:string) =>({
 sendCode : (code:SendCodeType) => ({
   type:SEND_CODE,
   payload: code
+} as const),
+getValidateName : (value:string) => ({
+  type:GET_VALIDATE_NAME,
+  payload: value
+} as const),
+
+setValidateName : (value:boolean) => ({
+  type:SET_VALIDATE_NAME,
+  payload: value
 } as const)
 
 }
 
-export const {setUserAccessToken, setUserName,getUserAccessToken,getUserName,setVerificationCode, sendCode,getVerificationCode} = actions
+export const {
+  setUserAccessToken,
+   setUserName,
+   getUserAccessToken,
+   getUserName,
+   setVerificationCode,
+   sendCode,
+   getVerificationCode,
+   getValidateName,
+   setValidateName} = actions

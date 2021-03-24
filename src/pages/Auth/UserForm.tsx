@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react"
+import React, { Component, useEffect, useState } from "react"
 import {
   END_POINTS,
   fetchValidateName,
@@ -10,16 +10,19 @@ import personOrange from "../../assets/images/sumra/icon-person-orange.svg"
 import iconBlock from "../../assets/images/sumra/icon-block.svg"
 import checkGreen from "../../assets/images/sumra/icon-check-green.svg"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { AppStateType } from "../../store/reducers";
+import { getValidateName } from "../../store/auth/actions";
 
 const UserForm = ({className}) => {
+  const dispatch = useDispatch()
 
 const state = useSelector((state:AppStateType)=> state.authReducer)
 const [username, setUsername] = useState(state.username)
 const [invalidUserName, setInvalidUserName] = useState(state.invalidUserName)
+
 let timerID = null
-const verificationCode = state.verificationCode
+const {verificationCode} = state
 
   const changeInput = event => {
 
@@ -32,17 +35,11 @@ const verificationCode = state.verificationCode
     }
 
    timerID = setTimeout(() => {
-      fetchValidateName(value)
-        .then(response => {
-          if (response.status === 200) {
-            setInvalidUserName(false)
-          } else {
-            setInvalidUserName(true)
-          }
-        })
-        .catch(console.error)
+    dispatch(getValidateName(value))
     }, 300)
   }
+
+useEffect(()=>{setInvalidUserName(state.invalidUserName)},[changeInput])
 
   const submitUserForm = async event => {
     event.preventDefault()

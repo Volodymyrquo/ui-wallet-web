@@ -17,3 +17,11 @@ export const sendCodeApi = async data => {
 
   return response
 }
+
+export const fetchValidateName = async name => {
+  const response = await fetch(
+    `https://api.sumra.net/auth/v1/validate?username=${name}`
+  )
+
+  return response.status
+}
