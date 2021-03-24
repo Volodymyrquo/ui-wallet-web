@@ -14,8 +14,8 @@ import {
 } from "../../helpers/api_helper_coinapi"
 import Preloader from "../../components/Common/Preloader"
 
-const ws = new WebSocket("ws://ws-sandbox.coinapi.io/v1/")
-
+/* const ws = new WebSocket("ws://ws-sandbox.coinapi.io/v1/")
+ */
 const Requisites = () => {
   useEffect(() => {
     ws.addEventListener("message", e => {
