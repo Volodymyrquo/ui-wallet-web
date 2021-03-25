@@ -8,11 +8,17 @@ import {
   SEND_CODE,
   GET_VERIFICATION_CODE,
   GET_VALIDATE_NAME,
-  SET_VALIDATE_NAME
+  SET_VALIDATE_NAME,
+  GET_REGISTRATION_DATA,
+  SET_REGISTRATION_DATA,
 } from "./actionTypes"
 export type SendCodeType = {
   phone_number: string
   device_id: string
+}
+export type RegistrationDataType = {
+  code: string
+  username: string
 }
 
 
@@ -54,12 +60,20 @@ getValidateName : (value:string) => ({
 setValidateName : (value:boolean) => ({
   type:SET_VALIDATE_NAME,
   payload: value
+} as const),
+getRegistrationData : (data:RegistrationDataType) => ({
+  type:GET_REGISTRATION_DATA,
+  payload: data
+} as const),
+setRegistrationData : (value:boolean) => ({
+  type:SET_REGISTRATION_DATA,
+  payload: value
 } as const)
 
 }
 
 export const {
-  setUserAccessToken,
+   setUserAccessToken,
    setUserName,
    getUserAccessToken,
    getUserName,
@@ -67,4 +81,6 @@ export const {
    sendCode,
    getVerificationCode,
    getValidateName,
-   setValidateName} = actions
+   setValidateName,
+   getRegistrationData,
+   setRegistrationData} = actions

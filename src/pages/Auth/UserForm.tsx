@@ -1,7 +1,6 @@
 import React, { Component, useEffect, useState } from "react"
 import {
   END_POINTS,
-  fetchValidateName,
   makeFetch,
 } from "../../components/Common/functions"
 import iconEnter from "../../assets/images/sumra/icon-enter.svg"
