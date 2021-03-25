@@ -11,7 +11,7 @@ import {
   setUserName,
   sendCode,
   setVerificationCode,
-  getUserAccessToken, setValidateName, getValidateName, setRegistrationData,getRegistrationData
+  getUserAccessToken, setValidateName, getValidateName,getRegistrationData
 } from "./actions"
 //Include Both Helper File with needed methods
 import { fetchAuth } from "../../helpers/api_helper"

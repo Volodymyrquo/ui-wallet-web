@@ -1,15 +1,4 @@
 /**
- * Const adrees server and points for request
- */
-export const END_POINTS = {
-  SERVER: "https://api.sumra.net/",
-  SEND_CODE: "auth/v1/send-code",
-  VALIDATE: "auth/v1/validate",
-  REGISTRATION: "auth/v1/registration",
-  AUTHENTIFICATION: "token/auth/v1/meet/authenticate",
-}
-
-/**
  * makeId.
  */
 
@@ -24,29 +13,4 @@ export function makeid(length) {
   return result
 }
 
-/**
- * makeFetch.
- */
-export async function makeFetch(action, data) {
-  return fetch(END_POINTS.SERVER + action, {
-    body: JSON.stringify(data),
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-}
 
-/**
- * fetchAuth
- */
-export function fetchAuth(data) {
-  return fetch(END_POINTS.SERVER + END_POINTS.AUTHENTIFICATION, {
-    body: JSON.stringify(data),
-    method: "POST",
-    // mode: 'no-cors',
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-}

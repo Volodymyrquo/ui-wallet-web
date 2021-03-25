@@ -1,8 +1,4 @@
-import React, { Component, useEffect, useState } from "react"
-import {
-  END_POINTS,
-  makeFetch,
-} from "../../components/Common/functions"
+import React, {useEffect, useState } from "react"
 import iconEnter from "../../assets/images/sumra/icon-enter.svg"
 import personIcon from "../../assets/images/sumra/icon-person.svg"
 import personOrange from "../../assets/images/sumra/icon-person-orange.svg"
