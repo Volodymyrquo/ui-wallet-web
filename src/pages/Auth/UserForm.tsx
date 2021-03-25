@@ -11,7 +11,7 @@ import checkGreen from "../../assets/images/sumra/icon-check-green.svg"
 import { withAuthMain } from "../../components/hoc/withAuthMain"
 import { useDispatch, useSelector } from "react-redux"
 import { AppStateType } from "../../store/reducers";
-import { getValidateName } from "../../store/auth/actions";
+import { getValidateName, getRegistrationData} from "../../store/auth/actions";
 
 const UserForm = ({className}) => {
   const dispatch = useDispatch()
@@ -47,17 +47,11 @@ useEffect(()=>{setInvalidUserName(state.invalidUserName)},[changeInput])
       return
     }
 
-const  response = await makeFetch(END_POINTS.REGISTRATION, {
-      code: verificationCode,
-      username: username,
-    })
+dispatch(getRegistrationData( {
+  code: verificationCode,
+  username: username,
+}))
 
-    if (response.ok) {
-      console.log(response)
-      const json = await response.json()
-      alert(json)
-      console.log(json)
-    }
   }
 
      className += " user-signup-form"
