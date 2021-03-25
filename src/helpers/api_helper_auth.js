@@ -25,3 +25,15 @@ export const fetchValidateName = async name => {
 
   return response.status
 }
+
+export const fetchRegistrationData = async data => {
+  const response = await fetch(`https://api.sumra.net/auth/v1/registration`, {
+    body: JSON.stringify(data),
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
+  return response
+}
