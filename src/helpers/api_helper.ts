@@ -17,8 +17,9 @@ const instance = axios.create({
   baseURL: `https://api.sumra.net`,
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
-    Authorization:
+    "Authorization":
       "Basic XzFvVjN1SlZVMHJ6TEVzMTVQdEdLT2RtcmxJYTpqQjIzbXVVN2FJa1JhN0tPRkNNMEh1VXA1U1Fh",
+      
   },
 })
 export const fetchAuth = async ({ username, password }:FetchAuthType) => {
