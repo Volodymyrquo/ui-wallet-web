@@ -7,12 +7,27 @@ import Confirm from "../pages/Auth/ConfirmForm"
 import UserForm from "../pages/Auth/UserForm"
 import FirstForm from "../pages/Auth/FirstForm"
 // Dashboard
-import Dashboard from "../pages/Dashboard/Dashboard"
+import Dashboard from "../pages/Dashboard"
+import Trade from "../pages/Trade"
+import Transactions from "../pages/Transactions"
+import Wallets from "../pages/Wallets"
+import Orders from "../pages/Orders"
+import Cards from "../pages/Cards"
+import Rewards from "../pages/Rewards"
+import Referrals from "../pages/Referrals"
 
 //Pages
 
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
+  { path: "/trade", component: Trade },
+  { path: "/transactions", component: Transactions },
+  { path: "/wallets", component: Wallets },
+  { path: "/orders", component: Orders },
+  { path: "/cards", component: Cards },
+  { path: "/rewards", component: Rewards },
+  { path: "/referrals", component: Referrals },
+
   //Pages
   /*  { path: "/cards", component: Cards }, */
 
