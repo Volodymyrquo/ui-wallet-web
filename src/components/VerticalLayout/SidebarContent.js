@@ -79,64 +79,46 @@ const SidebarContent = props => {
           </li>
 
           <li>
-            <Link to="/cardtypes" className="waves-effect">
+            <Link to="/trade" className="waves-effect">
               <i className="icon-card"></i>
-              <span>Cards Types</span>
+              <span>Trade</span>
             </Link>
           </li>
 
           <li>
-            <Link to="/cards" className="waves-effect">
+            <Link to="/transactions" className="waves-effect">
               <i className="icon-card"></i>
+              <span>Transactions</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/wallets" className="waves-effect">
+              <i className="icon-People"></i>
+              <span>Wallets</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/orders" className="waves-effect">
+              <i className="bx bx-money"></i>
+              <span>Orders</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/cards" className="waves-effect">
+              <i className="icon-List"></i>
               <span>Cards</span>
             </Link>
           </li>
           <li>
-            <Link to="/contacts" className="waves-effect">
-              <i className="icon-People"></i>
-              <span>Contacts</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/currencies" className="waves-effect">
-              <i className="bx bx-money"></i>
-              <span>Currencies</span>
-            </Link>
-          </li>
-
-          <li>
-            <Link to="/#" className="has-arrow waves-effect">
-              <i className="icon-Trade"></i>
-              <span>Operations</span>
-            </Link>
-            <ul className="sub-menu" aria-expanded="false">
-              <li>
-                <Link to="/#">Types</Link>
-              </li>
-              <li>
-                <Link to="/#">For Users</Link>
-              </li>
-              <li>
-                <Link to="/#">For Cards</Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link to="/requisites" className="waves-effect">
-              <i className="icon-List"></i>
-              <span>Requisites</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/tariffs" className="waves-effect">
+            <Link to="/rewards" className="waves-effect">
               <i className="icon-Clipboard"></i>
-              <span>Tariffs</span>
+              <span>Rewards</span>
             </Link>
           </li>
           <li>
-            <Link to="/users" className="waves-effect">
+            <Link to="/referrals" className="waves-effect">
               <i className="icon-Man"></i>
-              <span>Users</span>
+              <span>Referrals</span>
             </Link>
           </li>
         </ul>

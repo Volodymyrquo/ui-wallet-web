@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Dashboard = () => {
+const Referrals = () => {
     return (
         <div className="page-content">
-            <h1>Hello from Dashboard...</h1>
+            <h1>Hello from Referrals ... </h1>
         </div>
     )
 }
 
-export default Dashboard
+export default Referrals

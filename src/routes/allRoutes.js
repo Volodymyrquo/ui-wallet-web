@@ -7,29 +7,29 @@ import Confirm from "../pages/Auth/ConfirmForm"
 import UserForm from "../pages/Auth/UserForm"
 import FirstForm from "../pages/Auth/FirstForm"
 // Dashboard
-import Dashboard from "../pages/Dashboard/index"
+import Dashboard from "../pages/Dashboard"
+import Trade from "../pages/Trade"
+import Transactions from "../pages/Transactions"
+import Wallets from "../pages/Wallets"
+import Orders from "../pages/Orders"
+import Cards from "../pages/Cards"
+import Rewards from "../pages/Rewards"
+import Referrals from "../pages/Referrals"
 
 //Pages
-import Cards from "../pages/Cards/Cards"
-import Contacts from "../pages/Contacts/Contacts"
-import Currencies from "../pages/Currencies/Currencies"
-import Requisites from "../pages/Requisites/Requisites"
-import Tariffs from "../pages/Tariffs/Tariffs"
-import Users from "../pages/UsersPage/UsersPage"
-import CardTypes from "../pages/CardsTypes/CardsTypes"
-import CardOrder from "../pages/Cards/CardOrder"
 
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
-  //Pages
+  { path: "/trade", component: Trade },
+  { path: "/transactions", component: Transactions },
+  { path: "/wallets", component: Wallets },
+  { path: "/orders", component: Orders },
   { path: "/cards", component: Cards },
-  { path: "/contacts", component: Contacts },
-  { path: "/currencies", component: Currencies },
-  { path: "/requisites", component: Requisites },
-  { path: "/tariffs", component: Tariffs },
-  { path: "/users", component: Users },
-  { path: "/cardtypes", component: CardTypes },
-  { path: "/cardorder", component: CardOrder },
+  { path: "/rewards", component: Rewards },
+  { path: "/referrals", component: Referrals },
+
+  //Pages
+  /*  { path: "/cards", component: Cards }, */
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Dashboard = () => {
+const Cards = () => {
     return (
         <div className="page-content">
-            <h1>Hello from Dashboard...</h1>
+            <h1>Hello from Cards ... </h1>
         </div>
     )
 }
 
-export default Dashboard
+export default Cards
