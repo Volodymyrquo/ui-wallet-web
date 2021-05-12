@@ -25,7 +25,7 @@ $sidebar-dark-menu-item-active-color: #ffffff;
 
 // Topbar - Deafult Light
 $header-height: 70px;
-$header-bg: #ffffff;
+$header-bg: #f1f3f6;
 $header-item-color: #555b6d;
 
 // Topbar - Dark
@@ -236,7 +236,8 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg: #f8f8fb;
+$body-bg: #f1f3f6;
+
 $body-color: $gray-700;
 
 // Links

@@ -73,52 +73,58 @@ const SidebarContent = props => {
         <ul className="metismenu list-unstyled" id="side-menu">
           <li>
             <Link to="/" className="waves-effect">
-              <i className="icon-Dashboard"></i>
+              <i className="icon-Category"></i>
               <span>Dashboard</span>
             </Link>
           </li>
 
           <li>
             <Link to="/trade" className="waves-effect">
-              <i className="icon-card"></i>
+              <i className="icon-Chart"></i>
               <span>Trade</span>
             </Link>
           </li>
 
           <li>
             <Link to="/transactions" className="waves-effect">
-              <i className="icon-card"></i>
+              <i className="icon-Swap"></i>
               <span>Transactions</span>
             </Link>
           </li>
           <li>
             <Link to="/wallets" className="waves-effect">
-              <i className="icon-People"></i>
+              <i className="icon-Icon-Wallet"></i>
               <span>Wallets</span>
             </Link>
           </li>
           <li>
-            <Link to="/orders" className="waves-effect">
-              <i className="bx bx-money"></i>
-              <span>Orders</span>
-            </Link>
-          </li>
-          <li>
             <Link to="/cards" className="waves-effect">
-              <i className="icon-List"></i>
+              <i className="icon-Bank-Card"></i>
               <span>Cards</span>
             </Link>
           </li>
           <li>
             <Link to="/rewards" className="waves-effect">
-              <i className="icon-Clipboard"></i>
+              <i className="icon-Ticket-Star"></i>
               <span>Rewards</span>
             </Link>
           </li>
           <li>
             <Link to="/referrals" className="waves-effect">
-              <i className="icon-Man"></i>
+              <i className="icon-Bulk-3-User"></i>
               <span>Referrals</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/pioneermemberships" className="waves-effect">
+              <i className="icon-Bulk-User"></i>
+              <span>Pioneer Memberships</span>
+            </Link>
+          </li>
+          <li>
+            <Link>
+              <i className="icon-Color"></i>
+              <span>Change theme</span>
             </Link>
           </li>
         </ul>
