@@ -32,6 +32,13 @@
   padding: 0 1.5rem;
   text-align: center;
   width: $navbar-brand-box-width;
+  background: linear-gradient(
+      180deg,
+      rgba(248, 249, 251, 0.7) 9.68%,
+      rgba(248, 249, 251, 0.35) 51.04%,
+      rgba(248, 249, 251, 0.7) 100%
+    ),
+    #ffffff;
 }
 
 .logo {

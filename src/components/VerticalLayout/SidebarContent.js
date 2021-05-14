@@ -1,13 +1,25 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
 // MetisMenu
 import MetisMenu from "metismenujs"
 import { withRouter } from "react-router-dom"
 import { Link } from "react-router-dom"
+import {
+  changeSidebarTheme,
+  toggleLeftmenu,
+  changeSidebarType,
+} from "../../store/actions"
+import referrals from "../../assets/images/sumra/referrals.svg"
 
 //i18n
 
 const SidebarContent = props => {
+  const [theme, setTheme] = useState("dark")
+  const dispatch = useDispatch()
+  const { leftMenu, leftSideBarType } = useSelector(state => state.Layout)
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
   // Use ComponentDidMount and ComponentDidUpdate method symultaniously
   useEffect(() => {
     const pathName = props.location.pathname
@@ -66,6 +78,24 @@ const SidebarContent = props => {
     }
     return false
   }
+  const onClickHandler = () => {
+    if (theme === "dark") {
+      setTheme("light")
+    } else if (theme === "light") {
+      setTheme("dark")
+    }
+
+    dispatch(changeSidebarTheme(theme))
+  }
+
+  function tToggle() {
+    dispatch(toggleLeftmenu(!leftMenu))
+    if (leftSideBarType === "default") {
+      dispatch(changeSidebarType("condensed", isMobile))
+    } else if (leftSideBarType === "condensed") {
+      dispatch(changeSidebarType("default", isMobile))
+    }
+  }
 
   return (
     <React.Fragment>
@@ -73,61 +103,107 @@ const SidebarContent = props => {
         <ul className="metismenu list-unstyled" id="side-menu">
           <li>
             <Link to="/" className="waves-effect">
-              <i className="icon-Category"></i>
+              <div>
+                <i className="icon-Category" />
+              </div>
               <span>Dashboard</span>
             </Link>
           </li>
 
           <li>
             <Link to="/trade" className="waves-effect">
-              <i className="icon-Chart"></i>
+              <div>
+                <i className="icon-Chart" />
+              </div>
               <span>Trade</span>
             </Link>
           </li>
 
           <li>
             <Link to="/transactions" className="waves-effect">
-              <i className="icon-Swap"></i>
+              <div>
+                <i className="icon-Swap" />
+              </div>
               <span>Transactions</span>
             </Link>
           </li>
           <li>
             <Link to="/wallets" className="waves-effect">
-              <i className="icon-Icon-Wallet"></i>
+              <div>
+                <i className="icon-Icon-Wallet" />
+              </div>
               <span>Wallets</span>
             </Link>
           </li>
           <li>
             <Link to="/cards" className="waves-effect">
-              <i className="icon-Bank-Card"></i>
+              <div>
+                <i className="icon-Bank-Card" />
+              </div>
               <span>Cards</span>
             </Link>
           </li>
           <li>
             <Link to="/rewards" className="waves-effect">
-              <i className="icon-Ticket-Star"></i>
+              <div>
+                <i className="icon-Ticket-Star" />
+              </div>
               <span>Rewards</span>
             </Link>
           </li>
           <li>
             <Link to="/referrals" className="waves-effect">
-              <i className="icon-Bulk-3-User"></i>
+              <div>
+                <i className="icon-Bulk-3-User" />
+              </div>
               <span>Referrals</span>
             </Link>
           </li>
           <li>
             <Link to="/pioneermemberships" className="waves-effect">
-              <i className="icon-Bulk-User"></i>
+              <div>
+                <i className="icon-Bulk-User" />
+              </div>
               <span>Pioneer Memberships</span>
             </Link>
           </li>
-          <li>
-            <Link>
-              <i className="icon-Color"></i>
-              <span>Change theme</span>
-            </Link>
-          </li>
         </ul>
+        {leftSideBarType === "default" ? (
+          <div className="sidebar-referrals">
+            <div>
+              <img src={referrals} alt="referrals" />
+            </div>
+            <div className="sidebar-ref-txt">
+              <span>
+                Get <em>$8</em>, Give <em>$5</em>. Earn Unlimited.
+              </span>
+            </div>
+            <button>Learn more</button>
+          </div>
+        ) : null}
+
+        <button
+          type="button"
+          onClick={() => {
+            tToggle()
+          }}
+          className="btn btn-sm "
+          id="vertical-menu-btn"
+        >
+          <div className="btn-collapse ">
+            {leftSideBarType === "default" ? (
+              <i className="icon-Close-Menu" />
+            ) : (
+              <i className="icon-Open-Menu" />
+            )}
+          </div>
+        </button>
+
+        <button type="button" className="btn btn-sm" onClick={onClickHandler}>
+          <div className="btn-chg-theme ">
+            <i className="icon-Color" />
+          </div>
+        </button>
       </div>
     </React.Fragment>
   )

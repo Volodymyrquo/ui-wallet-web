@@ -5,10 +5,10 @@ import { connect } from "react-redux"
 
 import { Link } from "react-router-dom"
 
-import logo from "../../assets/images/sumra/UltaInfinityExchangeLogo.png"
-import logoLightPng from "../../assets/images/sumra/UltaInfinityExchangeLogo.png"
-import logoLightSvg from "../../assets/images/sumra/UltaInfinityExchangeLogo.png"
-import logoDark from "../../assets/images/sumra/UltaInfinityExchangeLogo.png"
+import logo from "../../assets/images/UltainfinityLogoLight.svg"
+import logoLightPng from "../../assets/images/UltainfinityLogoLight.svg"
+import logoLightSvg from "../../assets/images/UltainfinityLogoLight.svg"
+import logoDark from "../../assets/images/UltainfinityLogoLight.svg"
 
 // import images
 import user from "../../assets/images/users/avatar-5.jpg"
@@ -60,17 +60,6 @@ const Header = props => {
                 </span>
               </Link>
             </div>
-
-            <button
-              type="button"
-              onClick={() => {
-                tToggle()
-              }}
-              className="btn btn-sm px-3 font-size-16 header-item waves-effect"
-              id="vertical-menu-btn"
-            >
-              <i className="fa fa-fw fa-bars" />
-            </button>
 
             <form className="app-search d-none d-lg-block">
               <div className="position-relative">

@@ -28,7 +28,7 @@ const INIT_STATE = {
   leftMenu: false,
 }
 
-const Layout = (state = INIT_STATE, action:LayoutActionType):INIT_STATE_TYPE => {
+const Layout = (state = INIT_STATE, action:LayoutActionType):INIT_STATE_TYPE => { 
   switch (action.type) {
     case CHANGE_LAYOUT:
       return {
