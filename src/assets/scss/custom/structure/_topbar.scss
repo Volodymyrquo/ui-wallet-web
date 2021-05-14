@@ -295,3 +295,146 @@ body[data-layout="horizontal"] {
     }
   }
 }
+.header-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px 9px;
+
+  position: static;
+  width: 62px;
+  height: 32px;
+  right: 173px;
+  top: calc(50% - 32px / 2);
+
+  background: linear-gradient(135deg, #ee9975 0%, #9e1d84 100%);
+  mix-blend-mode: normal;
+  box-shadow: 0px 7px 25px rgba(251, 105, 67, 0.2);
+  border-radius: 32px;
+
+  color: #ffffff;
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 100%;
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+.header-breadcrumbs {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 15px;
+  /* identical to box height, or 107% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+
+  /* #7A869A */
+
+  color: #7a869a;
+}
+.header-brand-name {
+  position: static;
+  width: 134px;
+  height: 15px;
+  left: 0px;
+  top: 0px;
+
+  font-family: TT Norms Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 100%;
+  /* identical to box height, or 15px */
+
+  text-align: center;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  /* #253858 */
+
+  color: #253858;
+}
+.header-product-name {
+  position: static;
+  width: 66px;
+  height: 13px;
+  left: 0px;
+  top: 20px;
+
+  font-family: TT Norms Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 100%;
+  /* identical to box height, or 13px */
+
+  text-align: center;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  /* #42526E */
+
+  color: #42526e;
+
+  opacity: 0.75;
+}
+
+.header-brand-name-dark {
+  position: static;
+  width: 134px;
+  height: 15px;
+  left: 0px;
+  top: 0px;
+
+  font-family: TT Norms Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 100%;
+  /* identical to box height, or 15px */
+
+  text-align: center;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  /* Text Color / White text */
+
+  color: #ffffff;
+}
+.header-product-name-dark {
+  position: static;
+  width: 66px;
+  height: 13px;
+  left: 0px;
+  top: 20px;
+
+  font-family: TT Norms Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 100%;
+  /* identical to box height, or 13px */
+
+  text-align: center;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  /* Text Color / White text */
+
+  color: #ffffff;
+
+  opacity: 0.75;
+}
+.header-ultainfinity-logo {
+  position: absolute;
+  width: 54px;
+  height: 26px;
+  left: 0px;
+  top: 3.5px;
+}

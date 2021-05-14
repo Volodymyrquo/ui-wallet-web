@@ -1,13 +1,13 @@
 import PropTypes from "prop-types"
-import React, { useState } from "react"
+import React from "react"
 
 import { connect } from "react-redux"
 
 import { Link } from "react-router-dom"
 
 import logo from "../../assets/images/UltainfinityLogoLight.svg"
-import logoLightPng from "../../assets/images/UltainfinityLogoLight.svg"
-import logoLightSvg from "../../assets/images/UltainfinityLogoLight.svg"
+import logoLightPng from "../../assets/images/UltainfinityLogoDark.svg"
+import logoLightSvg from "../../assets/images/UltainfinityLogoDark.svg"
 import logoDark from "../../assets/images/UltainfinityLogoLight.svg"
 
 // import images
@@ -22,10 +22,10 @@ import {
   toggleLeftmenu,
   changeSidebarType,
 } from "../../store/actions"
+//Import Breadcrumb
+import Breadcrumbs from "../../components/Common/BreadcrumbSumra"
 
 const Header = props => {
-  const [search, setsearch] = useState(false)
-
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
   function tToggle() {
@@ -36,6 +36,29 @@ const Header = props => {
       props.changeSidebarType("default", isMobile)
     }
   }
+
+  const onPageChange = e => {
+    switch (e) {
+      case "/dashboard":
+        return "Dashboard"
+      case "/trade":
+        return "Trade"
+      case "/transactions":
+        return "Transactions"
+      case "/wallets":
+        return "Wallets"
+      case "/cards":
+        return "Cards"
+      case "/rewards":
+        return "Rewards"
+      case "/referrals":
+        return "Referrals"
+      case "/pioneermemberships":
+        return "Pioneer memberships"
+      default:
+        return "Dashboard"
+    }
+  }
   return (
     <React.Fragment>
       <header id="page-topbar">
@@ -44,84 +67,50 @@ const Header = props => {
             <div className="navbar-brand-box">
               <Link to="/" className="logo logo-dark">
                 <span className="logo-sm">
-                  <img src={logo} alt="" height="22" />
+                  <img src={logo} alt="" height="24" width="50" />
                 </span>
                 <span className="logo-lg">
-                  <img src={logoDark} alt="" height="17" />
+                  <img src={logoDark} alt="" height="26" width="54" />
                 </span>
+                <div style={{ display: "inline-block" }}>
+                  <div className="header-brand-name">ultainfinity</div>
+                  <div className="header-product-name ">wallet</div>
+                </div>
               </Link>
 
               <Link to="/" className="logo logo-light">
                 <span className="logo-sm">
-                  <img src={logoLightSvg} alt="" height="22" />
+                  <img src={logoLightSvg} alt="" height="24" width="50" />
                 </span>
                 <span className="logo-lg">
-                  <img src={logoLightPng} alt="" height="19" />
+                  <img src={logoLightPng} alt="" height="26" width="54" />
                 </span>
+                <div style={{ display: "inline-block" }}>
+                  <div className="header-brand-name-dark">ultainfinity</div>
+                  <div className="header-product-name-dark ">wallet</div>
+                </div>
               </Link>
             </div>
-
-            <form className="app-search d-none d-lg-block">
-              <div className="position-relative">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={props.t("Search") + "..."}
-                />
-                <span className="bx bx-search-alt" />
-              </div>
-            </form>
+            <div style={{ position: "relative", left: "10px", top: "15px" }}>
+              <h2>{onPageChange(location.pathname)}</h2>
+            </div>
           </div>
+
           <div className="d-flex">
-            <div className="dropdown d-inline-block d-lg-none ml-2">
-              <button
-                onClick={() => {
-                  setsearch(!search)
-                }}
-                type="button"
-                className="btn header-item noti-icon waves-effect"
-                id="page-header-search-dropdown"
-              >
-                <i className="mdi mdi-magnify" />
-              </button>
-              <div
-                className={
-                  search
-                    ? "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0 show"
-                    : "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
-                }
-                aria-labelledby="page-header-search-dropdown"
-              >
-                <form className="p-3">
-                  <div className="form-group m-0">
-                    <div className="input-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Search ..."
-                        aria-label="Recipient's username"
-                      />
-                      <div className="input-group-append">
-                        <button className="btn btn-primary" type="submit">
-                          <i className="mdi mdi-magnify" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            <div style={{ paddingTop: "20px" }}>
+              <Breadcrumbs
+                title={props.t("Dashboards")}
+                breadcrumbItem={props.t(onPageChange(location.pathname))}
+              />
             </div>
 
-            <div className="dropdown d-inline-block">
-              <button className="btn header-item noti-icon waves-effect">
+            <div
+              className=" header-item "
+              style={{ paddingTop: "10px", marginLeft: "50px" }}
+            >
+              <button className="header-btn">
                 <i className="icon-Notification-Empty " />
-                <span className="badge badge-warning badge-pill">5</span>
-              </button>
-            </div>
-            <div className="dropdown d-inline-block">
-              <button className="btn header-item noti-icon waves-effect">
-                <i className="icon-Mail " />
-                <span className="badge badge-warning badge-pill">5</span>
+                <span header-btn-txt>15</span>
               </button>
             </div>
             <div
@@ -134,7 +123,9 @@ const Header = props => {
                 src={user}
                 alt="Header Avatar"
               />
-              <span className="d-none d-xl-inline-block ml-2 mr-1"></span>
+              <span className="d-none d-xl-inline-block ml-2 mr-1">
+                John Snow
+              </span>
               <i className="mdi mdi-chevron-down d-none d-xl-inline-block" />
             </div>
           </div>
