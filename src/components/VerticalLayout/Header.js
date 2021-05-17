@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
+import { useSelector } from "react-redux"
 
 import { connect } from "react-redux"
 
@@ -59,6 +60,8 @@ const Header = props => {
         return "Dashboard"
     }
   }
+  const { leftSideBarType } = useSelector(state => state.Layout)
+
   return (
     <React.Fragment>
       <header id="page-topbar">
@@ -72,10 +75,12 @@ const Header = props => {
                 <span className="logo-lg">
                   <img src={logoDark} alt="" height="26" width="54" />
                 </span>
-                <div style={{ display: "inline-block" }}>
-                  <div className="header-brand-name">ultainfinity</div>
-                  <div className="header-product-name ">wallet</div>
-                </div>
+                {leftSideBarType === "default" ? (
+                  <div style={{ display: "inline-block" }}>
+                    <div className="header-brand-name">ultainfinity</div>
+                    <div className="header-product-name ">wallet</div>
+                  </div>
+                ) : null}
               </Link>
 
               <Link to="/" className="logo logo-light">
@@ -85,10 +90,12 @@ const Header = props => {
                 <span className="logo-lg">
                   <img src={logoLightPng} alt="" height="26" width="54" />
                 </span>
-                <div style={{ display: "inline-block" }}>
-                  <div className="header-brand-name-dark">ultainfinity</div>
-                  <div className="header-product-name-dark ">wallet</div>
-                </div>
+                {leftSideBarType === "default" ? (
+                  <div style={{ display: "inline-block" }}>
+                    <div className="header-brand-name-dark">ultainfinity</div>
+                    <div className="header-product-name-dark ">wallet</div>
+                  </div>
+                ) : null}
               </Link>
             </div>
             <div style={{ position: "relative", left: "10px", top: "15px" }}>

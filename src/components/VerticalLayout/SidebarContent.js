@@ -11,11 +11,13 @@ import {
   changeSidebarType,
 } from "../../store/actions"
 import referrals from "../../assets/images/sumra/referrals.svg"
+import { set } from "lodash"
 
 //i18n
 
 const SidebarContent = props => {
   const [theme, setTheme] = useState("dark")
+  const [referralClass, setReferralClass] = useState("sidebar-referrals-dark")
   const dispatch = useDispatch()
   const { leftMenu, leftSideBarType } = useSelector(state => state.Layout)
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
@@ -80,13 +82,17 @@ const SidebarContent = props => {
   }
   const onClickHandler = () => {
     if (theme === "dark") {
+      setReferralClass("sidebar-referrals")
+
       setTheme("light")
     } else if (theme === "light") {
+      setReferralClass("sidebar-referrals-dark")
       setTheme("dark")
     }
-
-    dispatch(changeSidebarTheme(theme))
   }
+  useEffect(() => {
+    dispatch(changeSidebarTheme(theme))
+  }, [theme])
 
   function tToggle() {
     dispatch(toggleLeftmenu(!leftMenu))
@@ -169,7 +175,7 @@ const SidebarContent = props => {
           </li>
         </ul>
         {leftSideBarType === "default" ? (
-          <div className="sidebar-referrals">
+          <div className={referralClass}>
             <div>
               <img src={referrals} alt="referrals" />
             </div>
@@ -178,9 +184,20 @@ const SidebarContent = props => {
                 Get <em>$8</em>, Give <em>$5</em>. Earn Unlimited.
               </span>
             </div>
-            <button>Learn more</button>
+            <button>
+              <span>Learn more</span>
+            </button>
           </div>
-        ) : null}
+        ) : (
+          <div
+            style={{
+              height: "200px",
+              margin: "50px auto",
+              position: "relative",
+              display: "block",
+            }}
+          ></div>
+        )}
 
         <button
           type="button"

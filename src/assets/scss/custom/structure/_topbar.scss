@@ -193,7 +193,12 @@
 body[data-topbar="dark"] {
   #page-topbar {
     background-color: $header-dark-bg;
+    h2,
+    a {
+      color: $body-color-dark;
+    }
   }
+
   .navbar-header {
     .dropdown.show {
       .header-item {
@@ -339,11 +344,11 @@ body[data-layout="horizontal"] {
   color: #7a869a;
 }
 .header-brand-name {
-  position: static;
+  position: relative;
   width: 134px;
   height: 15px;
-  left: 0px;
-  top: 0px;
+  left: 10px;
+  top: 10px;
 
   font-family: TT Norms Pro;
   font-style: normal;
@@ -361,11 +366,11 @@ body[data-layout="horizontal"] {
   color: #253858;
 }
 .header-product-name {
-  position: static;
+  position: relative;
   width: 66px;
   height: 13px;
-  left: 0px;
-  top: 20px;
+  left: 10px;
+  top: 10px;
 
   font-family: TT Norms Pro;
   font-style: normal;
@@ -386,11 +391,11 @@ body[data-layout="horizontal"] {
 }
 
 .header-brand-name-dark {
-  position: static;
+  position: relative;
   width: 134px;
   height: 15px;
-  left: 0px;
-  top: 0px;
+  left: 10px;
+  top: 10px;
 
   font-family: TT Norms Pro;
   font-style: normal;
@@ -408,11 +413,11 @@ body[data-layout="horizontal"] {
   color: #ffffff;
 }
 .header-product-name-dark {
-  position: static;
+  position: relative;
   width: 66px;
   height: 13px;
-  left: 0px;
-  top: 20px;
+  left: 10px;
+  top: 10px;
 
   font-family: TT Norms Pro;
   font-style: normal;
