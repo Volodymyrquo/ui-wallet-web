@@ -112,7 +112,7 @@ const SidebarContent = props => {
       <div id="sidebar-menu">
         <ul className="metismenu list-unstyled" id="side-menu">
           <li>
-            <Link to="/" className="waves-effect">
+            <Link to="/dashboard" className="waves-effect">
               <div>
                 <i className="icon-Category" />
               </div>
