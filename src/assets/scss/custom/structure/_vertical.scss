@@ -646,7 +646,10 @@ body[data-sidebar="dark"] {
             }
           }
         }
-
+        &:current {
+          color: red;
+          background: #081337;
+        }
         ul.sub-menu {
           li {
             a {

@@ -9,6 +9,8 @@ import {
   changeSidebarTheme,
   toggleLeftmenu,
   changeSidebarType,
+  changeTopbarTheme,
+  changeReferralClass,
 } from "../../store/actions"
 import referrals from "../../assets/images/sumra/referrals.svg"
 import { set } from "lodash"
@@ -16,10 +18,13 @@ import { set } from "lodash"
 //i18n
 
 const SidebarContent = props => {
-  const [theme, setTheme] = useState("dark")
-  const [referralClass, setReferralClass] = useState("sidebar-referrals-dark")
   const dispatch = useDispatch()
-  const { leftMenu, leftSideBarType } = useSelector(state => state.Layout)
+  const {
+    leftSideBarTheme,
+    leftMenu,
+    leftSideBarType,
+    referralClass,
+  } = useSelector(state => state.Layout)
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
   // Use ComponentDidMount and ComponentDidUpdate method symultaniously
@@ -81,18 +86,17 @@ const SidebarContent = props => {
     return false
   }
   const onClickHandler = () => {
-    if (theme === "dark") {
-      setReferralClass("sidebar-referrals")
+    if (leftSideBarTheme === "dark") {
+      dispatch(changeReferralClass("sidebar-referrals"))
 
-      setTheme("light")
-    } else if (theme === "light") {
-      setReferralClass("sidebar-referrals-dark")
-      setTheme("dark")
+      dispatch(changeSidebarTheme("light"))
+      dispatch(changeTopbarTheme("light"))
+    } else if (leftSideBarTheme === "light") {
+      dispatch(changeReferralClass("sidebar-referrals-dark"))
+      dispatch(changeSidebarTheme("dark"))
+      dispatch(changeTopbarTheme("dark"))
     }
   }
-  useEffect(() => {
-    dispatch(changeSidebarTheme(theme))
-  }, [theme])
 
   function tToggle() {
     dispatch(toggleLeftmenu(!leftMenu))
