@@ -196,35 +196,29 @@ const SidebarContent = props => {
           <div
             style={{
               height: "200px",
-              margin: "50px auto",
+              margin: "40px auto",
               position: "relative",
               display: "block",
             }}
           ></div>
         )}
-
-        <button
-          type="button"
-          onClick={() => {
-            tToggle()
-          }}
-          className="btn btn-sm "
-          id="vertical-menu-btn"
-        >
-          <div className="btn-collapse ">
+        <div className="sidbar-box">
+          <div
+            className="btn-collapse "
+            onClick={() => {
+              tToggle()
+            }}
+          >
             {leftSideBarType === "default" ? (
               <i className="icon-Close-Menu" />
             ) : (
               <i className="icon-Open-Menu" />
             )}
           </div>
-        </button>
-
-        <button type="button" className="btn btn-sm" onClick={onClickHandler}>
-          <div className="btn-chg-theme ">
+          <div className="btn-chg-theme" onClick={onClickHandler}>
             <i className="icon-Color" />
           </div>
-        </button>
+        </div>
       </div>
     </React.Fragment>
   )

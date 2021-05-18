@@ -29,7 +29,7 @@
 }
 
 .navbar-brand-box {
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 0 0.8rem;
   text-align: center;
   width: $navbar-brand-box-width;
   background: linear-gradient(
@@ -438,8 +438,7 @@ body[data-layout="horizontal"] {
 }
 .header-ultainfinity-logo {
   position: absolute;
-  width: 54px;
-  height: 26px;
-  left: 0px;
+
+  left: 10px;
   top: 3.5px;
 }

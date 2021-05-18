@@ -52,46 +52,53 @@
     margin-top: $header-height;
   }
 }
-
-.btn-chg-theme {
-  display: block;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 5px 6px 6px;
-  position: relative;
-  width: 32px;
-  height: 32px;
-  background: #f2f3f9;
-  border-radius: 4px;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
-  i {
-    padding-bottom: 0.125em;
-    font-size: 1.25rem;
-    line-height: 1.40625rem;
-    color: $sidebar-menu-item-icon-color;
+.sidbar-box {
+  display: flex;
+  justify-content: space-between;
+  width: $sidebar-width;
+  padding: 0 25px;
+  .btn-chg-theme {
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px 6px 6px;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background: #f2f3f9;
+    border-radius: 4px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    cursor: pointer;
+    i {
+      padding-bottom: 0.125em;
+      font-size: 1.25rem;
+      line-height: 1.40625rem;
+      color: $sidebar-menu-item-icon-color;
+    }
   }
-}
-.btn-collapse {
-  display: block;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 7px 6px;
-  position: relative;
-  width: 32px;
-  height: 32px;
+  .btn-collapse {
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 6px;
+    position: relative;
+    width: 32px;
+    height: 32px;
 
-  /* #EBECF0 */
+    /* #EBECF0 */
 
-  background: #ebecf0;
-  border-radius: 4px;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
-  i {
-    padding-bottom: 0.125em;
-    font-size: 1.25rem;
-    line-height: 1.40625rem;
-    color: $sidebar-menu-item-icon-color;
+    background: #ebecf0;
+    border-radius: 4px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    cursor: pointer;
+    i {
+      padding-bottom: 0.125em;
+      font-size: 1.25rem;
+      line-height: 1.40625rem;
+      color: $sidebar-menu-item-icon-color;
+    }
   }
 }
 
@@ -114,7 +121,7 @@
   );
   box-shadow: 0px 30px 60px rgba(120, 118, 148, 0.15);
   border-radius: 8px;
-  margin: 100px auto;
+  margin: 110px auto;
 
   button {
     display: flex;
@@ -214,7 +221,7 @@
 
   border-radius: 8px;
 
-  margin: 100px auto;
+  margin: 110px auto;
 
   button {
     display: flex;
@@ -462,7 +469,12 @@
   .navbar-brand-box {
     width: $sidebar-collapsed-width !important;
   }
-
+  .sidbar-box {
+    width: $sidebar-collapsed-width !important;
+    flex-direction: column;
+    align-content: space-between;
+    height: 89px;
+  }
   .logo {
     span.logo-lg {
       display: none;
@@ -624,6 +636,12 @@
 body[data-sidebar="dark"] {
   .vertical-menu {
     background: $sidebar-dark-bg;
+  }
+  .btn-chg-theme {
+    background: #19234c;
+  }
+  .btn-collapse {
+    background: #19234c;
   }
 
   #sidebar-menu {
