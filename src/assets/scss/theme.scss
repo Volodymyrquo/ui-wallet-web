@@ -1,8 +1,8 @@
 @import "./icons.scss";
 
 // Dark Theme
-// @import "./bootstrap-dark.scss";
-// @import "./app-dark.scss";
+//@import "./bootstrap-dark.scss";
+//@import "./app-dark.scss";
 
 // RTL Mode
 // @import "./bootstrap.scss";
@@ -11,7 +11,7 @@
 // Light Theme
 @import "./bootstrap.scss";
 @import "./app.scss";
-
+@import "./datatables.scss";
 #sidebar-menu {
   ul {
     li {
@@ -130,9 +130,8 @@ span.flatpickr-weekday {
     position: relative;
   }
   .dot {
-    background : #556ee6 !important;
+    background: #556ee6 !important;
     width: 9px !important;
     height: 9px !important;
-    
   }
 }

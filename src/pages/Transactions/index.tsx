@@ -1,9 +1,22 @@
 import React from 'react'
+import { Col, Container, Row } from 'reactstrap'
+import Activities from './Activities'
+
 
 const Transactions = () => {
     return (
         <div className="page-content" >
-            <h1>Hello from Transactions ... </h1>
+            <Container fluid>
+            <Row>
+            <Col lg="12">
+            
+                <Activities />
+            
+            </Col>
+          </Row>
+        </Container>
+
+           
         </div>
     )
 }

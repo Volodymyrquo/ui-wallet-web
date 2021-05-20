@@ -10,7 +10,7 @@ $sidebar-menu-item-color: #545a6d;
 $sidebar-menu-sub-item-color: #545a6d;
 $sidebar-menu-item-icon-color: #7f8387;
 $sidebar-menu-item-hover-color: #383c40;
-$sidebar-menu-item-active-color: #42526E;
+$sidebar-menu-item-active-color: #42526e;
 $sidebar-width: 260px;
 $sidebar-collapsed-width: 70px;
 $sidebar-width-sm: 160px;
@@ -58,7 +58,7 @@ $navbar-brand-box-width: 260px;
 
 // Boxed layout width
 $boxed-layout-width: 1300px;
-$boxed-body-bg: #ebebf4;
+$boxed-body-bg: $header-bg;
 
 // Font Weight
 $font-weight-medium: 500;
@@ -236,7 +236,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg: #f1f3f6;
+$body-bg: $header-bg;
 
 $body-color: $gray-700;
 
