@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid"
 const Table = ({ data }) => {
   const [sortConfig, setSortConfig] = useState(null)
 
-  const handleOnClick = field => {
+  const requestSort = field => {
     let direction = "ascending"
 
     if (sortConfig !== null && sortConfig.direction === "ascending") {
@@ -32,15 +32,15 @@ const Table = ({ data }) => {
       <table className=" table dataTable ">
         <thead>
           <tr>
-            <td>
-              <input type="checkbox" />
-            </td>
+            <th>
+              <input type="checkbox" name="headerCheckBox" />
+            </th>
 
             {data.columns.map(item => (
               <th
                 scope="col"
                 key={uuidv4()}
-                onClick={() => handleOnClick(item.field)}
+                onClick={() => requestSort(item.field)}
                 className="sorting"
               >
                 {item.label}
@@ -52,7 +52,7 @@ const Table = ({ data }) => {
           {data.rows.map(item => (
             <tr key={uuidv4()}>
               <td>
-                <input type="checkbox" />
+                <input type="checkbox" name="rowCheckBox" />
               </td>
               {Object.keys(item).map(x => (
                 <td key={uuidv4()}>{item[x]}</td>

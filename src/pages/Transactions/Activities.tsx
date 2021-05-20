@@ -22,15 +22,7 @@ dispatch(getTransactions())
     
     return (
         <Card>
-        <CardBody>
-          <h4 className="card-title mb-4">Activities</h4>
-          <ul className="nav nav-tabs nav-tabs-custom">
-          </ul>
-  
-          <div className="mt-4">
               <Table data={data} />
-          </div>
-        </CardBody>
       </Card>
   
     )
