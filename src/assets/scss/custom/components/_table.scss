@@ -22,3 +22,39 @@
     white-space: nowrap;
   }
 }
+.table-txt {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  /* identical to box height */
+
+  letter-spacing: 0.25px;
+  text-transform: capitalize;
+
+  /* Dark / #334659 */
+
+  color: #334659;
+}
+
+.table-th-txt {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 15px;
+  /* identical to box height */
+
+  letter-spacing: 0.25px;
+
+  /* Dark / #334659 */
+
+  color: #334659;
+}
+.table-td-img {
+  display: inline-block;
+  margin-right: 20px;
+  width: 28px;
+  height: 28px;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react"
 import { v4 as uuidv4 } from "uuid"
+import { imagesList } from "../../pages/Transactions/imagesList"
 
 const Table = ({ data }) => {
   const [sortConfig, setSortConfig] = useState(null)
@@ -15,6 +16,22 @@ const Table = ({ data }) => {
   }
   useMemo(() => {
     if (sortConfig !== null) {
+      if (sortConfig.field === "date") {
+        data.rows.sort((a, b) => {
+          if (
+            a[Date.parse(sortConfig.field)] < b[Date.parse(sortConfig.field)]
+          ) {
+            return sortConfig.direction === "ascending" ? -1 : 1
+          }
+          if (
+            a[Date.parse(sortConfig.field)] > b[Date.parse(sortConfig.field)]
+          ) {
+            return sortConfig.direction === "ascending" ? 1 : -1
+          }
+          return 0
+        })
+      }
+
       data.rows.sort((a, b) => {
         if (a[sortConfig.field] < b[sortConfig.field]) {
           return sortConfig.direction === "ascending" ? -1 : 1
@@ -43,10 +60,15 @@ const Table = ({ data }) => {
   }
   return (
     <>
-      <table className=" table dataTable ">
+      <table className="table dataTable">
         <thead>
           <tr>
-            <th>
+            <th
+              style={{
+                textAlign: "center",
+                verticalAlign: "middle",
+              }}
+            >
               <input
                 type="checkbox"
                 name="headerCheckBox"
@@ -60,21 +82,68 @@ const Table = ({ data }) => {
                 key={uuidv4()}
                 onClick={() => requestSort(item.field)}
                 className="sorting"
+                style={{
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
               >
-                {item.label}
+                <span className="table-th-txt">{item.label}</span>
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data.rows.map(item => (
+          {data.rows.map(row => (
             <tr key={uuidv4()}>
-              <td>
+              <td
+                style={{
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
+              >
                 <input type="checkbox" name="rowCheckBox" />
               </td>
-              {Object.keys(item).map(x => (
-                <td key={uuidv4()}>{item[x]}</td>
-              ))}
+
+              {data.columns.map(col => {
+                let image = imagesList.find(el => el.title == row[col.field])
+                if (image) {
+                  return (
+                    <td
+                      key={uuidv4()}
+                      style={{
+                        textAlign: "center",
+                        verticalAlign: "middle",
+                      }}
+                    >
+                      <img
+                        src={image.img}
+                        alt="receive"
+                        className="table-td-img"
+                      />
+                      <span
+                        ml-2
+                        className="table-txt"
+                        style={{ display: "inline-block" }}
+                      >
+                        {row[col.field]}
+                      </span>
+                    </td>
+                  )
+                }
+                return (
+                  <td
+                    key={uuidv4()}
+                    style={{
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                    }}
+                  >
+                    <span ml-1 className="table-txt">
+                      {row[col.field]}
+                    </span>
+                  </td>
+                )
+              })}
             </tr>
           ))}
         </tbody>
