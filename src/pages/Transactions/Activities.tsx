@@ -1,5 +1,5 @@
 import React, {useEffect, FC} from 'react'
-import { Card, CardBody } from 'reactstrap'
+import { Card} from 'reactstrap'
 import transactionsColumns from './transactionsColumns'
 import { useDispatch, useSelector } from "react-redux";
 import { getTransactions } from "../../store/transactions/actions";

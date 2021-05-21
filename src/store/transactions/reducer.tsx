@@ -3,6 +3,11 @@ import {TransactionsActionType} from "./actions"
 
 export type INIT_STATE_TYPE = typeof INIT_STATE;
 
+ type ImgType ={
+        description: string
+        card: string
+        amount: string
+ }
 export type TransactionType = {
     
         id: string
@@ -11,6 +16,7 @@ export type TransactionType = {
         currency: string
        amount: string
         amountinUSD: string
+        img:ImgType
        
 }
 

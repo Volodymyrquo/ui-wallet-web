@@ -1,8 +1,9 @@
-import React, { useState, useMemo } from "react"
+import React, { useState, useMemo, useEffect } from "react"
 import { v4 as uuidv4 } from "uuid"
 
 const Table = ({ data }) => {
   const [sortConfig, setSortConfig] = useState(null)
+  const [checked, setChecked] = useState(false)
 
   const requestSort = field => {
     let direction = "ascending"
@@ -27,13 +28,30 @@ const Table = ({ data }) => {
     return data.rows
   }, [data.rows, sortConfig])
 
+  const handleToggleCheck = () => {
+    setChecked(!checked)
+  }
+  useEffect(() => {
+    toggleCheck()
+  }, [checked])
+
+  const toggleCheck = () => {
+    let checkboxes = document.getElementsByName("rowCheckBox")
+    for (let i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].checked = checked
+    }
+  }
   return (
     <>
       <table className=" table dataTable ">
         <thead>
           <tr>
             <th>
-              <input type="checkbox" name="headerCheckBox" />
+              <input
+                type="checkbox"
+                name="headerCheckBox"
+                onClick={handleToggleCheck}
+              />
             </th>
 
             {data.columns.map(item => (
