@@ -63,12 +63,7 @@ const Table = ({ data }) => {
       <table className="table dataTable">
         <thead>
           <tr>
-            <th
-              style={{
-                textAlign: "center",
-                verticalAlign: "middle",
-              }}
-            >
+            <th>
               <input
                 type="checkbox"
                 name="headerCheckBox"
@@ -82,10 +77,6 @@ const Table = ({ data }) => {
                 key={uuidv4()}
                 onClick={() => requestSort(item.field)}
                 className="sorting"
-                style={{
-                  textAlign: "center",
-                  verticalAlign: "middle",
-                }}
               >
                 <span className="table-th-txt">{item.label}</span>
               </th>
@@ -95,26 +86,41 @@ const Table = ({ data }) => {
         <tbody>
           {data.rows.map(row => (
             <tr key={uuidv4()}>
-              <td
-                style={{
-                  textAlign: "center",
-                  verticalAlign: "middle",
-                }}
-              >
+              <td>
                 <input type="checkbox" name="rowCheckBox" />
               </td>
 
               {data.columns.map(col => {
+                if (col.field == "amount") {
+                  let direction = ["Buy", "Sell", "Receiv", "Sent"].find(el =>
+                    row.description.includes(el)
+                  )
+
+                  let image = imagesList.find(el => el.title == direction)
+                  if (image) {
+                    return (
+                      <td key={uuidv4()}>
+                        <img
+                          src={image.img}
+                          alt="receive"
+                          className="table-td-img"
+                        />
+                        <span
+                          ml-2
+                          className="table-txt"
+                          style={{ display: "inline-block" }}
+                        >
+                          {row[col.field]}
+                        </span>
+                      </td>
+                    )
+                  }
+                }
+
                 let image = imagesList.find(el => el.title == row[col.field])
                 if (image) {
                   return (
-                    <td
-                      key={uuidv4()}
-                      style={{
-                        textAlign: "center",
-                        verticalAlign: "middle",
-                      }}
-                    >
+                    <td key={uuidv4()}>
                       <img
                         src={image.img}
                         alt="receive"
@@ -131,13 +137,7 @@ const Table = ({ data }) => {
                   )
                 }
                 return (
-                  <td
-                    key={uuidv4()}
-                    style={{
-                      textAlign: "center",
-                      verticalAlign: "middle",
-                    }}
-                  >
+                  <td key={uuidv4()}>
                     <span ml-1 className="table-txt">
                       {row[col.field]}
                     </span>

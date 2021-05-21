@@ -3,8 +3,18 @@
 //
 
 .table {
-  th {
+  th,
+  td {
     font-weight: $font-weight-bold;
+    text-align: center;
+    vertical-align: middle;
+    &:nth-child(2) {
+      text-align: left;
+    }
+  }
+
+  tr:hover {
+    cursor: pointer;
   }
 }
 
@@ -57,4 +67,8 @@
   margin-right: 20px;
   width: 28px;
   height: 28px;
+}
+
+.table-td-img:hover {
+  cursor: pointer;
 }
