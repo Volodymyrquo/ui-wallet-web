@@ -24,6 +24,8 @@ import contactsList from "./contactsList/reducer"
 import cardsList from "./cards/reducer"
 //currencies
 import currencies from "./currencies/reducer"
+//wallets
+import wallets from "./wallets/walletsReducer"
 
 
 
@@ -39,7 +41,7 @@ const rootReducer = combineReducers({
   contactsList,
   cardsList,
   currencies,
-
+  wallets
 })
 
 type RootReducerType = typeof rootReducer;

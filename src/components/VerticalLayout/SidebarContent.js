@@ -122,10 +122,10 @@ const SidebarContent = props => {
             </Link>
           </li>
           <li>
-            <Link>
+            {/* <Link>
               <i className="icon-Color"></i>
               <span>Change theme</span>
-            </Link>
+            </Link> */}
           </li>
         </ul>
       </div>
