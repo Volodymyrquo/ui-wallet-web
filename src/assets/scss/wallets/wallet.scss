@@ -1,0 +1,166 @@
+.card-title {
+  font-family: Archivo;
+  padding: 0 27px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #A5ABC4;
+  font-weight: 300;
+}
+
+.block-card {
+  padding: 0 27px;
+  font-family: Archivo;
+
+  &__card-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 370px));
+    gap: 45px;
+  }
+
+  &__card {
+    background-size: cover !important;
+    padding: 27px 25px 20px;
+    width: 370px;
+    height: 225px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: Archivo;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-family: Archivo;
+    margin-bottom: 12px;
+  }
+
+  &__currency {
+    margin: 0;
+    font-family: Archivo;
+    font-weight: 600;
+  }
+
+  &__number-card {
+    font-family: Exo;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__img {
+    margin: 0;
+  }
+
+  &__block-balance {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  &__total {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.5px;
+  }
+
+  &__hold {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  &__total-number {
+    margin: 0;
+    font-family: Archivo;
+    font-size: 23px;
+  }
+
+  &__total-btc {
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-left: 5px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  &__hold-number {
+    font-family: Archivo;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__text-since {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  &__last-month {
+    display: flex;
+    align-items: center;
+  }
+
+  &__last-balance {
+    font-size: 16px;
+  }
+
+  &__img-arow {
+    position: relative;
+    top: -7px;
+    margin: 0 7px;
+  }
+
+  &__percent {
+    display: flex;
+    align-items: center;
+    height: 16px;
+    padding: 2px;
+    color: #FF7171;
+    background: rgba(0, 0, 0, 0.2);
+    background-blend-mode: multiply;
+    border-radius: 2px;
+  }
+
+  &__btn-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn-withdraw {
+    width: 92px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    background-blend-mode: multiply;
+    border-radius: 3px;
+  }
+
+  &__btn-deposit {
+    margin-left: 8px;
+    width: 82px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    background-blend-mode: multiply;
+    border-radius: 3px;
+  }
+
+  &__btn-arrow {
+    padding-left: 6px;
+  }
+
+  &__point-btn {
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    background-blend-mode: multiply;
+    border-radius: 3px;
+  }
+}

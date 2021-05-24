@@ -1,0 +1,148 @@
+.form-card {
+  position: absolute;
+  z-index: 99999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  background: rgba(226, 228, 232, 0.35);
+  backdrop-filter: blur(10px);
+
+  &__wrapper {
+    position: relative;
+    width: 480px;
+    height: 616px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  &__inner-img {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 33px;
+  }
+
+  &__close-img {
+    width: 12px;
+    height: 12px;
+    align-self: center;
+    cursor: pointer;
+  }
+
+  &__card-selection {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #DAE1ED;
+  }
+
+  &__fiat-active {
+    font-weight: 500;
+    font-size: 15px;
+    color: #4E5A66;
+    margin-right: 26px;
+    border-bottom: 2px solid #0061FF;
+  }
+
+  &__fiat {
+    font-weight: 500;
+    font-size: 15px;
+    color: #4E5A66;
+    margin-right: 26px;
+  }
+
+  &__crypto {
+    position: relative;
+    font-weight: 500;
+    color: #4E5A66;
+    font-size: 15px;
+  }
+
+  &__crypto-active {
+    position: relative;
+    font-weight: 500;
+    color: #4E5A66;
+    font-size: 15px;
+    border-bottom: 2px solid #0061FF;
+  }
+
+  &__label-name {
+    color: #9CA3AA;
+  }
+
+  &__select-block {
+    position: relative;
+  }
+
+  &__usd-img {
+    position: absolute;
+    bottom: 8px;
+    left: 5px;
+  }
+
+  &__block-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F7F9FA;
+    height: 76px;
+    border-radius: 0px 0px 8px 8px;
+    border-top: 1px solid #DAE1ED;
+  }
+
+  &__first-btn {
+    margin-right: 12px;
+    height: 34px;
+    width: 86px;
+    background: #fff;
+  }
+}
+
+.form-card__block-btn .form-card__first-btn {
+  font-weight: 500;
+  color: #6B778C;
+}
+
+.form-card__block-btn .form-card__first-btn:hover {
+  color: #fff;
+}
+
+.form-card__block-placeholder .form-card__input-placeholder {
+  font-size: 14px;
+  color: #5E6C84;
+  border: 1px solid #E1E5E9;
+}
+
+.form-card__select-block .form-card__select {
+  display: block;
+  padding-left: 45px;
+  font-size: 14px;
+  color: #5E6C84;
+  border: 1px solid #E1E5E9;
+  background-image: url(../../images/wallets/usd.png);
+  background-size: 22px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 10px;
+  appearance: button;
+}
+
+.form-card__input-number .form-card__label-number {
+  display: block;
+  padding-left: 30px;
+  font-size: 14px;
+  color: #5E6C84;
+  border: 1px solid #E1E5E9;
+  background-image: url(../../images/wallets/visa.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 15px;
+  padding-left: 50px;
+}
