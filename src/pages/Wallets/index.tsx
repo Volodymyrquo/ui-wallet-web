@@ -5,7 +5,7 @@ import { Card } from './Card';
 
 const Wallets: FC = () => {
   return (
-    <div className="page-content" >
+    <div className="page-content">
       <h2 className="card-title">Your wallets</h2>
         <ButtonFilter />
         <Card />

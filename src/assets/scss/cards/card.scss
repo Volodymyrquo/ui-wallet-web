@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Credit Card";
+  src: url(../../fonts/Credit-Card-Font.ttf);
+}
+
+.card {
+  width: 362px;
+  height: 225px;
+  padding: 22px 30px 27px;
+  border-radius: 12px;
+  background-size: cover !important;
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
