@@ -1,12 +1,19 @@
 import React, {useEffect, FC} from 'react'
-import { Card} from 'reactstrap'
+import { Card, TabContent, TabPane} from 'reactstrap'
 import transactionsColumns from './transactionsColumns'
 import { useDispatch, useSelector } from "react-redux";
 import { getTransactions } from "../../store/transactions/actions";
 import { AppStateType } from '../../store/reducers'
 import Table from "../../components/Common/Table";
 
-const Activities:FC = () => {
+type PropsType ={
+  activeTab:string
+  statusChoosen: string
+  searchItem:string
+
+}
+
+const Activities:FC<PropsType> = ({activeTab, statusChoosen, searchItem}) => {
     const dispatch = useDispatch();
     const {transactions} = useSelector((state:AppStateType) => state.transactions)
 
@@ -22,7 +29,12 @@ dispatch(getTransactions())
     
     return (
         <Card>
-              <Table data={data} />
+                      <TabContent activeTab={activeTab} >
+              <TabPane tabId={activeTab} >
+
+              <Table data={data} tabId={activeTab} statusChoosen={statusChoosen} searchItem={searchItem}/>
+              </TabPane>
+              </TabContent>
       </Card>
   
     )

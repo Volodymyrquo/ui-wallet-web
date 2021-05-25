@@ -117,7 +117,7 @@ const Header = props => {
             >
               <button className="header-btn">
                 <i className="icon-Notification-Empty " />
-                <span header-btn-txt>15</span>
+                <span>15</span>
               </button>
             </div>
             <div

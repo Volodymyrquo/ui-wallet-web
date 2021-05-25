@@ -16,6 +16,7 @@ export type TransactionType = {
         currency: string
        amount: string
         amountinUSD: string
+        status: string
         img:ImgType
        
 }

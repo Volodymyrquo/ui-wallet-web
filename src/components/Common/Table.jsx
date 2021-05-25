@@ -1,11 +1,13 @@
 import React, { useState, useMemo, useEffect } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { imagesList } from "../../pages/Transactions/imagesList"
+import cn from "classnames"
 
-const Table = ({ data }) => {
+const Table = ({ data, tabId, statusChoosen, searchItem }) => {
+  debugger
   const [sortConfig, setSortConfig] = useState(null)
   const [checked, setChecked] = useState(false)
-
+  const regPhrase = new RegExp(searchItem, "i")
   const requestSort = field => {
     let direction = "ascending"
 
@@ -14,6 +16,45 @@ const Table = ({ data }) => {
     }
     setSortConfig({ field, direction })
   }
+
+  switch (tabId) {
+    case "incomes":
+      const resultIncome = data.rows.filter(
+        el =>
+          el.description.includes("Buy") || el.description.includes("Receiv")
+      )
+      data.rows = resultIncome
+      break
+    case "expenses":
+      const resultExpense = data.rows.filter(
+        el => el.description.includes("Sell") || el.description.includes("Sent")
+      )
+      data.rows = resultExpense
+      break
+    case "all":
+      data.rows
+
+      break
+    default:
+      data.rows
+  }
+
+  switch (statusChoosen) {
+    case "Overdue":
+      const resultOverdue = data.rows.filter(el => el.status === statusChoosen)
+      data.rows = resultOverdue
+    case "Pending":
+      const resultPending = data.rows.filter(el => el.status === statusChoosen)
+      data.rows = resultPending
+    case "Complete":
+      const resultComplete = data.rows.filter(el => el.status === statusChoosen)
+      data.rows = resultComplete
+    case "Any status":
+      data.rows
+    default:
+      data.rows
+  }
+
   useMemo(() => {
     if (sortConfig !== null) {
       if (sortConfig.field === "date") {
@@ -84,68 +125,78 @@ const Table = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.rows.map(row => (
-            <tr key={uuidv4()}>
-              <td>
-                <input type="checkbox" name="rowCheckBox" />
-              </td>
+          {data.rows.map(row => {
+            if (regPhrase.test(Object.values(row)) || regPhrase.test("Search"))
+              return (
+                <tr key={uuidv4()}>
+                  <td>
+                    <input type="checkbox" name="rowCheckBox" />
+                  </td>
 
-              {data.columns.map(col => {
-                if (col.field == "amount") {
-                  let direction = ["Buy", "Sell", "Receiv", "Sent"].find(el =>
-                    row.description.includes(el)
-                  )
+                  {data.columns.map(col => {
+                    if (col.field == "amount") {
+                      let direction = [
+                        "Buy",
+                        "Sell",
+                        "Receiv",
+                        "Sent",
+                      ].find(el => row.description.includes(el))
 
-                  let image = imagesList.find(el => el.title == direction)
-                  if (image) {
+                      let image = imagesList.find(el => el.title == direction)
+                      if (image) {
+                        return (
+                          <td key={uuidv4()}>
+                            <img
+                              src={image.img}
+                              alt="receive"
+                              className="table-td-img"
+                            />
+                            <span
+                              className="table-txt"
+                              style={{ display: "inline-block" }}
+                            >
+                              {row[col.field]}
+                            </span>
+                          </td>
+                        )
+                      }
+                    }
+
+                    let image = imagesList.find(
+                      el => el.title == row[col.field]
+                    )
+                    if (image) {
+                      return (
+                        <td key={uuidv4()}>
+                          <img
+                            src={image.img}
+                            alt="receive"
+                            className="table-td-img"
+                          />
+                          <span
+                            className="table-txt"
+                            style={{ display: "inline-block" }}
+                          >
+                            {row[col.field]}
+                          </span>
+                        </td>
+                      )
+                    }
                     return (
                       <td key={uuidv4()}>
-                        <img
-                          src={image.img}
-                          alt="receive"
-                          className="table-td-img"
-                        />
                         <span
-                          ml-2
-                          className="table-txt"
-                          style={{ display: "inline-block" }}
-                        >
-                          {row[col.field]}
-                        </span>
+                          className={cn(
+                            "table-dot",
+                            `${row.status}`.toLowerCase()
+                          )}
+                        ></span>
+                        <span className="table-txt">{row[col.field]}</span>
                       </td>
                     )
-                  }
-                }
-
-                let image = imagesList.find(el => el.title == row[col.field])
-                if (image) {
-                  return (
-                    <td key={uuidv4()}>
-                      <img
-                        src={image.img}
-                        alt="receive"
-                        className="table-td-img"
-                      />
-                      <span
-                        ml-2
-                        className="table-txt"
-                        style={{ display: "inline-block" }}
-                      >
-                        {row[col.field]}
-                      </span>
-                    </td>
-                  )
-                }
-                return (
-                  <td key={uuidv4()}>
-                    <span ml-1 className="table-txt">
-                      {row[col.field]}
-                    </span>
-                  </td>
-                )
-              })}
-            </tr>
-          ))}
+                  })}
+                </tr>
+              )
+          })}
         </tbody>
       </table>
     </>

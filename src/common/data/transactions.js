@@ -33,7 +33,7 @@ export const transactionsHistory = () => [
     card: "***7456",
     amount: "2,250 USD",
     amountinUSD: "$250",
-    status: "Pending",
+    status: "Overdue",
   },
   {
     description: "Buy Coins LTC",
@@ -42,7 +42,7 @@ export const transactionsHistory = () => [
     card: "***3458",
     amount: "2,250 USD",
     amountinUSD: "$250",
-    status: "Pending",
+    status: "Complete",
   },
   {
     description: "Buy Coins ZEC",
