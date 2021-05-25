@@ -4,7 +4,6 @@ import { imagesList } from "../../pages/Transactions/imagesList"
 import cn from "classnames"
 
 const Table = ({ data, tabId, statusChoosen, searchItem }) => {
-  debugger
   const [sortConfig, setSortConfig] = useState(null)
   const [checked, setChecked] = useState(false)
   const regPhrase = new RegExp(searchItem, "i")

@@ -1,16 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { Card, CardBody, Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavLink, Row } from 'reactstrap'
+import React, { useState } from 'react'
+import {Col, Container, Nav, NavItem, NavLink, Row } from 'reactstrap'
 import Activities from './Activities'
 import cn from 'classnames'
+import { addDays } from 'date-fns';
+
+import { DateRangePicker } from 'react-date-range';
 
 const Transactions = () => {
     const [activeTab, setactiveTab] = useState("all")
     const  [statusChoosen, setStatusChoosen] = useState("Any status")
     const [searchItem, setSearchItem] = useState("Search")
-    const [isOpenDropdown, setIsOpenDropdown] = useState(false)
+    const [dateRange, setDateRange] = useState([
+      {
+        startDate: new Date(),
+        endDate: addDays(new Date(), 7),
+        key: 'selection'
+      }
+    ]);
 
 const handleButtonOnClick = () => {
   document.getElementById("dropdownMenu").classList.toggle("show")
+}
+const handleCalendarOnClick = () => {
+  document.getElementById("dropdownDatePicker").classList.toggle("show")
 }
 const handleLiOnClick = (e) => {
   
@@ -20,6 +32,16 @@ const handleLiOnClick = (e) => {
 const handleSearchOnChange = (e) => {
   setSearchItem(e.target.value)
 
+}
+
+const handleSelect = (ranges)=>{
+  console.log(ranges);
+  // {
+  //   selection: {
+  //     startDate: [native Date Object],
+  //     endDate: [native Date Object],
+  //   }
+  // }
 }
     return (
         <div className="page-content" >
@@ -79,6 +101,27 @@ const handleSearchOnChange = (e) => {
                           <li onClick={handleLiOnClick}>Complete</li>
                           
                         </ul>
+                      </div>
+                    </Col>
+                    <Col lg={2}>
+                      <div className='dropdown'>
+                      <button  className='dropbtn-calendar' onClick={handleCalendarOnClick}>
+                          <i className='icon-Calendar' />
+            
+                        { `${dateRange[0].startDate.toDateString().slice(4)} - ${dateRange[0].endDate.toDateString().slice(4)}`}
+                          <i className="icon-Arrow-Down"/>
+                                                  </button>
+
+                      </div>
+                      <div id='dropdownDatePicker' className='dropdown-content'>
+                      <DateRangePicker
+        ranges={dateRange}
+        onChange={item => setDateRange([item.selection])}
+        showSelectionPreview={true}
+  moveRangeOnFirstSelection={false}
+  months={2}
+  direction="horizontal"
+      />
                       </div>
                     </Col>
           <Col lg={2}>

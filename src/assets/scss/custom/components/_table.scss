@@ -125,7 +125,34 @@
   background: #ebecf0;
   border-radius: 4px;
   cursor: pointer;
-  .icon-Flag {
+  .icon-Flag,
+  .icon-Calendar {
+    margin-right: 20px;
+    font-size: 1.25rem;
+    vertical-align: middle;
+  }
+  .icon-Arrow-Down {
+    margin-left: 20px;
+    font-size: 1.25rem;
+    vertical-align: middle;
+  }
+}
+.dropbtn-calendar {
+  position: static;
+  height: 36px;
+  width: 264px;
+  left: 305px;
+  right: 1072px;
+  top: 1px;
+  vertical-align: middle;
+
+  /* #EBECF0 */
+
+  background: #ebecf0;
+  border-radius: 4px;
+  cursor: pointer;
+
+  .icon-Calendar {
     margin-right: 20px;
     font-size: 1.25rem;
     vertical-align: middle;
