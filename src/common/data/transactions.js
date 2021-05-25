@@ -11,7 +11,7 @@ export const transactionsHistory = () => [
   {
     description: "Sell Coins BTC",
     id: "#298540090",
-    date: "05 Mar, 2021 20:32:15",
+    date: "27 May, 2021 20:32:15",
     card: "***7456",
     amount: "2,250 USD",
     amountinUSD: "$250",
@@ -20,7 +20,7 @@ export const transactionsHistory = () => [
   {
     description: "Buy Coins BTC",
     id: "#298540090",
-    date: "05 Mar, 2021 20:32:17",
+    date: "25 May, 2021 20:32:17",
     card: "***3458",
     amount: "2,250 USD",
     amountinUSD: "$250",
@@ -56,7 +56,7 @@ export const transactionsHistory = () => [
   {
     description: "Buy Coins DASH",
     id: "#298540090",
-    date: "05 Mar, 2021 20:32:22",
+    date: "05 Jun, 2021 20:32:22",
     card: "***7654",
     amount: "2,250 USD",
     amountinUSD: "$250",

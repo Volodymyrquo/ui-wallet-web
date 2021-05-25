@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,FC } from 'react'
 import {Col, Container, Nav, NavItem, NavLink, Row } from 'reactstrap'
 import Activities from './Activities'
 import cn from 'classnames'
@@ -6,7 +6,13 @@ import { addDays } from 'date-fns';
 
 import { DateRangePicker } from 'react-date-range';
 
-const Transactions = () => {
+export type DateRangeType = {
+  startDate: Date
+  endDate: Date
+  key: string
+}
+
+const Transactions:FC = () => {
     const [activeTab, setactiveTab] = useState("all")
     const  [statusChoosen, setStatusChoosen] = useState("Any status")
     const [searchItem, setSearchItem] = useState("Search")
@@ -21,9 +27,24 @@ const Transactions = () => {
 const handleButtonOnClick = () => {
   document.getElementById("dropdownMenu").classList.toggle("show")
 }
+
+const handleStatusButtonOnBlur = ()=> {
+  document.getElementById("dropdownMenu").classList.remove("show")
+
+}
+
+
 const handleCalendarOnClick = () => {
   document.getElementById("dropdownDatePicker").classList.toggle("show")
 }
+
+const handleCalendarOnBlur = ()=> {
+  document.getElementById("dropdownDatePicker").classList.remove("show")
+
+}
+
+
+
 const handleLiOnClick = (e) => {
   
   setStatusChoosen(e.target.innerText)
@@ -34,15 +55,7 @@ const handleSearchOnChange = (e) => {
 
 }
 
-const handleSelect = (ranges)=>{
-  console.log(ranges);
-  // {
-  //   selection: {
-  //     startDate: [native Date Object],
-  //     endDate: [native Date Object],
-  //   }
-  // }
-}
+
     return (
         <div className="page-content" >
             <Container fluid style={{paddingTop:'0'}}>
@@ -88,24 +101,24 @@ const handleSelect = (ranges)=>{
                       <div
                         className='dropdown'
                       >
-                        <button onClick={handleButtonOnClick} className='dropbtn' >
+                        <button onClick={handleButtonOnClick}  className='dropbtn' >
                           <i className='icon-Flag' />
                        {statusChoosen}
                           <i className="icon-Arrow-Down"/>
                         </button>
                         <ul id="dropdownMenu" className='dropdown-content'>
                         
-                          <li onClick={handleLiOnClick}>Any status</li>
-                          <li onClick={handleLiOnClick}>Pending</li>
-                          <li onClick={handleLiOnClick}>Overdue</li>
-                          <li onClick={handleLiOnClick}>Complete</li>
+                          <li onClick={handleLiOnClick} onBlur={handleStatusButtonOnBlur}  >Any status</li>
+                          <li onClick={handleLiOnClick} onBlur={handleStatusButtonOnBlur}  >Pending</li>
+                          <li onClick={handleLiOnClick}  onBlur={handleStatusButtonOnBlur} >Overdue</li>
+                          <li onClick={handleLiOnClick}onBlur={handleStatusButtonOnBlur}  >Complete</li>
                           
                         </ul>
                       </div>
                     </Col>
                     <Col lg={2}>
                       <div className='dropdown'>
-                      <button  className='dropbtn-calendar' onClick={handleCalendarOnClick}>
+                      <button  className='dropbtn-calendar' onClick={handleCalendarOnClick} >
                           <i className='icon-Calendar' />
             
                         { `${dateRange[0].startDate.toDateString().slice(4)} - ${dateRange[0].endDate.toDateString().slice(4)}`}
@@ -113,7 +126,7 @@ const handleSelect = (ranges)=>{
                                                   </button>
 
                       </div>
-                      <div id='dropdownDatePicker' className='dropdown-content'>
+                      <div id='dropdownDatePicker' className='dropdown-content' onBlur={handleCalendarOnBlur} >
                       <DateRangePicker
         ranges={dateRange}
         onChange={item => setDateRange([item.selection])}
@@ -140,7 +153,7 @@ const handleSelect = (ranges)=>{
             <Row>
             <Col lg="12">
             
-                <Activities activeTab={activeTab} statusChoosen={statusChoosen} searchItem={searchItem}/>
+                <Activities activeTab={activeTab} statusChoosen={statusChoosen} searchItem={searchItem} dateRange={dateRange}/>
             
             </Col>
           </Row>

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid"
 import { imagesList } from "../../pages/Transactions/imagesList"
 import cn from "classnames"
 
-const Table = ({ data, tabId, statusChoosen, searchItem }) => {
+const Table = ({ data, tabId, statusChoosen, searchItem, dateRange }) => {
   const [sortConfig, setSortConfig] = useState(null)
   const [checked, setChecked] = useState(false)
   const regPhrase = new RegExp(searchItem, "i")
@@ -52,6 +52,16 @@ const Table = ({ data, tabId, statusChoosen, searchItem }) => {
       data.rows
     default:
       data.rows
+  }
+
+  if (dateRange !== null) {
+    const resultDateRange = data.rows.filter(
+      el =>
+        new Date(el.date) >= dateRange[0].startDate &&
+        new Date(el.date) <= dateRange[0].endDate
+    )
+
+    data.rows = resultDateRange
   }
 
   useMemo(() => {
