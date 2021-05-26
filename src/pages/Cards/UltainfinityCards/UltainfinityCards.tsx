@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import '../../../assets/scss/cards/ultainfinityCards.scss'
-import '../../../assets/scss/cards/card.scss'
 import { backgroundList } from '../background'
 
 export const UltaifinityCards: FC = () => {
