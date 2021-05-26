@@ -3,6 +3,7 @@ import {Col, Container, Nav, NavItem, NavLink, Row } from 'reactstrap'
 import Activities from './Activities'
 import cn from 'classnames'
 import { addDays } from 'date-fns';
+import {v4 as uuidv4} from 'uuid'
 
 import { DateRangePicker } from 'react-date-range';
 
@@ -16,6 +17,8 @@ const Transactions:FC = () => {
     const [activeTab, setactiveTab] = useState("all")
     const  [statusChoosen, setStatusChoosen] = useState("Any status")
     const [searchItem, setSearchItem] = useState("Search")
+    const [isOpenStatusMenu,setIsOpenStatusMenu] = useState(false)
+    const [isOpenCalendarMenu,setIsOpenCalendarMenu] = useState(false)
     const [dateRange, setDateRange] = useState([
       {
         startDate: new Date(),
@@ -25,35 +28,36 @@ const Transactions:FC = () => {
     ]);
 
 const handleButtonOnClick = () => {
-  document.getElementById("dropdownMenu").classList.toggle("show")
+  setIsOpenStatusMenu(!isOpenStatusMenu)
 }
 
 const handleStatusButtonOnBlur = ()=> {
-  document.getElementById("dropdownMenu").classList.remove("show")
+  setIsOpenStatusMenu(!isOpenStatusMenu)
 
 }
 
 
 const handleCalendarOnClick = () => {
-  document.getElementById("dropdownDatePicker").classList.toggle("show")
+  setIsOpenCalendarMenu(!isOpenCalendarMenu)
 }
 
 const handleCalendarOnBlur = ()=> {
-  document.getElementById("dropdownDatePicker").classList.remove("show")
+  setIsOpenCalendarMenu(false)
 
 }
-
 
 
 const handleLiOnClick = (e) => {
   
   setStatusChoosen(e.target.innerText)
-  document.getElementById("dropdownMenu").classList.toggle("show")
+  setIsOpenStatusMenu(!isOpenStatusMenu)
 }
 const handleSearchOnChange = (e) => {
   setSearchItem(e.target.value)
 
 }
+
+const statusMenu = ['Any status', 'Pending', 'Overdue','Complete']
 
 
     return (
@@ -101,39 +105,33 @@ const handleSearchOnChange = (e) => {
                       <div
                         className='dropdown'
                       >
-                        <button onClick={handleButtonOnClick}  className='dropbtn' >
+                        <button onClick={handleButtonOnClick}  className='dropbtn' onBlur={handleStatusButtonOnBlur}  >
                           <i className='icon-Flag' />
                        {statusChoosen}
                           <i className="icon-Arrow-Down"/>
                         </button>
-                        <ul id="dropdownMenu" className='dropdown-content'>
-                        
-                          <li onClick={handleLiOnClick} onBlur={handleStatusButtonOnBlur}  >Any status</li>
-                          <li onClick={handleLiOnClick} onBlur={handleStatusButtonOnBlur}  >Pending</li>
-                          <li onClick={handleLiOnClick}  onBlur={handleStatusButtonOnBlur} >Overdue</li>
-                          <li onClick={handleLiOnClick}onBlur={handleStatusButtonOnBlur}  >Complete</li>
-                          
+                        <ul id="dropdownMenu"  className={cn('dropdown-content',`${isOpenStatusMenu?'show':null}`)}  >
+                          {statusMenu.map(status => <li  key={uuidv4()} onClick={handleLiOnClick} onBlur={handleStatusButtonOnBlur}  >{status}</li>)}
                         </ul>
                       </div>
                     </Col>
                     <Col lg={2}>
                       <div className='dropdown'>
-                      <button  className='dropbtn-calendar' onClick={handleCalendarOnClick} >
+                      <button  className='dropbtn-calendar' onClick={handleCalendarOnClick}   >
                           <i className='icon-Calendar' />
-            
                         { `${dateRange[0].startDate.toDateString().slice(4)} - ${dateRange[0].endDate.toDateString().slice(4)}`}
                           <i className="icon-Arrow-Down"/>
                                                   </button>
 
                       </div>
-                      <div id='dropdownDatePicker' className='dropdown-content' onBlur={handleCalendarOnBlur} >
+                      <div id='dropdownDatePicker' className={cn('dropdown-content',`${isOpenCalendarMenu?'show':null}`)} onBlur={handleCalendarOnBlur} >
                       <DateRangePicker
         ranges={dateRange}
         onChange={item => setDateRange([item.selection])}
         showSelectionPreview={true}
-  moveRangeOnFirstSelection={false}
-  months={2}
-  direction="horizontal"
+        moveRangeOnFirstSelection={false}
+        months={2}
+        direction="horizontal"
       />
                       </div>
                     </Col>
@@ -148,6 +146,27 @@ const handleSearchOnChange = (e) => {
                 />
               </div>
             </form>
+          </Col>
+          <Col lg={2}>
+            <Container className='table-selected-container'>
+            <div className='table-selected-item' >
+              <span>
+                   2
+              </span>
+              
+            </div>
+            <span className='table-container-txt '>
+            selected
+
+            </span>
+            <div className='table-trash'>
+            <button >
+              <i className='icon-Trash' />
+            </button>
+
+            </div>
+
+            </Container>
           </Col>
         </Row>
             <Row>

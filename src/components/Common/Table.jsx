@@ -2,10 +2,13 @@ import React, { useState, useMemo, useEffect } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { imagesList } from "../../pages/Transactions/imagesList"
 import cn from "classnames"
+import { set } from "lodash"
 
 const Table = ({ data, tabId, statusChoosen, searchItem, dateRange }) => {
   const [sortConfig, setSortConfig] = useState(null)
   const [checked, setChecked] = useState(false)
+  const [countCheck, setCountCheck] = useState(0)
+
   const regPhrase = new RegExp(searchItem, "i")
   const requestSort = field => {
     let direction = "ascending"
@@ -101,12 +104,18 @@ const Table = ({ data, tabId, statusChoosen, searchItem, dateRange }) => {
   useEffect(() => {
     toggleCheck()
   }, [checked])
-
   const toggleCheck = () => {
     let checkboxes = document.getElementsByName("rowCheckBox")
     for (let i = 0; i < checkboxes.length; i++) {
       checkboxes[i].checked = checked
     }
+  }
+
+  const handleClickInput = e => {
+    debugger
+    const target = e.target
+
+    alert(target.parentElement.parentElement)
   }
   return (
     <>
@@ -139,7 +148,11 @@ const Table = ({ data, tabId, statusChoosen, searchItem, dateRange }) => {
               return (
                 <tr key={uuidv4()}>
                   <td>
-                    <input type="checkbox" name="rowCheckBox" />
+                    <input
+                      type="checkbox"
+                      name="rowCheckBox"
+                      onClick={handleClickInput}
+                    />
                   </td>
 
                   {data.columns.map(col => {
