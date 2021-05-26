@@ -1,0 +1,96 @@
+.add-card {
+  position: relative;
+  width: 370px;
+  height: 225px;
+
+  &__first {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 370px;
+    height: 194px;
+    cursor: pointer;
+    background: linear-gradient(107.08deg,
+     rgba(255, 255, 255, 0.9) 0%,
+     rgba(249, 252, 255, 0.9) 100%);
+    border: 1px dashed #B9D3FF;
+    box-sizing: border-box;
+    box-shadow: 0px 15px 20px rgba(0, 97, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  &__title {
+    position: relative;
+    display: flex;
+    padding-left: 15px;
+    color: #5C9AFF;
+    height: 13px;
+    line-height: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -4px;
+      display: inline-block;
+      align-self: center;
+      width: 10px;
+      height: 2px;
+      background: #5C9AFF;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      align-self: center;
+      width: 2px;
+      height: 10px;
+      line-height: 10px;
+      background: #5C9AFF;
+    }
+  }
+
+  &__second {
+    position: absolute;
+    z-index: 2;
+    left: 15px;
+    bottom: 15px;
+    display: flex;
+    justify-content: center;
+    width: 340px;
+    height: 194px;
+    padding-left: 15px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    opacity: 0.6;
+    border: 1px dashed #B9D3FF;
+    box-sizing: border-box;
+    box-shadow: 0px 15px 20px rgba(0, 97, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  &__third {
+    position: absolute;
+    left: 30px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 310px;
+    height: 194px;
+    padding-left: 15px;
+    border: 1px dashed #B9D3FF;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    opacity: 0.3;
+    border: 1px dashed #B9D3FF;
+    box-sizing: border-box;
+    box-shadow: 0px 15px 20px rgba(0, 97, 255, 0.1);
+    border-radius: 8px;
+  }
+}

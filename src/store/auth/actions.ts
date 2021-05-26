@@ -21,7 +21,6 @@ export type RegistrationDataType = {
   username: string
 }
 
-
 export type AuthActionType = InferActionTypes<typeof actions>
 
 const actions = {
@@ -83,4 +82,5 @@ export const {
    getValidateName,
    setValidateName,
    getRegistrationData,
-   setRegistrationData} = actions
+   setRegistrationData
+} = actions

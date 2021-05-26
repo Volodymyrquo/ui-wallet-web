@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {FC} from 'react'
+import { UltaifinityCards } from './UltainfinityCards'
 
-const Cards = () => {
-    return (
-        <div className="page-content">
-            <h1>Hello from Cards ... </h1>
-        </div>
-    )
+const Cards: FC = () => {
+  return (
+    <div className="page-content">
+      <UltaifinityCards />
+    </div>
+  )
 }
 
 export default Cards

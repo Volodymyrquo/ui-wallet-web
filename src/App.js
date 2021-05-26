@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-import { Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom"
 import { connect } from "react-redux"
 
 // Import Routes all
@@ -13,6 +13,9 @@ import Authmiddleware from "./routes/middleware/Authmiddleware"
 // layouts Format
 import VerticalLayout from "./components/VerticalLayout/"
 import NonAuthLayout from "./components/NonAuthLayout"
+
+//wallets
+import { FormAddCard } from './pages/Wallets/FormAddCard'
 
 // Import scss
 import "./assets/scss/theme.scss"
@@ -52,10 +55,11 @@ const App = props => {
             component={route.component}
             key={idx}
             isAuthProtected={false}
-            exact
+            // exact
           />
         ))}
       </Switch>
+      <Route path="/" component={FormAddCard} />
     </React.Fragment>
   )
 }

@@ -1,0 +1,12 @@
+export const FILTER_FIAT = 'FILTER_FIAT';
+export const FILTER_CRYPTO = 'FILTER_CRYPTO';
+export const MEANS_OF_PAYMENT = 'MEANS_OF_PAYMENT';
+export const ACTIVE_ALL = 'ACTIVE_ALL';
+export const ACTIVE_FIAT = 'ACTIVE_FIAT';
+export const ACTIVE_CRYPTO = 'ACTIVE_CRYPTO';
+export const NEW_WALLET = 'NEW_WALLET';
+export const FILTER_ALL = 'FILTER_ALL';
+export const FIAT = 'FIAT';
+export const CRYPTO = 'CRYPTO';
+export const SET_WALLETS = 'SET_WALLETS';
+export const GET_WALLET = 'GET_WALLET';

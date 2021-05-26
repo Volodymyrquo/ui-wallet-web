@@ -1,0 +1,60 @@
+.btn-filter {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 27px 40px;
+
+  &__block {
+    background: #EBECF0;
+    border-radius: 4px;
+  }
+}
+
+.btn-filter .btn-filter__block .btn-filter__all {
+  color: #4E5A66;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 4px;
+  width: 78px;
+}
+
+.btn-filter .btn-filter__create {
+  position: relative;
+  display: flex;
+  color: #fff;
+  border: none;
+  box-shadow: 0px 6px 20px -5px rgba(0, 97, 255, 0.25);
+  border-radius: 4px;
+  width: 141px;
+  justify-content: flex-end;
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0.25px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    display: inline-block;
+    align-self: center;
+    width: 10px;
+    height: 2px;
+    background: #fff;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 22px;
+    display: inline-block;
+    align-self: center;
+    width: 2px;
+    height: 10px;
+    list-style: 10px;
+    background: #fff;
+  }
+}
