@@ -10,13 +10,13 @@ $sidebar-menu-item-color: #545a6d;
 $sidebar-menu-sub-item-color: #545a6d;
 $sidebar-menu-item-icon-color: #7f8387;
 $sidebar-menu-item-hover-color: #383c40;
-$sidebar-menu-item-active-color: #556ee6;
-$sidebar-width: 240px;
+$sidebar-menu-item-active-color: #42526e;
+$sidebar-width: 260px;
 $sidebar-collapsed-width: 70px;
 $sidebar-width-sm: 160px;
 
 // Vertical Sidebar - Dark
-$sidebar-dark-bg: #13192f; //2c313a
+$sidebar-dark-bg: #161f43; //2c313a
 $sidebar-dark-menu-item-color: #a6b0cf;
 $sidebar-dark-menu-sub-item-color: #79829c;
 $sidebar-dark-menu-item-icon-color: #6a7187;
@@ -25,11 +25,11 @@ $sidebar-dark-menu-item-active-color: #ffffff;
 
 // Topbar - Deafult Light
 $header-height: 70px;
-$header-bg: #ffffff;
+$header-bg: #f1f3f6;
 $header-item-color: #555b6d;
 
 // Topbar - Dark
-$header-dark-bg: #13192f;
+$header-dark-bg: #081337;
 $header-dark-item-color: #e9ecef;
 
 // Topbar Search
@@ -54,11 +54,11 @@ $display-none: none;
 $display-block: block;
 
 // Brand
-$navbar-brand-box-width: 240px;
+$navbar-brand-box-width: 260px;
 
 // Boxed layout width
 $boxed-layout-width: 1300px;
-$boxed-body-bg: #ebebf4;
+$boxed-body-bg: $header-bg;
 
 // Font Weight
 $font-weight-medium: 500;
@@ -236,8 +236,13 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg: #f8f8fb;
+$body-bg: $header-bg;
+
 $body-color: $gray-700;
+
+//Dark body theme
+$body-bg-dark: #081337;
+$body-color-dark: #a5abc4;
 
 // Links
 //

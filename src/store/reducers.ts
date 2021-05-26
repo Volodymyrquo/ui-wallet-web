@@ -6,24 +6,10 @@ import Layout from "./layout/reducer"
 // Authentication
 import authReducer from "./auth/reducer"
 
-//users
-import usersPage from "./usersPage/reducer"
+// Transactions
 
-//cards types
-import cardsTypes from "./cardsTypes/reducer"
-//upload documents
-import uploadDocuments from "./uploadDocuments/reducer"
-//user photo
+import transactions from "./transactions/reducer"
 
-import userPhoto from "./userPhoto/reducer"
-//user settings
-import userSettings from "./userSettings/reducer"
-//contacts list
-import contactsList from "./contactsList/reducer"
-//cards list
-import cardsList from "./cards/reducer"
-//currencies
-import currencies from "./currencies/reducer"
 
 
 
@@ -31,15 +17,7 @@ const rootReducer = combineReducers({
   // public
   Layout,
   authReducer,
-  usersPage,
-  cardsTypes,
-  uploadDocuments,
-  userPhoto,
-  userSettings,
-  contactsList,
-  cardsList,
-  currencies,
-
+  transactions
 })
 
 type RootReducerType = typeof rootReducer;

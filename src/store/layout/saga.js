@@ -88,6 +88,8 @@ function* changeLayoutWidth({ payload: width }) {
 function* changeLeftSidebarTheme({ payload: theme }) {
   try {
     yield call(changeBodyAttribute, "data-sidebar", theme)
+    yield call(changeBodyAttribute, "data-topbar", theme)
+    yield call(changeBodyAttribute, "data-body-theme", theme)
   } catch (error) {}
 }
 

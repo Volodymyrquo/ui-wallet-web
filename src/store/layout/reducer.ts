@@ -9,6 +9,8 @@ import {
   CHANGE_PRELOADER,
   TOGGLE_LEFTMENU,
   SHOW_SIDEBAR,
+  CHANGE_REFERRAL_CLASS
+
 } from "./actionTypes"
 import { LayoutActionType} from "./actions";
 
@@ -18,7 +20,7 @@ export type INIT_STATE_TYPE = typeof INIT_STATE;
 const INIT_STATE = {
   layoutType: "vertical",
   layoutWidth: "fluid",
-  leftSideBarTheme: "dark",
+  leftSideBarTheme: "light",
   leftSideBarType: "default",
   topbarTheme: "light",
   isPreloader: false,
@@ -26,9 +28,10 @@ const INIT_STATE = {
   isMobile: false,
   showSidebar: true,
   leftMenu: false,
+  referralClass: 'sidebar-referrals'
 }
 
-const Layout = (state = INIT_STATE, action:LayoutActionType):INIT_STATE_TYPE => {
+const Layout = (state = INIT_STATE, action:LayoutActionType):INIT_STATE_TYPE => { 
   switch (action.type) {
     case CHANGE_LAYOUT:
       return {
@@ -75,6 +78,11 @@ const Layout = (state = INIT_STATE, action:LayoutActionType):INIT_STATE_TYPE => 
       return {
         ...state,
         leftMenu: action.payload,
+      }
+    case CHANGE_REFERRAL_CLASS:
+      return {
+        ...state,
+        referralClass: action.payload,
       }
 
     default:

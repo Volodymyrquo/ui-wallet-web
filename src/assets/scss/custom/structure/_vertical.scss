@@ -46,10 +46,257 @@
 .main-content {
   margin-left: $sidebar-width;
   overflow: hidden;
+  height: 100vh;
 
   .content {
     padding: 0 15px 10px 15px;
     margin-top: $header-height;
+  }
+}
+.sidbar-box {
+  display: flex;
+  justify-content: space-between;
+  width: $sidebar-width;
+  padding: 0 25px;
+  .btn-chg-theme {
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px 6px 6px;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background: #f2f3f9;
+    border-radius: 4px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    cursor: pointer;
+    i {
+      padding-bottom: 0.125em;
+      font-size: 1.25rem;
+      line-height: 1.40625rem;
+      color: $sidebar-menu-item-icon-color;
+    }
+  }
+  .btn-collapse {
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 6px;
+    position: relative;
+    width: 32px;
+    height: 32px;
+
+    /* #EBECF0 */
+
+    background: #ebecf0;
+    border-radius: 4px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    cursor: pointer;
+    i {
+      padding-bottom: 0.125em;
+      font-size: 1.25rem;
+      line-height: 1.40625rem;
+      color: $sidebar-menu-item-icon-color;
+    }
+  }
+}
+
+.sidebar-referrals {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 45px 23px;
+
+  position: relative;
+  width: 210px;
+  height: 200px;
+
+  background: linear-gradient(
+    241.25deg,
+    rgba(255, 255, 255, 0.45) 4.4%,
+    rgba(255, 255, 255, 0.65) 61.77%,
+    rgba(255, 255, 255, 0.54) 119.94%
+  );
+  box-shadow: 0px 30px 60px rgba(120, 118, 148, 0.15);
+  border-radius: 8px;
+  margin: 90px auto 90px;
+
+  button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px 9px;
+
+    position: static;
+    width: 111px;
+    height: 30px;
+    left: calc(50% - 111px / 2);
+    bottom: 23px;
+
+    background: linear-gradient(
+        0deg,
+        rgba(255, 185, 63, 0.5),
+        rgba(255, 185, 63, 0.5)
+      ),
+      linear-gradient(180deg, #e8cf63 0%, #dbb44d 100%);
+    box-shadow: 0px 8px 16px -5px rgba(242, 194, 79, 0.25);
+    border-radius: 4px;
+    span {
+      position: static;
+      height: 13px;
+      left: 18.02%;
+      right: 18.02%;
+      top: calc(50% - 13px / 2 - 0.5px);
+
+      font-family: Archivo;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 100%;
+      /* identical to box height, or 13px */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.25px;
+
+      /* Dark / #334659 */
+
+      color: #334659;
+    }
+  }
+  .sidebar-ref-txt {
+    position: static;
+    height: 36px;
+    left: 24.76%;
+    right: 24.76%;
+    top: calc(50% - 36px / 2 + 16px);
+
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 125%;
+    /* or 17px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.25px;
+
+    color: rgba(76, 76, 102, 0.8);
+
+    mix-blend-mode: normal;
+    em {
+      color: #2bb596;
+      font-style: normal;
+    }
+  }
+}
+.sidebar-referrals-dark {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 45px 23px;
+
+  position: relative;
+  width: 210px;
+  height: 200px;
+
+  background: linear-gradient(
+      247.99deg,
+      #151e41 0%,
+      rgba(22, 31, 67, 0.7) 48.89%,
+      #151e41 98.46%
+    ),
+    #1e2957;
+  box-shadow: 0px 50px 90px rgba(23, 18, 43, 0.7);
+
+  backdrop-filter: blur(26.3971px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 8px;
+
+  margin: 90px auto 90px;
+
+  button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px 9px;
+
+    position: static;
+    width: 111px;
+    height: 30px;
+    left: calc(50% - 111px / 2);
+    bottom: 23px;
+
+    background: #0f63f7;
+    /* Blue Shadow */
+
+    box-shadow: 0px 6px 20px -5px rgba(0, 97, 255, 0.25);
+    border-radius: 4px;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    margin: 15px 0px;
+    span {
+      position: static;
+      height: 13px;
+      left: 16.35%;
+      right: 16.35%;
+      top: calc(50% - 13px / 2 - 0.5px);
+
+      font-family: Archivo;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 100%;
+      /* identical to box height, or 13px */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.245px;
+
+      color: #ffffff;
+    }
+  }
+  .sidebar-ref-txt {
+    position: static;
+    height: 36px;
+    left: 22.38%;
+    right: 22.38%;
+    top: calc(50% - 36px / 2 + 19px);
+
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 125%;
+    /* or 17px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.25px;
+
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    em {
+      color: #50e3c2;
+      font-style: normal;
+    }
   }
 }
 
@@ -84,16 +331,48 @@
         position: relative;
         font-size: 13px;
         transition: all 0.4s;
-
-        i {
+        div {
           display: inline-block;
-          min-width: 1.75rem;
-          padding-bottom: 0.125em;
-          font-size: 1.25rem;
-          line-height: 1.40625rem;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 5px;
+          position: static;
+          width: 32px;
+          height: 32px;
+          left: 0px;
+          top: 342px;
+          background: #f2f3f9;
+          border-radius: 4px;
           vertical-align: middle;
-          color: $sidebar-menu-item-icon-color;
           transition: all 0.4s;
+          i {
+            padding-bottom: 0.125em;
+            font-size: 1.25rem;
+            line-height: 1.40625rem;
+            color: $sidebar-menu-item-icon-color;
+          }
+        }
+        span {
+          position: static;
+          width: 73px;
+          height: 14px;
+          left: calc(50% - 73px / 2 - 16.5px);
+          top: calc(50% - 14px / 2);
+
+          font-family: Archivo;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 100%;
+          /* identical to box height, or 14px */
+
+          letter-spacing: 0.5px;
+
+          /* #505F79 */
+
+          color: #505f79;
+          margin: 0px 15px;
         }
 
         &:hover {
@@ -148,20 +427,37 @@
 
 .mm-active {
   color: $sidebar-menu-item-active-color !important;
+
   > a {
+    div {
+      background: linear-gradient(0deg, #ffffff, #ffffff), #ebecf0 !important;
+    }
     color: $sidebar-menu-item-active-color !important;
     i {
+      color: $sidebar-menu-item-active-color !important;
+    }
+    span {
       color: $sidebar-menu-item-active-color !important;
     }
   }
   .active {
     color: $sidebar-menu-item-active-color !important;
+    background-color: $header-bg !important;
+    div {
+      background: linear-gradient(0deg, #ffffff, #ffffff), #ebecf0 !important;
+    }
 
     i {
       color: $sidebar-menu-item-active-color !important;
     }
+    span {
+      color: $sidebar-menu-item-active-color !important;
+    }
   }
   > i {
+    color: $sidebar-menu-item-active-color !important;
+  }
+  > span {
     color: $sidebar-menu-item-active-color !important;
   }
 }
@@ -191,7 +487,12 @@
   .navbar-brand-box {
     width: $sidebar-collapsed-width !important;
   }
-
+  .sidbar-box {
+    width: $sidebar-collapsed-width !important;
+    flex-direction: column;
+    align-content: space-between;
+    height: 89px;
+  }
   .logo {
     span.logo-lg {
       display: none;
@@ -254,10 +555,12 @@
             &:focus {
               color: $sidebar-menu-item-hover-color;
             }
-
-            i {
-              font-size: 1.45rem;
+            div {
               margin-left: 4px;
+
+              i {
+                font-size: 1.45rem;
+              }
             }
 
             span {
@@ -354,15 +657,23 @@ body[data-sidebar="dark"] {
   .vertical-menu {
     background: $sidebar-dark-bg;
   }
+  .btn-chg-theme {
+    background: #19234c;
+  }
+  .btn-collapse {
+    background: #19234c;
+  }
 
   #sidebar-menu {
     ul {
       li {
         a {
           color: $sidebar-dark-menu-item-color;
-
-          i {
-            color: $sidebar-dark-menu-item-icon-color;
+          div {
+            background-color: #19234d;
+            i {
+              color: $sidebar-dark-menu-item-icon-color;
+            }
           }
 
           &:hover {
@@ -373,7 +684,10 @@ body[data-sidebar="dark"] {
             }
           }
         }
-
+        &:current {
+          color: red;
+          background: #081337;
+        }
         ul.sub-menu {
           li {
             a {
@@ -426,7 +740,11 @@ body[data-sidebar="dark"] {
           li {
             &.mm-active .active {
               color: $sidebar-dark-menu-item-active-color !important;
+              background-color: $header-dark-bg !important;
               i {
+                color: $sidebar-dark-menu-item-active-color !important;
+              }
+              span {
                 color: $sidebar-dark-menu-item-active-color !important;
               }
             }
@@ -437,19 +755,35 @@ body[data-sidebar="dark"] {
   }
   .mm-active {
     color: $sidebar-dark-menu-item-active-color !important;
+
     > a {
       color: $sidebar-dark-menu-item-active-color !important;
+      background-color: $header-dark-bg !important;
+      div {
+        background: #3b487eb2 !important;
+      }
       i {
+        color: $sidebar-dark-menu-item-active-color !important;
+      }
+      span {
         color: $sidebar-dark-menu-item-active-color !important;
       }
     }
     > i {
       color: $sidebar-dark-menu-item-active-color !important;
     }
+    > span {
+      color: $sidebar-dark-menu-item-active-color !important;
+    }
     .active {
       color: $sidebar-dark-menu-item-active-color !important;
-
+      div {
+        background: #3b487eb2 !important;
+      }
       i {
+        color: $sidebar-dark-menu-item-active-color !important;
+      }
+      span {
         color: $sidebar-dark-menu-item-active-color !important;
       }
     }

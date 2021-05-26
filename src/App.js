@@ -16,6 +16,8 @@ import NonAuthLayout from "./components/NonAuthLayout"
 
 // Import scss
 import "./assets/scss/theme.scss"
+import "react-date-range/dist/styles.css" // main style file
+import "react-date-range/dist/theme/default.css" // theme css file
 
 const App = props => {
   function getLayout() {
