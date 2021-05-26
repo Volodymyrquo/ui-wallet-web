@@ -53,7 +53,7 @@ const App = props => {
             component={route.component}
             key={idx}
             isAuthProtected={false}
-            exact
+            // exact
           />
         ))}
       </Switch>
