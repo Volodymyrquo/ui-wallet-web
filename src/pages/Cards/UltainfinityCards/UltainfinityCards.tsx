@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import '../../../assets/scss/cards/ultainfinityCards.scss'
-import '../../../assets/scss/cards/card.scss'
 import { backgroundList } from '../background'
 
 export const UltaifinityCards: FC = () => {
@@ -16,7 +15,7 @@ export const UltaifinityCards: FC = () => {
             onClick={(e)=>{e.preventDefault()}}
           >
             <div
-              className="ultaifinity-cards__card card"
+              className="ultaifinity-cards__card"
               style={{background: `URL(${color.background})`}}
             > 
             </div>
