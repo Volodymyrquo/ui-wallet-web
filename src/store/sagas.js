@@ -14,6 +14,6 @@ export default function* rootSaga() {
     fork(AuthSaga),
     LayoutSaga(),
     fork(transactionsSaga),
-    fork(walletsWatcher)
+    fork(walletsWatcher),
   ])
 }
