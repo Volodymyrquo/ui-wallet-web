@@ -177,15 +177,12 @@ const SidebarContent = props => {
               <span>Pioneer Memberships</span>
             </Link>
           </li>
-<<<<<<< HEAD
-=======
           <li>
             {/* <Link>
               <i className="icon-Color"></i>
               <span>Change theme</span>
             </Link> */}
           </li>
->>>>>>> 7c4c21d2bfcbcd07a711bdb01dad8cc33c6c54b9
         </ul>
         {leftSideBarType === "default" ? (
           <div className={referralClass}>
