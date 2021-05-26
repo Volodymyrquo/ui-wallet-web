@@ -4,7 +4,7 @@ import Activities from './Activities'
 import cn from 'classnames'
 import { addDays } from 'date-fns';
 import {v4 as uuidv4} from 'uuid'
-
+//@ts-ignore
 import { DateRangePicker } from 'react-date-range';
 
 export type DateRangeType = {

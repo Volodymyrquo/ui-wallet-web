@@ -16,7 +16,7 @@ export const UltaifinityCards: FC = () => {
             onClick={(e)=>{e.preventDefault()}}
           >
             <div
-              className="ultaifinity-cards__card card"
+              className="ultaifinity-cards__card"
               style={{background: `URL(${color.background})`}}
             > 
             </div>

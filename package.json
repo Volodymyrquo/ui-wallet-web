@@ -25,15 +25,11 @@
     "bootstrap-icons": "^1.5.0",
     "chart.js": "^2.9.4",
     "chartist": "^0.11.4",
-<<<<<<< HEAD
-    "classnames": "^2.2.6",
-    "date-fns": "^2.21.3",
-    "dotenv": "^8.2.0",
-=======
     "classnames": "^2.3.1",
     "concurrently": "^6.1.0",
     "config": "^3.3.6",
->>>>>>> 7c4c21d2bfcbcd07a711bdb01dad8cc33c6c54b9
+    "date-fns": "^2.21.3",
+    "dotenv": "^8.2.0",
     "draft-js": "^0.11.7",
     "echarts": "^4.9.0",
     "echarts-for-react": "^2.0.16",
