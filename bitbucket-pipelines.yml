@@ -5,7 +5,7 @@ pipelines:
     develop:
       - step:
           name: Build and test the app
-          image: ultainfinity-wallet-website-develop:latest
+          image: node:latest
           script:
             - npm install
             - npm run test
@@ -15,7 +15,7 @@ pipelines:
     Staging:
       - step:
           name: Production Build App
-          image: ultainfinity-wallet-website-develop:latest
+          image: node:latest
           script:
             - npm install
             - npm run build
