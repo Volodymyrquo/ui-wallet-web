@@ -11,7 +11,6 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
-    "@toast-ui/react-chart": "^1.0.2",
     "@types/uuid": "^8.3.0",
     "@vtaits/react-color-picker": "^0.1.1",
     "apexcharts": "^3.22.2",
