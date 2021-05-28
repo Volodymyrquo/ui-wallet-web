@@ -36,7 +36,6 @@
     "moment-timezone": "^0.5.32",
     "mongoose": "^5.12.9",
     "react": "^17.0.1",
-    "react-auth-code-input": "^1.2.1",
     "react-bootstrap": "^1.6.0",
     "react-date-picker": "^8.0.3",
     "react-date-range": "^1.1.3",
